@@ -16,7 +16,45 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let scene = (scene as? UIWindowScene) else { return }
+        let ud = UserDefaults.standard
+        //ログインしているかどうか
+        let isLogin = ud.bool(forKey: "isLogin")
+       
+        window = UIWindow(windowScene: scene)
+        
+        if isLogin == true {
+            //ログイン中iphoneのサイズに合わせてwindowを表示してくれる
+            //self.window = UIWindow(frame: UIScreen.main.bounds)
+            //ログイン中だったらMain.storyboardに行くようにする.bundle.main = このプロジェクトの中にありますよってこと
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            print("Main")
+            //withidetifierで最初のstoryboardにつけた画面が呼び出される
+            let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootTabBarController")
+            //代入
+            self.window?.rootViewController = rootViewController
+            //背景白にしておく
+            self.window?.backgroundColor = UIColor.white
+            //画面を出す
+            self.window?.makeKeyAndVisible()
+        } else {
+            //ログインしていなかったら
+            
+            //self.window = UIWindow(frame: UIScreen.main.bounds)
+            //ログインしてなかったらLogin.storyboardに行くようにする.bundle.main = このプロジェクトの中にありますよってこと
+            let storyboard = UIStoryboard(name: "SignUp", bundle: Bundle.main)
+            print("Signup")
+            //withidetifierでLogin.storyboardの最初のstoryboardにつけた画面が呼び出される
+            let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootNavigationController")
+            
+            //代入
+            self.window?.rootViewController = rootViewController
+            //背景白にしておく
+            self.window?.backgroundColor = UIColor.white
+            //画面を出す
+            self.window?.makeKeyAndVisible()
+        }
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
