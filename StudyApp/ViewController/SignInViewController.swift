@@ -37,6 +37,9 @@ class SignInViewController: UIViewController , UITextFieldDelegate {
                     let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                     let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootTabBarController")
                     
+                    //storyboard間の画面遷移
+                    UIApplication.shared.keyWindow?.rootViewController = rootViewController
+                    
                     //ログイン状態の保持
                     let ud = UserDefaults.standard
                     ud.set(true, forKey: "isLogin")

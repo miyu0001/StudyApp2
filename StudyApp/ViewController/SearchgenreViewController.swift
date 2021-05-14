@@ -9,7 +9,10 @@ import UIKit
 
 
 class SerchgenreViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
+
     
+    @IBOutlet weak var GenreTableView: UITableView!
+
     // ジャンルデータ一覧
     let genredataList = [
         "IT資格/パソコン系",
@@ -33,13 +36,50 @@ class SerchgenreViewController: UIViewController,UITableViewDelegate,UITableView
         "心理系",
     ]
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+    //選択されたセルを覚える変数
+    var chosenCell: Int = 0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //データメソッドをファイル内で処理する
+        GenreTableView.dataSource = self
+        GenreTableView.delegate = self
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+    //セルの個数
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return genredataList.count
     }
+    
+    //セルの内容
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GenreCell")!
+        cell.textLabel?.text = genredataList[indexPath.row]
+        return cell
+    }
+    //セルが選択された時に呼ばれる
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //画面遷移の準備
+        performSegue(withIdentifier: "toSearchCertificationViewController", sender: nil)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    //segue準備
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let indexpath = GenreTableView.indexPathForSelectedRow!
+        
+        //遷移先のViewControllerのインスタンスを生成
+        let secVC = segue.destination as! SearchCertificationViewController
+        //SearchCertificationViewControllernogetcellに選択された画像を設定する
+        print(indexpath.row)
+        secVC.getCell = indexpath.row
+    
+    }
+    
+    
 }
     
 

@@ -11,6 +11,7 @@
 		3B2AE6F4264D2AB4000AE965 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AE6F3264D2AB4000AE965 /* SignInViewController.swift */; };
 		3B2AE6F6264D38C3000AE965 /* UserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AE6F5264D38C3000AE965 /* UserPageViewController.swift */; };
 		3B2AE6F8264D765E000AE965 /* SearchCertificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AE6F7264D765E000AE965 /* SearchCertificationViewController.swift */; };
+		3B2AE6FA264E6996000AE965 /* EditUserinfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AE6F9264E6996000AE965 /* EditUserinfoViewController.swift */; };
 		3B813AC3264C24BE0059E521 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B813AC2264C24BE0059E521 /* AppDelegate.swift */; };
 		3B813AC5264C24BE0059E521 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B813AC4264C24BE0059E521 /* SceneDelegate.swift */; };
 		3B813AC7264C24BE0059E521 /* SearchgenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B813AC6264C24BE0059E521 /* SearchgenreViewController.swift */; };
@@ -28,6 +29,7 @@
 		3B2AE6F3264D2AB4000AE965 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		3B2AE6F5264D38C3000AE965 /* UserPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageViewController.swift; sourceTree = "<group>"; };
 		3B2AE6F7264D765E000AE965 /* SearchCertificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCertificationViewController.swift; sourceTree = "<group>"; };
+		3B2AE6F9264E6996000AE965 /* EditUserinfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserinfoViewController.swift; sourceTree = "<group>"; };
 		3B813ABF264C24BE0059E521 /* StudyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B813AC2264C24BE0059E521 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B813AC4264C24BE0059E521 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				3B2AE6F5264D38C3000AE965 /* UserPageViewController.swift */,
 				3B813AC6264C24BE0059E521 /* SearchgenreViewController.swift */,
 				3B2AE6F7264D765E000AE965 /* SearchCertificationViewController.swift */,
+				3B2AE6F9264E6996000AE965 /* EditUserinfoViewController.swift */,
 				3B813AD6264C39880059E521 /* Storyboard */,
 			);
 			path = ViewController;
@@ -252,6 +255,7 @@
 				3B813ADB264C39E20059E521 /* SignUpViewController.swift in Sources */,
 				3B2AE6F0264CE53C000AE965 /* MainViewController.swift in Sources */,
 				3B2AE6F6264D38C3000AE965 /* UserPageViewController.swift in Sources */,
+				3B2AE6FA264E6996000AE965 /* EditUserinfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
