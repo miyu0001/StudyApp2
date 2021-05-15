@@ -51,10 +51,10 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
         //pickerした後はそのpickerを閉じる
         picker.dismiss(animated: true, completion: nil)
         
-        //アップロードするにはUIImage型からデータ型に変えないといけない 
+        //アップロードするにはUIImage型からデータ型に変えないといけない
         let data = resizedImage?.pngData()
-        //NCMBファイルという型に変換する
-        let file = NCMBFile.file(with: data) as! NCMBFile
+        //選んだ画像を自分の情報と紐付けるNCMBfeleという型に変換する
+        let file = NCMBFile.file(withName: NCMBUser.current().objectId, data: data) as! NCMBFile
         file.saveInBackground { (error) in
             if error != nil {
                 //エラーがあったら
