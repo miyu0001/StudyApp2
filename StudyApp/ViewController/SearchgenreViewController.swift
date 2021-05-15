@@ -14,7 +14,7 @@ class SerchgenreViewController: UIViewController,UITableViewDelegate,UITableView
     @IBOutlet weak var GenreTableView: UITableView!
 
     // ジャンルデータ一覧
-    let genredataList = [
+    let genreDataList = [
         "IT資格/パソコン系",
         "医療系",
         "法律系",
@@ -49,13 +49,13 @@ class SerchgenreViewController: UIViewController,UITableViewDelegate,UITableView
     
     //セルの個数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return genredataList.count
+        return genreDataList.count
     }
     
     //セルの内容
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GenreCell")!
-        cell.textLabel?.text = genredataList[indexPath.row]
+        cell.textLabel?.text = genreDataList[indexPath.row]
         return cell
     }
     //セルが選択された時に呼ばれる

@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import NCMB
+import NYXImagesKit
 
 
 class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
@@ -21,8 +22,7 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
         super.viewDidLoad()
         
         userNameTextField.delegate = self
-        userNameTextField.delegate = self
-        introductionTextView.delegate = self
+        userIdTextField.delegate = self
         
         //現在ログインしているユーザーを取得
         let userId = NCMBUser.current().userName
@@ -44,20 +44,34 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         //pickerからUIImage型として画像データを取り出す
         let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        //画像を入れる
-        userImageView.image = selectedImage
+        
+        //縦横比を維持しながらリサイズしてくれる
+        let resizedImage = selectedImage.scale(byFactor: 0.3)
+        
         //pickerした後はそのpickerを閉じる
         picker.dismiss(animated: true, completion: nil)
+        
+        //アップロードするにはUIImage型からデータ型に変えないといけない 
+        let data = resizedImage?.pngData()
+        //NCMBファイルという型に変換する
+        let file = NCMBFile.file(with: data) as! NCMBFile
+        file.saveInBackground { (error) in
+            if error != nil {
+                //エラーがあったら
+                print(error)
+            } else {
+                //拾ってきた画像をimageViewに入れる
+                self.userImageView.image = selectedImage
+            }
+        } progressBlock: { (progress) in // ← ？？
+            print(progress)
+        }
+
     }
-    
-    
-    
-    
-    
-    
+   
     @IBAction func selectImage(_ sender: Any) {
         //アクションシートを出すコード
-        let actionController = UIAlertController(title: "画像の選択", message: "選択してください", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "画像の選択", message: "選択してください", preferredStyle: .actionSheet)
         //アラートとして表示させる
         let cameraAction = UIAlertAction(title: "カメラ", style: .default) { (action) in
             //カメラを起動
@@ -71,8 +85,6 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
             } else {
                 print("この機種ではカメラは使えません")
             }
-            
-            
         }
         let albumAction = UIAlertAction(title: "画像を選択", style: .default) { (action) in
             //アルバム起動
@@ -88,18 +100,14 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
             }
             
         }
-        let cancelAction = UIAlertAction(title: "キャンセル", style: .default) { (action) in
-            //キャンセルボタンの作成
-            actionController.dismiss(animated: true, completion: nil)
-        }
-        actionController.addAction(cameraAction)
-        actionController.addAction(albumAction)
-        actionController.addAction(cancelAction)
-        //アクションたちを自分の画面に表示させる
-        self.present(actionController, animated: true, completion: nil)
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         
+        alertController.addAction(cameraAction)
+        alertController.addAction(albumAction)
+        alertController.addAction(cancelAction)
+        //アクションたちを自分の画面に表示させる
+        self.present(alertController, animated: true, completion: nil)
     }
-    
     
     @IBAction func closeEditViewController(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

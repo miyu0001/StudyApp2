@@ -219,11 +219,11 @@
             </objects>
             <point key="canvasLocation" x="105.79710144927537" y="88.392857142857139"/>
         </scene>
-        <!--タイムライン-->
+        <!--投稿-->
         <scene sceneID="E9b-Dw-fK8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NVb-8w-xCc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="タイムライン" image="ellipsis.bubble" catalog="system" id="MHT-sn-dN2"/>
+                    <tabBarItem key="tabBarItem" title="投稿" image="plus" catalog="system" id="MHT-sn-dN2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9k4-xu-wYS">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -238,11 +238,11 @@
             </objects>
             <point key="canvasLocation" x="1044.9275362318842" y="-688.39285714285711"/>
         </scene>
-        <!--投稿-->
+        <!--ホーム-->
         <scene sceneID="q1o-21-8kD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gYa-IJ-Psv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="投稿" image="note.text" catalog="system" id="zjC-s0-0bW"/>
+                    <tabBarItem key="tabBarItem" title="ホーム" image="book" catalog="system" id="zjC-s0-0bW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yfh-yx-L2h">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -274,7 +274,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3kf-TM-5up" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1018.840579710145" y="776.78571428571422"/>
+            <point key="canvasLocation" x="1016" y="861"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="txg-5d-5kD">
@@ -296,9 +296,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ellipsis.bubble" catalog="system" width="128" height="110"/>
-        <image name="note.text" catalog="system" width="128" height="106"/>
+        <image name="book" catalog="system" width="128" height="102"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

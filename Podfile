@@ -11,5 +11,6 @@ target 'StudyApp' do
 
 pod 'NCMB', :git => 'https://github.com/NIFCLOUD-mbaas/ncmb_ios.git'
 
+pod 'NYXImagesKit'
 end
 

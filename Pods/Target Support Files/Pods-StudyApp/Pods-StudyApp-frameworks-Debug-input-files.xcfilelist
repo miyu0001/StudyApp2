@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-StudyApp/Pods-StudyApp-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/NCMB/NCMB.framework
+${BUILT_PRODUCTS_DIR}/NYXImagesKit/NYXImagesKit.framework
