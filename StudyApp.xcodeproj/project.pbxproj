@@ -12,26 +12,6 @@
 		3B2AE6F6264D38C3000AE965 /* UserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AE6F5264D38C3000AE965 /* UserPageViewController.swift */; };
 		3B2AE6F8264D765E000AE965 /* SearchCertificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AE6F7264D765E000AE965 /* SearchCertificationViewController.swift */; };
 		3B2AE6FA264E6996000AE965 /* EditUserinfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AE6F9264E6996000AE965 /* EditUserinfoViewController.swift */; };
-		3B2AE765264F72F7000AE965 /* iTunesArtwork@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2AE750264F72F7000AE965 /* iTunesArtwork@1x.png */; };
-		3B2AE766264F72F7000AE965 /* Icon-App-76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2AE752264F72F7000AE965 /* Icon-App-76x76@2x.png */; };
-		3B2AE767264F72F7000AE965 /* Icon-App-29x29@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2AE753264F72F7000AE965 /* Icon-App-29x29@1x.png */; };
-		3B2AE768264F72F7000AE965 /* Icon-App-40x40@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2AE754264F72F7000AE965 /* Icon-App-40x40@1x.png */; };
-		3B2AE769264F72F7000AE965 /* Icon-App-20x20@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2AE755264F72F7000AE965 /* Icon-App-20x20@1x.png */; };
-		3B2AE76A264F72F7000AE965 /* Icon-App-83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2AE756264F72F7000AE965 /* Icon-App-83.5x83.5@2x.png */; };
-		3B2AE76B264F72F7000AE965 /* Icon-App-20x20@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2AE757264F72F7000AE965 /* Icon-App-20x20@3x.png */; };
-		3B2AE76C264F72F7000AE965 /* ItunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2AE758264F72F7000AE965 /* ItunesArtwork@2x.png */; };
-		3B2AE76D264F72F7000AE965 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B2AE759264F72F7000AE965 /* Contents.json */; };
-		3B2AE76E264F72F7000AE965 /* Icon-App-20x20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2AE75A264F72F7000AE965 /* Icon-App-20x20@2x.png */; };
-		3B2AE76F264F72F7000AE965 /* Icon-App-29x29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2AE75B264F72F7000AE965 /* Icon-App-29x29@3x.png */; };
-		3B2AE770264F72F7000AE965 /* Icon-App-40x40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2AE75C264F72F7000AE965 /* Icon-App-40x40@2x.png */; };
-		3B2AE771264F72F7000AE965 /* Icon-App-60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2AE75D264F72F7000AE965 /* Icon-App-60x60@3x.png */; };
-		3B2AE772264F72F7000AE965 /* Icon-App-60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2AE75E264F72F7000AE965 /* Icon-App-60x60@2x.png */; };
-		3B2AE773264F72F7000AE965 /* Icon-App-76x76@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2AE75F264F72F7000AE965 /* Icon-App-76x76@1x.png */; };
-		3B2AE774264F72F7000AE965 /* Icon-App-40x40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2AE760264F72F7000AE965 /* Icon-App-40x40@3x.png */; };
-		3B2AE775264F72F7000AE965 /* Icon-App-29x29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2AE761264F72F7000AE965 /* Icon-App-29x29@2x.png */; };
-		3B2AE776264F72F7000AE965 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3B2AE762264F72F7000AE965 /* README.md */; };
-		3B2AE777264F72F7000AE965 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2AE763264F72F7000AE965 /* iTunesArtwork@2x.png */; };
-		3B2AE778264F72F7000AE965 /* iTunesArtwork@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2AE764264F72F7000AE965 /* iTunesArtwork@3x.png */; };
 		3B813AC3264C24BE0059E521 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B813AC2264C24BE0059E521 /* AppDelegate.swift */; };
 		3B813AC5264C24BE0059E521 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B813AC4264C24BE0059E521 /* SceneDelegate.swift */; };
 		3B813AC7264C24BE0059E521 /* SearchgenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B813AC6264C24BE0059E521 /* SearchgenreViewController.swift */; };
@@ -41,7 +21,6 @@
 		3B813ADB264C39E20059E521 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B813ADA264C39E20059E521 /* SignUpViewController.swift */; };
 		3B813ADD264C3A370059E521 /* Sharenote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B813ADC264C3A370059E521 /* Sharenote.storyboard */; };
 		3B813AEE264CDA650059E521 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B813AED264CDA650059E521 /* Main.storyboard */; };
-		B4E6DBD929E1FA13BB6C7CDA /* Pods_StudyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E032E4FA55D01113C7EB3741 /* Pods_StudyApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,26 +29,6 @@
 		3B2AE6F5264D38C3000AE965 /* UserPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageViewController.swift; sourceTree = "<group>"; };
 		3B2AE6F7264D765E000AE965 /* SearchCertificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCertificationViewController.swift; sourceTree = "<group>"; };
 		3B2AE6F9264E6996000AE965 /* EditUserinfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserinfoViewController.swift; sourceTree = "<group>"; };
-		3B2AE750264F72F7000AE965 /* iTunesArtwork@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@1x.png"; sourceTree = "<group>"; };
-		3B2AE752264F72F7000AE965 /* Icon-App-76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-76x76@2x.png"; sourceTree = "<group>"; };
-		3B2AE753264F72F7000AE965 /* Icon-App-29x29@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-29x29@1x.png"; sourceTree = "<group>"; };
-		3B2AE754264F72F7000AE965 /* Icon-App-40x40@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-40x40@1x.png"; sourceTree = "<group>"; };
-		3B2AE755264F72F7000AE965 /* Icon-App-20x20@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-20x20@1x.png"; sourceTree = "<group>"; };
-		3B2AE756264F72F7000AE965 /* Icon-App-83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-83.5x83.5@2x.png"; sourceTree = "<group>"; };
-		3B2AE757264F72F7000AE965 /* Icon-App-20x20@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-20x20@3x.png"; sourceTree = "<group>"; };
-		3B2AE758264F72F7000AE965 /* ItunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ItunesArtwork@2x.png"; sourceTree = "<group>"; };
-		3B2AE759264F72F7000AE965 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
-		3B2AE75A264F72F7000AE965 /* Icon-App-20x20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-20x20@2x.png"; sourceTree = "<group>"; };
-		3B2AE75B264F72F7000AE965 /* Icon-App-29x29@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-29x29@3x.png"; sourceTree = "<group>"; };
-		3B2AE75C264F72F7000AE965 /* Icon-App-40x40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-40x40@2x.png"; sourceTree = "<group>"; };
-		3B2AE75D264F72F7000AE965 /* Icon-App-60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-60x60@3x.png"; sourceTree = "<group>"; };
-		3B2AE75E264F72F7000AE965 /* Icon-App-60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-60x60@2x.png"; sourceTree = "<group>"; };
-		3B2AE75F264F72F7000AE965 /* Icon-App-76x76@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-76x76@1x.png"; sourceTree = "<group>"; };
-		3B2AE760264F72F7000AE965 /* Icon-App-40x40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-40x40@3x.png"; sourceTree = "<group>"; };
-		3B2AE761264F72F7000AE965 /* Icon-App-29x29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-29x29@2x.png"; sourceTree = "<group>"; };
-		3B2AE762264F72F7000AE965 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		3B2AE763264F72F7000AE965 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
-		3B2AE764264F72F7000AE965 /* iTunesArtwork@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@3x.png"; sourceTree = "<group>"; };
 		3B813ABF264C24BE0059E521 /* StudyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B813AC2264C24BE0059E521 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B813AC4264C24BE0059E521 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,7 +42,6 @@
 		3B813AED264CDA650059E521 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B0BBB0ED2A9316A411383E58 /* Pods-StudyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.release.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.release.xcconfig"; sourceTree = "<group>"; };
 		B860F088B16E545FB0B131EC /* Pods-StudyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.debug.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.debug.xcconfig"; sourceTree = "<group>"; };
-		E032E4FA55D01113C7EB3741 /* Pods_StudyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +49,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4E6DBD929E1FA13BB6C7CDA /* Pods_StudyApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,45 +58,8 @@
 		21A59F70BFFB7C2BA44F5EAA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E032E4FA55D01113C7EB3741 /* Pods_StudyApp.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3B2AE74F264F72F7000AE965 /* ios */ = {
-			isa = PBXGroup;
-			children = (
-				3B2AE750264F72F7000AE965 /* iTunesArtwork@1x.png */,
-				3B2AE751264F72F7000AE965 /* AppIcon.appiconset */,
-				3B2AE762264F72F7000AE965 /* README.md */,
-				3B2AE763264F72F7000AE965 /* iTunesArtwork@2x.png */,
-				3B2AE764264F72F7000AE965 /* iTunesArtwork@3x.png */,
-			);
-			name = ios;
-			path = ../../../Downloads/icon1/ios;
-			sourceTree = "<group>";
-		};
-		3B2AE751264F72F7000AE965 /* AppIcon.appiconset */ = {
-			isa = PBXGroup;
-			children = (
-				3B2AE752264F72F7000AE965 /* Icon-App-76x76@2x.png */,
-				3B2AE753264F72F7000AE965 /* Icon-App-29x29@1x.png */,
-				3B2AE754264F72F7000AE965 /* Icon-App-40x40@1x.png */,
-				3B2AE755264F72F7000AE965 /* Icon-App-20x20@1x.png */,
-				3B2AE756264F72F7000AE965 /* Icon-App-83.5x83.5@2x.png */,
-				3B2AE757264F72F7000AE965 /* Icon-App-20x20@3x.png */,
-				3B2AE758264F72F7000AE965 /* ItunesArtwork@2x.png */,
-				3B2AE759264F72F7000AE965 /* Contents.json */,
-				3B2AE75A264F72F7000AE965 /* Icon-App-20x20@2x.png */,
-				3B2AE75B264F72F7000AE965 /* Icon-App-29x29@3x.png */,
-				3B2AE75C264F72F7000AE965 /* Icon-App-40x40@2x.png */,
-				3B2AE75D264F72F7000AE965 /* Icon-App-60x60@3x.png */,
-				3B2AE75E264F72F7000AE965 /* Icon-App-60x60@2x.png */,
-				3B2AE75F264F72F7000AE965 /* Icon-App-76x76@1x.png */,
-				3B2AE760264F72F7000AE965 /* Icon-App-40x40@3x.png */,
-				3B2AE761264F72F7000AE965 /* Icon-App-29x29@2x.png */,
-			);
-			path = AppIcon.appiconset;
 			sourceTree = "<group>";
 		};
 		3B813AB6264C24BE0059E521 = {
@@ -167,7 +87,6 @@
 				3B813AD0264C24C00059E521 /* Info.plist */,
 				3B813AC2264C24BE0059E521 /* AppDelegate.swift */,
 				3B813AC4264C24BE0059E521 /* SceneDelegate.swift */,
-				3B2AE74F264F72F7000AE965 /* ios */,
 				3B813ACB264C24C00059E521 /* Assets.xcassets */,
 				3B813ACD264C24C00059E521 /* LaunchScreen.storyboard */,
 			);
@@ -269,29 +188,9 @@
 			files = (
 				3B813AD9264C39D40059E521 /* SignUp.storyboard in Resources */,
 				3B813ACF264C24C00059E521 /* LaunchScreen.storyboard in Resources */,
-				3B2AE76A264F72F7000AE965 /* Icon-App-83.5x83.5@2x.png in Resources */,
 				3B813ADD264C3A370059E521 /* Sharenote.storyboard in Resources */,
-				3B2AE773264F72F7000AE965 /* Icon-App-76x76@1x.png in Resources */,
-				3B2AE775264F72F7000AE965 /* Icon-App-29x29@2x.png in Resources */,
-				3B2AE76E264F72F7000AE965 /* Icon-App-20x20@2x.png in Resources */,
-				3B2AE767264F72F7000AE965 /* Icon-App-29x29@1x.png in Resources */,
-				3B2AE76C264F72F7000AE965 /* ItunesArtwork@2x.png in Resources */,
-				3B2AE772264F72F7000AE965 /* Icon-App-60x60@2x.png in Resources */,
-				3B2AE766264F72F7000AE965 /* Icon-App-76x76@2x.png in Resources */,
-				3B2AE76F264F72F7000AE965 /* Icon-App-29x29@3x.png in Resources */,
-				3B2AE765264F72F7000AE965 /* iTunesArtwork@1x.png in Resources */,
-				3B2AE776264F72F7000AE965 /* README.md in Resources */,
 				3B813AEE264CDA650059E521 /* Main.storyboard in Resources */,
-				3B2AE76D264F72F7000AE965 /* Contents.json in Resources */,
-				3B2AE76B264F72F7000AE965 /* Icon-App-20x20@3x.png in Resources */,
-				3B2AE778264F72F7000AE965 /* iTunesArtwork@3x.png in Resources */,
-				3B2AE771264F72F7000AE965 /* Icon-App-60x60@3x.png in Resources */,
-				3B2AE774264F72F7000AE965 /* Icon-App-40x40@3x.png in Resources */,
-				3B2AE777264F72F7000AE965 /* iTunesArtwork@2x.png in Resources */,
-				3B2AE769264F72F7000AE965 /* Icon-App-20x20@1x.png in Resources */,
 				3B813ACC264C24C00059E521 /* Assets.xcassets in Resources */,
-				3B2AE768264F72F7000AE965 /* Icon-App-40x40@1x.png in Resources */,
-				3B2AE770264F72F7000AE965 /* Icon-App-40x40@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
