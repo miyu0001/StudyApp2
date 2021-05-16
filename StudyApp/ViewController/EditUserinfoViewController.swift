@@ -21,12 +21,53 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //画像を資格から丸にする
+        userImageView.layer.cornerRadius =  userImageView.bounds.width / 2
+        userImageView.layer.masksToBounds = true
+        
         userNameTextField.delegate = self
         userIdTextField.delegate = self
         
-        //現在ログインしているユーザーを取得
-        let userId = NCMBUser.current().userName
-        userIdTextField.text = userId
+        
+        //それぞれ画像やテキストをNCMBのデータから引っ張って代入
+        if let user = NCMBUser.current() {
+            userNameTextField.text = user.object(forKey: "displayName") as? String
+            userIdTextField.text = user.userName
+            introductionTextView.text = user.object(forKey: "introduction") as? String
+            
+            
+            //現在ログインしているユーザーを取得
+            let userId = NCMBUser.current().userName
+            userIdTextField.text = userId
+            
+            //取得するファイル名を変更してNCMBfile型で取得
+            let file = NCMBFile.file(withName: user.objectId ,  data: nil) as! NCMBFile
+            file.getDataInBackground { (data, error) in
+                if error != nil {
+                    print(error)
+                } else {
+                    //画像の取得に成功したら
+                    //ますはデータをそのまま渡す
+                    if data != nil {
+                        let image = UIImage(data: data!)
+                        self.userImageView.image = image
+                    }
+                }
+            }
+        } else {
+            //ログイン画面にもどす
+            //ログアウト成功
+            let storyboard = UIStoryboard(name: "SignUp", bundle: Bundle.main)
+            let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootNavigationController")
+            //画面の切り替えができる
+            UIApplication.shared.keyWindow?.rootViewController = rootViewController
+            
+            //次回起動時にログインしていない状態にする
+            let ud = UserDefaults.standard
+            ud.set(false, forKey: "isLogin")
+            ud.synchronize()
+        }
+       
     }
 
     //テキスト編集終了時に呼び出される
@@ -111,6 +152,21 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
     
     @IBAction func closeEditViewController(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func saveUserInfo() {
+        let user = NCMBUser.current()
+        user?.setObject(userNameTextField, forKey: "displayName")
+        user?.setObject(userIdTextField, forKey: "userName")
+        user?.setObject(introductionTextView, forKey: "introduction")
+        user?.saveInBackground{ (error) in
+            if error != nil {
+                print(error)
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+        }
     }
     
 }

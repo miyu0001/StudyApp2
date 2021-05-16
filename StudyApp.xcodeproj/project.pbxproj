@@ -21,6 +21,7 @@
 		3B813ADB264C39E20059E521 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B813ADA264C39E20059E521 /* SignUpViewController.swift */; };
 		3B813ADD264C3A370059E521 /* Sharenote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B813ADC264C3A370059E521 /* Sharenote.storyboard */; };
 		3B813AEE264CDA650059E521 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B813AED264CDA650059E521 /* Main.storyboard */; };
+		3B94E59F26514A1400A2CC03 /* profile_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B94E59E26514A1400A2CC03 /* profile_icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		3B813ADA264C39E20059E521 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3B813ADC264C3A370059E521 /* Sharenote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sharenote.storyboard; sourceTree = "<group>"; };
 		3B813AED264CDA650059E521 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3B94E59E26514A1400A2CC03 /* profile_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_icon.png; sourceTree = "<group>"; };
 		B0BBB0ED2A9316A411383E58 /* Pods-StudyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.release.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.release.xcconfig"; sourceTree = "<group>"; };
 		B860F088B16E545FB0B131EC /* Pods-StudyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.debug.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +91,7 @@
 				3B813AC4264C24BE0059E521 /* SceneDelegate.swift */,
 				3B813ACB264C24C00059E521 /* Assets.xcassets */,
 				3B813ACD264C24C00059E521 /* LaunchScreen.storyboard */,
+				3B94E59E26514A1400A2CC03 /* profile_icon.png */,
 			);
 			path = StudyApp;
 			sourceTree = "<group>";
@@ -110,9 +113,9 @@
 				3B2AE6F3264D2AB4000AE965 /* SignInViewController.swift */,
 				3B813ADA264C39E20059E521 /* SignUpViewController.swift */,
 				3B2AE6F5264D38C3000AE965 /* UserPageViewController.swift */,
+				3B2AE6F9264E6996000AE965 /* EditUserinfoViewController.swift */,
 				3B813AC6264C24BE0059E521 /* SearchgenreViewController.swift */,
 				3B2AE6F7264D765E000AE965 /* SearchCertificationViewController.swift */,
-				3B2AE6F9264E6996000AE965 /* EditUserinfoViewController.swift */,
 				3B813AD6264C39880059E521 /* Storyboard */,
 			);
 			path = ViewController;
@@ -190,6 +193,7 @@
 				3B813ACF264C24C00059E521 /* LaunchScreen.storyboard in Resources */,
 				3B813ADD264C3A370059E521 /* Sharenote.storyboard in Resources */,
 				3B813AEE264CDA650059E521 /* Main.storyboard in Resources */,
+				3B94E59F26514A1400A2CC03 /* profile_icon.png in Resources */,
 				3B813ACC264C24C00059E521 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
