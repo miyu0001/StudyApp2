@@ -32,13 +32,8 @@
                         <rect key="frame" x="66" y="0.0" width="243" height="369"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvr-7J-HIC">
-                        <rect key="frame" x="285" y="367" width="24" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" image="heart.png"/>
-                    </button>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="実際に使用した参考書" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qeY-sN-97c">
-                        <rect key="frame" x="130" y="394" width="245" height="33"/>
+                        <rect key="frame" x="130" y="394" width="179" height="33"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="textColor" systemColor="labelColor"/>
@@ -59,6 +54,16 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdd-9t-P6E">
+                        <rect key="frame" x="342" y="399" width="23" height="23"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" image="more.png"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvr-7J-HIC">
+                        <rect key="frame" x="291" y="367" width="38" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" image="heart.png"/>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -66,6 +71,7 @@
                 <outlet property="commentTextView" destination="qeY-sN-97c" id="aaK-hM-lC3"/>
                 <outlet property="likeButton" destination="Fvr-7J-HIC" id="W5r-hj-Lgl"/>
                 <outlet property="photoImageView" destination="9td-Y3-thR" id="i5a-eG-1c0"/>
+                <outlet property="timestampLabel" destination="Mjf-oR-9KS" id="GSf-l0-qJ0"/>
                 <outlet property="userImageView" destination="Nvc-JH-kqL" id="Lke-Nj-Ahj"/>
                 <outlet property="userNameLavel" destination="U4m-QA-dwu" id="G0S-be-EYG"/>
             </connections>
@@ -82,6 +88,7 @@
     <resources>
         <image name="coment.png" width="26" height="26"/>
         <image name="heart.png" width="24" height="24"/>
+        <image name="more.png" width="30" height="30"/>
         <image name="profile_icon.png" width="500" height="500"/>
         <image name="応用.jpeg" width="334.5" height="480"/>
         <systemColor name="labelColor">

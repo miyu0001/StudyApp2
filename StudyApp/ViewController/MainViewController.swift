@@ -32,7 +32,7 @@ class MainViewController: UIViewController ,UITableViewDataSource,UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TimelineTableViewCell
         //内容
-        
+        cell.userNameLavel.text = "Miyu"
         
         return cell
     }
