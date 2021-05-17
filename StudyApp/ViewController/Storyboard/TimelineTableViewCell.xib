@@ -77,16 +77,8 @@
             </connections>
             <point key="canvasLocation" x="174.63768115942031" y="197.87946428571428"/>
         </tableViewCell>
-        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="un4-f6-hA7">
-            <rect key="frame" x="0.0" y="0.0" width="24" height="25"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-            <state key="normal" image="coment.png"/>
-            <point key="canvasLocation" x="225" y="463"/>
-        </button>
     </objects>
     <resources>
-        <image name="coment.png" width="26" height="26"/>
         <image name="heart.png" width="24" height="24"/>
         <image name="more.png" width="30" height="30"/>
         <image name="profile_icon.png" width="500" height="500"/>
