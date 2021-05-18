@@ -33,33 +33,34 @@ class MainViewController: UIViewController ,UITableViewDataSource,UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        //return posts.count
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TimelineTableViewCell
         //内容
-        //cell.delegate = self
-        cell.tag = indexPath.row
-        
-        let user = posts[indexPath.row].user
-        //userの名前を表示
-        cell.userNameLabel.text = user.displayName
-        //userの画像を表示
-        let userImageUrl = "https://mb.api.cloud.nifty.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId
-        //kingfisherが画像をセットしてくれる、なかったら違う画像をセットしてくれる
-        cell.userImageView.kf.setImage(with: URL(string: userImageUrl), placeholder: UIImage(named: "placeholder.jpg"), options: nil, progressBlock: nil, completionHandler: nil)
-        
-        cell.commentTextView.text = posts[indexPath.row].text
-        let imageUrl = posts[indexPath.row].imageUrl
-        cell.photoImageView.kf.setImage(with: URL(string: imageUrl))
-        
-        // Likeによってハートの表示を変える
-        if posts[indexPath.row].isLiked == true {
-            cell.likeButton.setImage(UIImage(named: "heart-fill"), for: .normal)
-        } else {
-            cell.likeButton.setImage(UIImage(named: "heart-outline"), for: .normal)
-        }
+//        cell.delegate = self
+//        cell.tag = indexPath.row
+//
+//        let user = posts[indexPath.row].user
+//        //userの名前を表示
+//        cell.userNameLabel.text = user.displayName
+//        //userの画像を表示
+//        let userImageUrl = "https://mb.api.cloud.nifty.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId
+//        //kingfisherが画像をセットしてくれる、なかったら違う画像をセットしてくれる
+//        cell.userImageView.kf.setImage(with: URL(string: userImageUrl), placeholder: UIImage(named: "placeholder.jpg"), options: nil, progressBlock: nil, completionHandler: nil)
+//
+//        cell.commentTextView.text = posts[indexPath.row].text
+//        let imageUrl = posts[indexPath.row].imageUrl
+//        cell.photoImageView.kf.setImage(with: URL(string: imageUrl))
+//
+//        // Likeによってハートの表示を変える
+//        if posts[indexPath.row].isLiked == true {
+//            cell.likeButton.setImage(UIImage(named: "heart-fill"), for: .normal)
+//        } else {
+//            cell.likeButton.setImage(UIImage(named: "heart-outline"), for: .normal)
+//        }
         
         // Likeの数
         //cell.likeCountLabel.text = "\(posts[indexPath.row].likeCount)件"
@@ -76,45 +77,48 @@ class MainViewController: UIViewController ,UITableViewDataSource,UITableViewDel
         //もしポストがいいねされていなかったら、もしくはnilだったら
         if posts[tableViewCell.tag].isLiked == false || posts[tableViewCell.tag].isLiked == nil {
             let query = NCMBQuery(className: "Post")
-            query?.getObjectInBackground(withId: posts[tableViewCell.tag].objectId, block: { (post, error) in
+            query?.getObjectInBackground(withId: posts[tableViewCell.tag].objectId, block: { [self] (post, error) in
+                
                 post?.addUniqueObject(NCMBUser.current().objectId, forKey: "likeUser")
-                post?.saveEventually { (error) in
+                post?.saveEventually({ (error) in
                     if error != nil {
                         SVProgressHUD.showError(withStatus: error!.localizedDescription)
                     } else {
                         self.loadTimeline()
                     }
-                }
-            }
-   
+                })
+            })
+
         } else {
-             let query = NCMBObject(className: "Post")
-           
-            query?.fetchInBackground(withBlock: posts[tableViewCell.tag].objectId, block: { (error) in
+             let query = NCMBQuery(className: "Post")
+
+             query?.getObjectInBackground(withId:posts[tableViewCell.tag].objectId, block: { (post,error) in
                 if error != nil {
                     SVProgressHUD.showError(withStatus: error!.localizedDescription)
                 } else {
                     post?.removeObjects(in: [NCMBUser.current().objectId], forKey: "likeUser")
-                    post?.saveEventually { (error) in
+                    post?.saveEventually({ (error) in
                         if error != nil {
                             SVProgressHUD.showError(withStatus: error!.localizedDescription)
                         } else {
                             self.loadTimeline()
                         }
-                    }
+                    })
                 }
-            }
+            })
 
         }
     }
     
+    
     //コメントボタンが押された時
     func didTapCommentsButton(tableViewCell: UITableViewCell, button: UIButton) {
-        <#code#>
+        print("aa")
     }
-    
+
     func didTapMenuButton(tableViewCell: UITableViewCell, button: UIButton) {
-        <#code#>
+        print("bb")
+
     }
     
     
@@ -165,8 +169,6 @@ class MainViewController: UIViewController ,UITableViewDataSource,UITableViewDel
                         }
                     //配列に加える
                     self.posts.append(post)
-                    
-                    
                     }
                 }
                 
