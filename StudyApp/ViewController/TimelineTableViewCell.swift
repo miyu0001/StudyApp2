@@ -7,10 +7,21 @@
 
 import UIKit
 
+protocol TimelineTableViewCellDelegate {
+    //いいねボタンが押された
+    func didTapLikeButton(tableViewCell: UITableViewCell, button: UIButton)
+    //メニューボタンが押された
+    func didTapMenuButton(tableViewCell: UITableViewCell, button: UIButton)
+    //コメントボタンが押された
+    func didTapCommentsButton(tableViewCell: UITableViewCell, button: UIButton)
+}
+
 class TimelineTableViewCell: UITableViewCell {
     
+    var delegate: TimelineTableViewCellDelegate?
+    
     @IBOutlet weak var userImageView: UIImageView!
-    @IBOutlet weak var userNameLavel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var commentTextView: UITextView!
