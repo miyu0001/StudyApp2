@@ -10,6 +10,7 @@ import UIKit
 import NCMB
 import Kingfisher
 import SVProgressHUD
+import SwiftData
 
 
 
@@ -88,7 +89,8 @@ class MainViewController: UIViewController ,UITableViewDataSource,UITableViewDel
    
         } else {
              let query = NCMBObject(className: "Post")
-            query?.getObjectInBackground(withId: posts[tableViewCell.tag].objectId, block: { (post, error) in
+           
+            query?.fetchInBackground(withBlock: posts[tableViewCell.tag].objectId, block: { (error) in
                 if error != nil {
                     SVProgressHUD.showError(withStatus: error!.localizedDescription)
                 } else {

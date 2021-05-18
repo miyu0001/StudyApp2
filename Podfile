@@ -14,6 +14,6 @@ target 'StudyApp' do
   pod 'UITextView+Placeholder'
   pod 'SVProgressHUD'
   pod 'Kingfisher'
-  pod 'SwiftDate'
+  pod 'SwiftData'
 end
 

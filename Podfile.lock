@@ -3,7 +3,7 @@ PODS:
   - NCMB (3.1.0)
   - NYXImagesKit (2.3)
   - SVProgressHUD (2.2.5)
-  - SwiftDate (4.3.0)
+  - SwiftData (1.1.16)
   - "UITextView+Placeholder (1.4.0)"
 
 DEPENDENCIES:
@@ -11,7 +11,7 @@ DEPENDENCIES:
   - NCMB (from `https://github.com/NIFTYCloud-mbaas/ncmb_ios.git`, branch `develop`)
   - NYXImagesKit
   - SVProgressHUD
-  - SwiftDate
+  - SwiftData
   - "UITextView+Placeholder"
 
 SPEC REPOS:
@@ -19,7 +19,7 @@ SPEC REPOS:
     - Kingfisher
     - NYXImagesKit
     - SVProgressHUD
-    - SwiftDate
+    - SwiftData
     - "UITextView+Placeholder"
 
 EXTERNAL SOURCES:
@@ -37,9 +37,9 @@ SPEC CHECKSUMS:
   NCMB: c308972109137bf523ec1830bac16de6a31c25f4
   NYXImagesKit: 8163e3335a40eaa173ca5bbbf81fafb57d3947eb
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  SwiftDate: 64e2312711c5c506f7b51794308ce91f19eb494a
+  SwiftData: ef7ae3df5ae5f7ce839ab754c1e91266f1a1c825
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
 
-PODFILE CHECKSUM: 91422f333d86b65b49c7826c28ca885dfdbbe6a1
+PODFILE CHECKSUM: 067e89065449d60646fe325fbb6ad825d7ab18c9
 
 COCOAPODS: 1.10.1

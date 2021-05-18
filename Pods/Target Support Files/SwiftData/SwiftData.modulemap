@@ -1,0 +1,6 @@
+framework module SwiftData {
+  umbrella header "SwiftData-umbrella.h"
+
+  export *
+  module * { export * }
+}
