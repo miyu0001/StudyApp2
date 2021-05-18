@@ -77,13 +77,13 @@ class MainViewController: UIViewController ,UITableViewDataSource,UITableViewDel
             let query = NCMBQuery(className: "Post")
             query?.getObjectInBackground(withId: posts[tableViewCell.tag].objectId, block: { (post, error) in
                 post?.addUniqueObject(NCMBUser.current().objectId, forKey: "likeUser")
-                post?.saveEventually({ (error) in
+                post?.saveEventually { (error) in
                     if error != nil {
                         SVProgressHUD.showError(withStatus: error!.localizedDescription)
                     } else {
                         self.loadTimeline()
                     }
-                })
+                }
             }
    
         } else {
@@ -93,7 +93,7 @@ class MainViewController: UIViewController ,UITableViewDataSource,UITableViewDel
                     SVProgressHUD.showError(withStatus: error!.localizedDescription)
                 } else {
                     post?.removeObjects(in: [NCMBUser.current().objectId], forKey: "likeUser")
-                    post?.saveEventually({ (error) in
+                    post?.saveEventually { (error) in
                         if error != nil {
                             SVProgressHUD.showError(withStatus: error!.localizedDescription)
                         } else {
@@ -103,8 +103,9 @@ class MainViewController: UIViewController ,UITableViewDataSource,UITableViewDel
                 }
             }
 
-        }   
-        
+        }
+    }
+    
     //コメントボタンが押された時
     func didTapCommentsButton(tableViewCell: UITableViewCell, button: UIButton) {
         <#code#>
