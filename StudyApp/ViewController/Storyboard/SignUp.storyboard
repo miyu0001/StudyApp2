@@ -98,7 +98,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0wu-ga-WO4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="226" y="135"/>
+            <point key="canvasLocation" x="268" y="135"/>
         </scene>
         <!--新規登録-->
         <scene sceneID="16g-hK-Nke">
@@ -187,7 +187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mIk-Xj-A7o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2055" y="135"/>
+            <point key="canvasLocation" x="2041" y="135"/>
         </scene>
         <!--資格ジャンル選択-->
         <scene sceneID="3VB-6f-KhG">
@@ -224,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GMx-wy-Ikh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3014" y="135"/>
+            <point key="canvasLocation" x="2901" y="135"/>
         </scene>
         <!--Search Certification View Controller-->
         <scene sceneID="rPa-iE-8NU">
@@ -262,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t3g-QE-JXz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3842" y="135"/>
+            <point key="canvasLocation" x="3800" y="135"/>
         </scene>
         <!--Serch View Controller-->
         <scene sceneID="qsS-SU-U5f">

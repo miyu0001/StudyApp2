@@ -411,6 +411,4 @@ class SearchCertificationViewController: UIViewController,UITableViewDelegate,UI
         }
         return cell
     }
-    
-    
 }

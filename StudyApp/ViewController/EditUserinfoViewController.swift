@@ -148,22 +148,26 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
         alertController.addAction(cancelAction)
         //アクションたちを自分の画面に表示させる
         self.present(alertController, animated: true, completion: nil)
+        
+        
     }
     
     @IBAction func closeEditViewController(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func saveUserInfo() {
         let user = NCMBUser.current()
-        user?.setObject(userNameTextField, forKey: "displayName")
-        user?.setObject(userIdTextField, forKey: "userName")
-        user?.setObject(introductionTextView, forKey: "introduction")
+        print(user)
+        user?.setObject(userNameTextField.text, forKey: "displayName")
+        user?.setObject(userIdTextField.text, forKey: "userName")
+        user?.setObject(introductionTextView.text, forKey: "introduction")
         user?.saveInBackground{ (error) in
             if error != nil {
                 print(error)
             } else {
-                self.dismiss(animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
             }
             
         }

@@ -8,22 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="L2a-1T-DXV">
-            <objects>
-                <viewController id="uZT-vt-3fd" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="RZc-dX-JbY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="gnf-6b-mzx"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="8KL-kI-uv9"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="25d-Fx-JqR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1955.072463768116" y="-688.39285714285711"/>
-        </scene>
         <!--Main View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
@@ -44,6 +28,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="443"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="cqL-eW-Hyl" kind="show" identifier="toDetail" id="Zot-Qc-xoq"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -51,14 +38,20 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="uV1-PH-i6v"/>
+                    <navigationItem key="navigationItem" id="uV1-PH-i6v">
+                        <barButtonItem key="rightBarButtonItem" title="投稿" id="yCR-2v-Xui">
+                            <connections>
+                                <segue destination="YW6-sn-3zB" kind="show" id="ist-0N-hu7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="timelineTableView" destination="cLU-74-hWt" id="wjk-A4-cEp"/>
+                        <outlet property="timelineTableView" destination="cLU-74-hWt" id="EtX-Oq-qiZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1926.0869565217392" y="88.392857142857139"/>
+            <point key="canvasLocation" x="2083" y="-462"/>
         </scene>
         <!--User Page View Controller-->
         <scene sceneID="HLB-3f-CRr">
@@ -122,7 +115,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="qRj-KP-ZaN" kind="presentation" id="X4y-Pw-jAF"/>
+                                    <segue destination="sL9-yy-3ux" kind="show" id="YZE-Nt-3Ln"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Lorem ipsum dolor sit er elit lamet, " textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvB-Qk-75A">
@@ -159,14 +152,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vwk-ay-46Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928.985507246377" y="776.78571428571422"/>
+            <point key="canvasLocation" x="1926" y="860"/>
         </scene>
         <!--プロフィール編集-->
         <scene sceneID="fHM-aZ-knA">
             <objects>
                 <viewController id="sL9-yy-3ux" customClass="EditUserinfoViewController" customModule="StudyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xxD-RW-P2q">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ユーザー名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wk6-4g-hVd">
@@ -254,20 +247,20 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="完了" id="SM7-Nq-A3i">
                             <connections>
-                                <action selector="saveUserInfo" destination="sL9-yy-3ux" id="imx-QH-C7o"/>
+                                <action selector="saveUserInfo" destination="sL9-yy-3ux" id="EjB-Ut-dOX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="introductionTextView" destination="fhc-8G-IAV" id="uaL-bS-o6Q"/>
-                        <outlet property="userIdTextField" destination="Zb3-XL-x9A" id="l5R-P6-uRh"/>
-                        <outlet property="userImageView" destination="njG-jL-8hV" id="SYg-FR-E5X"/>
-                        <outlet property="userNameTextField" destination="Wk6-4g-hVd" id="ptY-Zd-MGQ"/>
+                        <outlet property="introductionTextView" destination="fhc-8G-IAV" id="wSg-Q6-Wc2"/>
+                        <outlet property="userIdTextField" destination="Zb3-XL-x9A" id="QOq-Bz-Kq0"/>
+                        <outlet property="userImageView" destination="njG-jL-8hV" id="CTe-cw-efH"/>
+                        <outlet property="userNameTextField" destination="Wk6-4g-hVd" id="rCV-Y2-sQN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E2d-ui-AqQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3650.7246376811595" y="776.78571428571422"/>
+            <point key="canvasLocation" x="2867" y="860"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4wa-dl-kw9">
@@ -281,32 +274,59 @@
                     </tabBar>
                     <connections>
                         <segue destination="gYa-IJ-Psv" kind="relationship" relationship="viewControllers" id="jNb-Ct-UpH"/>
-                        <segue destination="NVb-8w-xCc" kind="relationship" relationship="viewControllers" id="Dkc-oN-U94"/>
                         <segue destination="eUO-nQ-8dg" kind="relationship" relationship="viewControllers" id="yGH-wc-7mU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mQ0-FP-Dvm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="105.79710144927537" y="88.392857142857139"/>
+            <point key="canvasLocation" x="-612" y="69"/>
         </scene>
-        <!--投稿-->
-        <scene sceneID="E9b-Dw-fK8">
+        <!--View Controller-->
+        <scene sceneID="wNx-Xt-t8j">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NVb-8w-xCc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="投稿" image="plus" catalog="system" id="MHT-sn-dN2"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9k4-xu-wYS">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="uZT-vt-3fd" kind="relationship" relationship="rootViewController" id="zzv-97-Rj7"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QfK-ST-yPu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="fSY-o9-bZY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zGL-ol-sT5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="zAG-vF-LVf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e00-ey-ub2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044.9275362318842" y="-688.39285714285711"/>
+            <point key="canvasLocation" x="2083" y="-1248"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7dN-ZI-A88">
+            <objects>
+                <viewController id="hfn-7o-aWB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FZe-kX-qkQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="mzo-Tg-0ch"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="G40-HA-TAQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RQC-JT-6Ub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="955" y="-135"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hdV-hW-r5i">
+            <objects>
+                <viewController id="cqL-eW-Hyl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ubX-A2-M4F">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="h31-p7-fH9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="r4q-cq-OX1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A8e-LI-OKe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3019" y="-1364"/>
         </scene>
         <!--ホーム-->
         <scene sceneID="q1o-21-8kD">
@@ -320,12 +340,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="v6h-iv-IWL"/>
+                        <segue destination="hfn-7o-aWB" kind="relationship" relationship="rootViewController" id="9Ti-vR-FCL"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aNn-Hz-Fwi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015.9420289855074" y="88.392857142857139"/>
+            <point key="canvasLocation" x="178" y="69"/>
         </scene>
         <!--マイページ-->
         <scene sceneID="mHl-Fw-Qx3">
@@ -346,29 +366,82 @@
             </objects>
             <point key="canvasLocation" x="1016" y="861"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="txg-5d-5kD">
+        <!--投稿-->
+        <scene sceneID="JK9-a1-cQd">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qRj-KP-ZaN" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wZd-1E-mvO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                <viewController id="YW6-sn-3zB" customClass="PostViewController" customModule="StudyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JQY-Lu-Lrt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="75y-Zu-yJW">
+                                <rect key="frame" x="106" y="107" width="203" height="280"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="コメントを記入" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zcF-kf-k1x">
+                                <rect key="frame" x="20" y="567" width="374" height="189"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6P9-1K-Q6H">
+                                <rect key="frame" x="72" y="387" width="271" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="画像を選択">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectImage" destination="YW6-sn-3zB" eventType="touchUpInside" id="mT1-mT-e8D"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="タイトル" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0h-1F-38E">
+                                <rect key="frame" x="20" y="468" width="112" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="ここにタイトルを記入" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Uou-Kq-0Ez">
+                                <rect key="frame" x="154" y="460" width="240" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="us5-cd-0iO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="投稿" id="KEP-j1-YJD">
+                        <barButtonItem key="leftBarButtonItem" title="キャンセル" id="Ihh-oQ-IJG">
+                            <connections>
+                                <action selector="cancel" destination="YW6-sn-3zB" id="JlG-58-YZk"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="完了" id="udR-sI-AkN">
+                            <connections>
+                                <action selector="sharePhoto" destination="YW6-sn-3zB" id="Sbh-Nb-9gK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <segue destination="sL9-yy-3ux" kind="relationship" relationship="rootViewController" id="baR-K7-pPa"/>
+                        <outlet property="postButton" destination="udR-sI-AkN" id="95F-NF-tmA"/>
+                        <outlet property="postImageView" destination="75y-Zu-yJW" id="0YD-uo-0eP"/>
+                        <outlet property="postTextView" destination="zcF-kf-k1x" id="q4c-P2-otz"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1nA-Jg-doi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S1E-es-4qR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2740.579710144928" y="776.78571428571422"/>
+            <point key="canvasLocation" x="2884" y="88"/>
         </scene>
     </scenes>
     <resources>
         <image name="book" catalog="system" width="128" height="102"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="profile_icon.png" width="500" height="500"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

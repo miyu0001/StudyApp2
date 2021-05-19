@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="実際に使用した参考書" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qeY-sN-97c">
-                        <rect key="frame" x="139" y="39" width="156" height="33"/>
+                        <rect key="frame" x="129" y="39" width="210" height="33"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="textColor" systemColor="labelColor"/>
@@ -36,14 +36,7 @@
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10時間前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mjf-oR-9KS">
-                        <rect key="frame" x="231" y="17" width="64" height="16"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="応用.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="9td-Y3-thR">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ouyou.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="9td-Y3-thR">
                         <rect key="frame" x="96" y="74" width="243" height="369"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
@@ -59,24 +52,31 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" image="icons8-ハート-60.png"/>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10時間前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mjf-oR-9KS">
+                        <rect key="frame" x="343" y="10" width="64" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="commentTextView" destination="qeY-sN-97c" id="aaK-hM-lC3"/>
-                <outlet property="likeButton" destination="Fvr-7J-HIC" id="W5r-hj-Lgl"/>
-                <outlet property="photoImageView" destination="9td-Y3-thR" id="i5a-eG-1c0"/>
-                <outlet property="timestampLabel" destination="Mjf-oR-9KS" id="GSf-l0-qJ0"/>
-                <outlet property="userImageView" destination="Nvc-JH-kqL" id="Lke-Nj-Ahj"/>
-                <outlet property="userNameLabel" destination="U4m-QA-dwu" id="G0S-be-EYG"/>
+                <outlet property="commentTextView" destination="qeY-sN-97c" id="yQl-Wa-5Bv"/>
+                <outlet property="likeButton" destination="Fvr-7J-HIC" id="DvG-vJ-bmE"/>
+                <outlet property="photoImageView" destination="9td-Y3-thR" id="KMa-1d-ExE"/>
+                <outlet property="timestampLabel" destination="Mjf-oR-9KS" id="TKS-zf-yea"/>
+                <outlet property="userImageView" destination="Nvc-JH-kqL" id="D1N-Vp-x1K"/>
+                <outlet property="userNameLabel" destination="U4m-QA-dwu" id="wrT-jN-bB1"/>
             </connections>
             <point key="canvasLocation" x="173.91304347826087" y="201.22767857142856"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="icons8-ハート-60.png" width="60" height="60"/>
+        <image name="ouyou.jpeg" width="334.5" height="480"/>
         <image name="profile_icon.png" width="500" height="500"/>
-        <image name="応用.jpeg" width="334.5" height="480"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
