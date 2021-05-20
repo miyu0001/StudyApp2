@@ -16,6 +16,12 @@ class SignUpViewController: UIViewController ,UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmTextField: UITextField!
     
+    //タップした時にキーボードが閉じる処理
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//            self.view.endEditing(true)
+//        }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +29,7 @@ class SignUpViewController: UIViewController ,UITextFieldDelegate {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         confirmTextField.delegate = self
+        
     }
     
     //入力後に入力用キーボードを閉じる

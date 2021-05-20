@@ -143,6 +143,72 @@
 			path = pictures;
 			sourceTree = "<group>";
 		};
+		3B7DFE0A2656092B00CD81F4 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				3B813ADA264C39E20059E521 /* SignUpViewController.swift */,
+				3B2AE6F3264D2AB4000AE965 /* SignInViewController.swift */,
+				3B813AD8264C39D40059E521 /* SignUp.storyboard */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		3B7DFE0C2656096D00CD81F4 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				3B813AC6264C24BE0059E521 /* SearchgenreViewController.swift */,
+				3B2AE6F7264D765E000AE965 /* SearchCertificationViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		3B7DFE0D265609A500CD81F4 /* EditUser */ = {
+			isa = PBXGroup;
+			children = (
+				3B2AE6F9264E6996000AE965 /* EditUserinfoViewController.swift */,
+				3B2AE6F5264D38C3000AE965 /* UserPageViewController.swift */,
+			);
+			path = EditUser;
+			sourceTree = "<group>";
+		};
+		3B7DFE0E265609DD00CD81F4 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3B0C4D982652B17300E3F647 /* TimelineTableViewCell.swift */,
+				3B0C4D992652B17300E3F647 /* TimelineTableViewCell.xib */,
+				3B2AE6EF264CE53C000AE965 /* MainViewController.swift */,
+				3B813AED264CDA650059E521 /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		3B7DFE0F265609F600CD81F4 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				3BBDE4782655076000488565 /* Post.storyboard */,
+				3BBDE47A2655098300488565 /* PostViewController.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		3B7DFE1126560A8900CD81F4 /* more */ = {
+			isa = PBXGroup;
+			children = (
+				3B806C2B265365E2005FAA3D /* Post.swift */,
+				3B806C2D265365FA005FAA3D /* User.swift */,
+				3B806C2F265368BC005FAA3D /* Comment.swift */,
+			);
+			path = more;
+			sourceTree = "<group>";
+		};
+		3B7DFE1226560AAD00CD81F4 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				3B31F654265520FD00C34864 /* DetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		3B813AB6264C24BE0059E521 = {
 			isa = PBXGroup;
 			children = (
@@ -164,8 +230,15 @@
 		3B813AC1264C24BE0059E521 /* StudyApp */ = {
 			isa = PBXGroup;
 			children = (
-				3B813AD7264C399F0059E521 /* ViewController */,
+				3B7DFE0A2656092B00CD81F4 /* Signup */,
+				3B7DFE0C2656096D00CD81F4 /* Search */,
+				3B7DFE0D265609A500CD81F4 /* EditUser */,
+				3B7DFE0E265609DD00CD81F4 /* Main */,
+				3B7DFE0F265609F600CD81F4 /* Post */,
+				3B7DFE1226560AAD00CD81F4 /* Detail */,
+				3B7DFE1126560A8900CD81F4 /* more */,
 				3B813AC2264C24BE0059E521 /* AppDelegate.swift */,
+				3B813ADC264C3A370059E521 /* Sharenote.storyboard */,
 				3B813AD0264C24C00059E521 /* Info.plist */,
 				3B813AC4264C24BE0059E521 /* SceneDelegate.swift */,
 				3B813ACB264C24C00059E521 /* Assets.xcassets */,
@@ -174,39 +247,6 @@
 				3B0C4DA22652BD4C00E3F647 /* pictures */,
 			);
 			path = StudyApp;
-			sourceTree = "<group>";
-		};
-		3B813AD6264C39880059E521 /* Storyboard */ = {
-			isa = PBXGroup;
-			children = (
-				3B813AD8264C39D40059E521 /* SignUp.storyboard */,
-				3B813ADC264C3A370059E521 /* Sharenote.storyboard */,
-				3B813AED264CDA650059E521 /* Main.storyboard */,
-				3B0C4D992652B17300E3F647 /* TimelineTableViewCell.xib */,
-				3BBDE4782655076000488565 /* Post.storyboard */,
-			);
-			path = Storyboard;
-			sourceTree = "<group>";
-		};
-		3B813AD7264C399F0059E521 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3B2AE6EF264CE53C000AE965 /* MainViewController.swift */,
-				3B2AE6F3264D2AB4000AE965 /* SignInViewController.swift */,
-				3B813ADA264C39E20059E521 /* SignUpViewController.swift */,
-				3B2AE6F5264D38C3000AE965 /* UserPageViewController.swift */,
-				3B2AE6F9264E6996000AE965 /* EditUserinfoViewController.swift */,
-				3B813AC6264C24BE0059E521 /* SearchgenreViewController.swift */,
-				3B2AE6F7264D765E000AE965 /* SearchCertificationViewController.swift */,
-				3B0C4D982652B17300E3F647 /* TimelineTableViewCell.swift */,
-				3B806C2B265365E2005FAA3D /* Post.swift */,
-				3B806C2F265368BC005FAA3D /* Comment.swift */,
-				3B806C2D265365FA005FAA3D /* User.swift */,
-				3B31F654265520FD00C34864 /* DetailViewController.swift */,
-				3BBDE47A2655098300488565 /* PostViewController.swift */,
-				3B813AD6264C39880059E521 /* Storyboard */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		3BBDE44E2654C7DF00488565 /* ios */ = {
