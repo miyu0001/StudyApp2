@@ -15,5 +15,7 @@ target 'StudyApp' do
   pod 'SVProgressHUD'
   pod 'Kingfisher'
   pod 'SwiftData'
+  pod 'Tabman'
+  
 end
 

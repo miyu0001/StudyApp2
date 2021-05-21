@@ -18,7 +18,17 @@ class SignInViewController: UIViewController , UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //他のところをタッチしたらキーボードが閉じる
+        let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+                tapGR.cancelsTouchesInView = false
+                self.view.addGestureRecognizer(tapGR)
     }
+    
+    @objc func dismissKeyboard() {
+            self.view.endEditing(true)
+    }
+    
     
     //入力後に入力用キーボードを閉じる
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

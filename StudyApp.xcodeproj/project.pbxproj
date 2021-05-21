@@ -19,6 +19,8 @@
 		3B2AE6F8264D765E000AE965 /* SearchCertificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AE6F7264D765E000AE965 /* SearchCertificationViewController.swift */; };
 		3B2AE6FA264E6996000AE965 /* EditUserinfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AE6F9264E6996000AE965 /* EditUserinfoViewController.swift */; };
 		3B31F655265520FD00C34864 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B31F654265520FD00C34864 /* DetailViewController.swift */; };
+		3B7DFE162657A55700CD81F4 /* BigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DFE152657A55700CD81F4 /* BigViewController.swift */; };
+		3B7DFE1A2657E50B00CD81F4 /* QuestionTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DFE192657E50B00CD81F4 /* QuestionTimelineViewController.swift */; };
 		3B806C2A26536141005FAA3D /* icons8-ハート-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B806C2926536141005FAA3D /* icons8-ハート-60.png */; };
 		3B806C2C265365E2005FAA3D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B806C2B265365E2005FAA3D /* Post.swift */; };
 		3B806C2E265365FA005FAA3D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B806C2D265365FA005FAA3D /* User.swift */; };
@@ -55,6 +57,7 @@
 		3BBDE4772654C7DF00488565 /* iTunesArtwork@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BBDE4632654C7DF00488565 /* iTunesArtwork@3x.png */; };
 		3BBDE4792655076000488565 /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BBDE4782655076000488565 /* Post.storyboard */; };
 		3BBDE47B2655098300488565 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDE47A2655098300488565 /* PostViewController.swift */; };
+		E6265A95AB2609F711D33F3F /* Pods_StudyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 421AC816A7B11910C2A5BCAC /* Pods_StudyApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +73,8 @@
 		3B2AE6F7264D765E000AE965 /* SearchCertificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCertificationViewController.swift; sourceTree = "<group>"; };
 		3B2AE6F9264E6996000AE965 /* EditUserinfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserinfoViewController.swift; sourceTree = "<group>"; };
 		3B31F654265520FD00C34864 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		3B7DFE152657A55700CD81F4 /* BigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigViewController.swift; sourceTree = "<group>"; };
+		3B7DFE192657E50B00CD81F4 /* QuestionTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTimelineViewController.swift; sourceTree = "<group>"; };
 		3B806C2926536141005FAA3D /* icons8-ハート-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-ハート-60.png"; sourceTree = "<group>"; };
 		3B806C2B265365E2005FAA3D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		3B806C2D265365FA005FAA3D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -108,6 +113,7 @@
 		3BBDE4632654C7DF00488565 /* iTunesArtwork@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@3x.png"; sourceTree = "<group>"; };
 		3BBDE4782655076000488565 /* Post.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
 		3BBDE47A2655098300488565 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		421AC816A7B11910C2A5BCAC /* Pods_StudyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0BBB0ED2A9316A411383E58 /* Pods-StudyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.release.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.release.xcconfig"; sourceTree = "<group>"; };
 		B860F088B16E545FB0B131EC /* Pods-StudyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.debug.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6265A95AB2609F711D33F3F /* Pods_StudyApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +133,7 @@
 		21A59F70BFFB7C2BA44F5EAA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				421AC816A7B11910C2A5BCAC /* Pods_StudyApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -178,6 +186,8 @@
 				3B0C4D992652B17300E3F647 /* TimelineTableViewCell.xib */,
 				3B2AE6EF264CE53C000AE965 /* MainViewController.swift */,
 				3B813AED264CDA650059E521 /* Main.storyboard */,
+				3B7DFE152657A55700CD81F4 /* BigViewController.swift */,
+				3B7DFE192657E50B00CD81F4 /* QuestionTimelineViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -441,6 +451,7 @@
 				3B813AC7264C24BE0059E521 /* SearchgenreViewController.swift in Sources */,
 				3B806C2C265365E2005FAA3D /* Post.swift in Sources */,
 				3BBDE47B2655098300488565 /* PostViewController.swift in Sources */,
+				3B7DFE162657A55700CD81F4 /* BigViewController.swift in Sources */,
 				3B813AC3264C24BE0059E521 /* AppDelegate.swift in Sources */,
 				3B0C4D9A2652B17300E3F647 /* TimelineTableViewCell.swift in Sources */,
 				3B2AE6F4264D2AB4000AE965 /* SignInViewController.swift in Sources */,
@@ -451,6 +462,7 @@
 				3B806C2E265365FA005FAA3D /* User.swift in Sources */,
 				3B2AE6F0264CE53C000AE965 /* MainViewController.swift in Sources */,
 				3B31F655265520FD00C34864 /* DetailViewController.swift in Sources */,
+				3B7DFE1A2657E50B00CD81F4 /* QuestionTimelineViewController.swift in Sources */,
 				3B2AE6F6264D38C3000AE965 /* UserPageViewController.swift in Sources */,
 				3B2AE6FA264E6996000AE965 /* EditUserinfoViewController.swift in Sources */,
 			);

@@ -21,6 +21,11 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //他のところをタップしたらキーボードが下がる
+        let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+                tapGR.cancelsTouchesInView = false
+                self.view.addGestureRecognizer(tapGR)
+        
         //画像を資格から丸にする
         userImageView.layer.cornerRadius =  userImageView.bounds.width / 2
         userImageView.layer.masksToBounds = true
@@ -69,6 +74,10 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
         }
        
     }
+    
+    @objc func dismissKeyboard() {
+            self.view.endEditing(true)
+        }
 
     //テキスト編集終了時に呼び出される
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -159,7 +168,6 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
     
     @IBAction func saveUserInfo() {
         let user = NCMBUser.current()
-        print(user)
         user?.setObject(userNameTextField.text, forKey: "displayName")
         user?.setObject(userIdTextField.text, forKey: "userName")
         user?.setObject(introductionTextView.text, forKey: "introduction")

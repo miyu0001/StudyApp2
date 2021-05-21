@@ -2,8 +2,11 @@ PODS:
   - Kingfisher (6.3.0)
   - NCMB (3.1.0)
   - NYXImagesKit (2.3)
+  - Pageboy (3.6.2)
   - SVProgressHUD (2.2.5)
   - SwiftData (1.1.16)
+  - Tabman (2.11.1):
+    - Pageboy (~> 3.6.0)
   - "UITextView+Placeholder (1.4.0)"
 
 DEPENDENCIES:
@@ -12,14 +15,17 @@ DEPENDENCIES:
   - NYXImagesKit
   - SVProgressHUD
   - SwiftData
+  - Tabman
   - "UITextView+Placeholder"
 
 SPEC REPOS:
   trunk:
     - Kingfisher
     - NYXImagesKit
+    - Pageboy
     - SVProgressHUD
     - SwiftData
+    - Tabman
     - "UITextView+Placeholder"
 
 EXTERNAL SOURCES:
@@ -36,10 +42,12 @@ SPEC CHECKSUMS:
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   NCMB: c308972109137bf523ec1830bac16de6a31c25f4
   NYXImagesKit: 8163e3335a40eaa173ca5bbbf81fafb57d3947eb
+  Pageboy: cf121b9dd48c63f3f281b2a9ec93d02e0f23879b
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftData: ef7ae3df5ae5f7ce839ab754c1e91266f1a1c825
+  Tabman: 792ac76fd1ec95af175c93db880a3c47cabedc91
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
 
-PODFILE CHECKSUM: 067e89065449d60646fe325fbb6ad825d7ab18c9
+PODFILE CHECKSUM: 111994cc48c5bf3cd2970fe5ef1557096889ae60
 
 COCOAPODS: 1.10.1

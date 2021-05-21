@@ -8,10 +8,26 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Big View Controller-->
+        <scene sceneID="mN9-CR-Qw6">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="HfW-Dg-iiU" customClass="BigViewController" customModule="StudyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZxM-B5-Yeq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="gfI-DW-z7u"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="NSj-B3-pB7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xbO-iN-oLa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1394" y="-223"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="MainViewController" customModule="StudyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="MainViewController" customModule="StudyApp" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1926.0869565217392" y="88.392857142857139"/>
+            <point key="canvasLocation" x="2703" y="40"/>
         </scene>
         <!--User Page View Controller-->
         <scene sceneID="HLB-3f-CRr">
@@ -279,14 +295,37 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mQ0-FP-Dvm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="105.79710144927537" y="88.392857142857139"/>
+            <point key="canvasLocation" x="-219" y="88"/>
+        </scene>
+        <!--Question Timeline View Controller-->
+        <scene sceneID="f2c-7M-H8i">
+            <objects>
+                <viewController storyboardIdentifier="QuestionTimelineViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b7T-kL-Myv" customClass="QuestionTimelineViewController" customModule="StudyApp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fmQ-fO-GR6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbm-z3-Sb5">
+                                <rect key="frame" x="20" y="395" width="374" height="141"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="質問投稿"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DPI-eB-c7I"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O5N-Vs-WR9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2702.898550724638" y="-669.64285714285711"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hdV-hW-r5i">
             <objects>
                 <viewController id="cqL-eW-Hyl" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ubX-A2-M4F">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="h31-p7-fH9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -295,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A8e-LI-OKe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1925" y="-638"/>
+            <point key="canvasLocation" x="3658" y="-305"/>
         </scene>
         <!--ホーム-->
         <scene sceneID="q1o-21-8kD">
@@ -309,12 +348,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="v6h-iv-IWL"/>
+                        <segue destination="HfW-Dg-iiU" kind="show" id="DUP-52-3I8"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aNn-Hz-Fwi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015.9420289855074" y="88.392857142857139"/>
+            <point key="canvasLocation" x="578" y="88"/>
         </scene>
         <!--マイページ-->
         <scene sceneID="mHl-Fw-Qx3">
@@ -340,7 +379,7 @@
             <objects>
                 <viewController id="YW6-sn-3zB" customClass="PostViewController" customModule="StudyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JQY-Lu-Lrt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="75y-Zu-yJW">
@@ -405,7 +444,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S1E-es-4qR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2884" y="88"/>
+            <point key="canvasLocation" x="3659" y="369"/>
         </scene>
     </scenes>
     <resources>
