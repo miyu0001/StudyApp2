@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //ログインしているかどうか
         let isLogin = ud.bool(forKey: "isLogin")
 
-        if isLogin == true {
+        if isLogin {
             //ログイン中iphoneのサイズに合わせてwindowを表示してくれる
             self.window = UIWindow(frame: UIScreen.main.bounds)
             //ログイン中だったらMain.storyboardに行くようにする.bundle.main = このプロジェクトの中にありますよってこと

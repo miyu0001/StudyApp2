@@ -23,8 +23,8 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
         
         //他のところをタップしたらキーボードが下がる
         let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-                tapGR.cancelsTouchesInView = false
-                self.view.addGestureRecognizer(tapGR)
+        tapGR.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapGR)
         
         //画像を資格から丸にする
         userImageView.layer.cornerRadius =  userImageView.bounds.width / 2
@@ -72,13 +72,13 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
             ud.set(false, forKey: "isLogin")
             ud.synchronize()
         }
-       
+        
     }
     
     @objc func dismissKeyboard() {
-            self.view.endEditing(true)
-        }
-
+        self.view.endEditing(true)
+    }
+    
     //テキスト編集終了時に呼び出される
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -116,9 +116,9 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
         } progressBlock: { (progress) in // ← ？？
             print(progress)
         }
-
+        
     }
-   
+    
     @IBAction func selectImage(_ sender: Any) {
         //アクションシートを出すコード
         let alertController = UIAlertController(title: "画像の選択", message: "選択してください", preferredStyle: .actionSheet)
