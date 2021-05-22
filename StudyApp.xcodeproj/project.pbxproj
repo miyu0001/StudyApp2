@@ -35,6 +35,7 @@
 		3B813ADD264C3A370059E521 /* Sharenote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B813ADC264C3A370059E521 /* Sharenote.storyboard */; };
 		3B813AEE264CDA650059E521 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B813AED264CDA650059E521 /* Main.storyboard */; };
 		3B94E59F26514A1400A2CC03 /* profile_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B94E59E26514A1400A2CC03 /* profile_icon.png */; };
+		3B95FD8F265912390078A858 /* PostQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95FD8E265912390078A858 /* PostQuestionViewController.swift */; };
 		3BBDE4642654C7DF00488565 /* iTunesArtwork@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BBDE44F2654C7DF00488565 /* iTunesArtwork@1x.png */; };
 		3BBDE4652654C7DF00488565 /* Icon-App-76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BBDE4512654C7DF00488565 /* Icon-App-76x76@2x.png */; };
 		3BBDE4662654C7DF00488565 /* Icon-App-29x29@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BBDE4522654C7DF00488565 /* Icon-App-29x29@1x.png */; };
@@ -57,7 +58,6 @@
 		3BBDE4772654C7DF00488565 /* iTunesArtwork@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BBDE4632654C7DF00488565 /* iTunesArtwork@3x.png */; };
 		3BBDE4792655076000488565 /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BBDE4782655076000488565 /* Post.storyboard */; };
 		3BBDE47B2655098300488565 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDE47A2655098300488565 /* PostViewController.swift */; };
-		3BCA5F802658D5D700FD983E /* NoteTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA5F7F2658D5D700FD983E /* NoteTimelineViewController.swift */; };
 		E6265A95AB2609F711D33F3F /* Pods_StudyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 421AC816A7B11910C2A5BCAC /* Pods_StudyApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +92,7 @@
 		3B813ADC264C3A370059E521 /* Sharenote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sharenote.storyboard; sourceTree = "<group>"; };
 		3B813AED264CDA650059E521 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3B94E59E26514A1400A2CC03 /* profile_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_icon.png; sourceTree = "<group>"; };
+		3B95FD8E265912390078A858 /* PostQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostQuestionViewController.swift; sourceTree = "<group>"; };
 		3BBDE44F2654C7DF00488565 /* iTunesArtwork@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@1x.png"; sourceTree = "<group>"; };
 		3BBDE4512654C7DF00488565 /* Icon-App-76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-76x76@2x.png"; sourceTree = "<group>"; };
 		3BBDE4522654C7DF00488565 /* Icon-App-29x29@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-29x29@1x.png"; sourceTree = "<group>"; };
@@ -114,7 +115,6 @@
 		3BBDE4632654C7DF00488565 /* iTunesArtwork@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@3x.png"; sourceTree = "<group>"; };
 		3BBDE4782655076000488565 /* Post.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
 		3BBDE47A2655098300488565 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		3BCA5F7F2658D5D700FD983E /* NoteTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTimelineViewController.swift; sourceTree = "<group>"; };
 		421AC816A7B11910C2A5BCAC /* Pods_StudyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0BBB0ED2A9316A411383E58 /* Pods-StudyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.release.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.release.xcconfig"; sourceTree = "<group>"; };
 		B860F088B16E545FB0B131EC /* Pods-StudyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.debug.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -189,7 +189,6 @@
 				3B2AE6EF264CE53C000AE965 /* MainViewController.swift */,
 				3B813AED264CDA650059E521 /* Main.storyboard */,
 				3B7DFE152657A55700CD81F4 /* BigViewController.swift */,
-				3BCA5F7F2658D5D700FD983E /* NoteTimelineViewController.swift */,
 				3B7DFE192657E50B00CD81F4 /* QuestionTimelineViewController.swift */,
 			);
 			path = Main;
@@ -199,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				3BBDE4782655076000488565 /* Post.storyboard */,
+				3B95FD8E265912390078A858 /* PostQuestionViewController.swift */,
 				3BBDE47A2655098300488565 /* PostViewController.swift */,
 			);
 			path = Post;
@@ -459,7 +459,6 @@
 				3B0C4D9A2652B17300E3F647 /* TimelineTableViewCell.swift in Sources */,
 				3B2AE6F4264D2AB4000AE965 /* SignInViewController.swift in Sources */,
 				3B2AE6F8264D765E000AE965 /* SearchCertificationViewController.swift in Sources */,
-				3BCA5F802658D5D700FD983E /* NoteTimelineViewController.swift in Sources */,
 				3B813AC5264C24BE0059E521 /* SceneDelegate.swift in Sources */,
 				3B813ADB264C39E20059E521 /* SignUpViewController.swift in Sources */,
 				3B806C30265368BC005FAA3D /* Comment.swift in Sources */,
@@ -469,6 +468,7 @@
 				3B7DFE1A2657E50B00CD81F4 /* QuestionTimelineViewController.swift in Sources */,
 				3B2AE6F6264D38C3000AE965 /* UserPageViewController.swift in Sources */,
 				3B2AE6FA264E6996000AE965 /* EditUserinfoViewController.swift in Sources */,
+				3B95FD8F265912390078A858 /* PostQuestionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

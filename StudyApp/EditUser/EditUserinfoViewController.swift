@@ -36,6 +36,7 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
         
         //それぞれ画像やテキストをNCMBのデータから引っ張って代入
         if let user = NCMBUser.current() {
+            //NCMBuser.current()がnilじゃなかったらこっちの処理
             userNameTextField.text = user.object(forKey: "displayName") as? String
             userIdTextField.text = user.userName
             introductionTextView.text = user.object(forKey: "introduction") as? String
@@ -60,6 +61,7 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
                 }
             }
         } else {
+            //NCMBuser.current()がnilだったらこっちの処理
             //ログイン画面にもどす
             //ログアウト成功
             let storyboard = UIStoryboard(name: "SignUp", bundle: Bundle.main)
