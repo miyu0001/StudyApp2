@@ -18,9 +18,33 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
     var posts = [Post]()
     
     var followings = [NCMBUser]()
-
-    @IBOutlet var timelineTableView : UITableView!
     
+    @IBOutlet var timelineTableView : UITableView!
+    @IBOutlet weak var button: UIButton!
+    
+    
+    //    FAB
+    var startingFrame : CGRect!
+    var endingFrame : CGRect!
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) && self.button.isHidden {
+            self.button.isHidden = false
+            self.button.frame = startingFrame
+            UIView.animate(withDuration: 1.0) {
+                self.button.frame = self.endingFrame
+            }
+        }
+    }
+    func configureSizes() {
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
+        
+        startingFrame = CGRect(x: 0, y: screenHeight+100, width: screenWidth, height: 100)
+        endingFrame = CGRect(x: 0, y: screenHeight-100, width: screenWidth, height: 100)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -90,10 +114,10 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         cell.userNameLabel.text = user.userName
         let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId
         cell.userImageView.kf.setImage (with: URL (string: userImageUrl), placeholder: UIImage (named: "placeholder.jpg"))
-
+        
         cell.commentTextView.text = posts[indexPath.row].text
         let imageUrl = posts[indexPath.row].imageUrl as! String
-
+        
         print(imageUrl)
         cell.photoImageView.kf.setImage(with: URL(string: imageUrl))
         
@@ -115,27 +139,12 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         return cell
     }
     
-    func didTapLikeButton(tableViewCell: UITableViewCell, button: UIButton){
-        
-        guard let currentUser = NCMBUser.current() else {
-            //画面が戻る
-            
-            //            ログアウト成功
-            let storyboard = UIStoryboard(name: "SignIn", bundle: Bundle.main)
-            let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootNavigationController")
-            UIApplication.shared.keyWindow?.rootViewController = rootViewController
-            
-            //ログイン状態の保持
-            let ud = UserDefaults.standard
-            ud.set(false, forKey: "isLogin")
-            ud.synchronize()
-            return
-        }
+    func didTapLikeButton(tableViewCell: UITableViewCell, button: UIButton) {
         
         if posts[tableViewCell.tag].isLiked == false || posts[tableViewCell.tag].isLiked == nil {
             let query = NCMBQuery(className: "Post")
             query?.getObjectInBackground(withId: posts[tableViewCell.tag].objectId, block: { (post, error) in
-                post?.addUniqueObject(currentUser.objectId, forKey: "likeUser")
+                post?.addUniqueObject(NCMBUser.current().objectId, forKey: "likeUser")
                 post?.saveEventually({ (error) in
                     if error != nil {
                         SVProgressHUD.showError(withStatus: error!.localizedDescription)
@@ -161,8 +170,6 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
                 }
             })
         }
-        
-        
     }
     
     func didTapMenuButton(tableViewCell: UITableViewCell, button: UIButton){
@@ -224,8 +231,8 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         guard let currentUser = NCMBUser.current() else {
             //画面が戻る
             
-            //            ログアウト成功
-            let storyboard = UIStoryboard(name: "SignIn", bundle: Bundle.main)
+            //ログアウト成功
+            let storyboard = UIStoryboard(name: "SignUp", bundle: Bundle.main)
             let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootNavigationController")
             UIApplication.shared.keyWindow?.rootViewController = rootViewController
             
@@ -266,34 +273,30 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
                         let userModel = User(objectId: user.objectId, userName: user.userName)
                         userModel.displayName = user.object(forKey: "displayName") as? String
                         
-                            
-                            // 投稿の情報を取得
-                            let imageUrl = postObject.object(forKey: "imageUrl") as! String
-                            let text = postObject.object(forKey: "text") as! String
-                            
-                            // 2つのデータ(投稿情報と誰が投稿したか?)を合わせてPostクラスにセット
-                            let post = Post(objectId: postObject.objectId, user: userModel, imageUrl: imageUrl, text: text, createDate: postObject.createDate)
-                            
-                            
-                            // likeの状況(自分が過去にLikeしているか？)によってデータを挿入
-                            let likeUsers = postObject.object(forKey: "likeUser") as? [String]
-                            if likeUsers?.contains(currentUser.objectId) == true {
-                                post.isLiked = true
-                            } else {
-                                post.isLiked = false
-                            }
-                            
-                            // いいねの件数
-                            if let likes = likeUsers {
-                                post.likeCount = likes.count
-                            }
-                            
-                            // 配列に加える
-                            self.posts.append(post)
-                            
+                        
+                        // 投稿の情報を取得
+                        let imageUrl = postObject.object(forKey: "imageUrl") as! String
+                        let text = postObject.object(forKey: "text") as! String
+                        
+                        // 2つのデータ(投稿情報と誰が投稿したか?)を合わせてPostクラスにセット
+                        let post = Post(objectId: postObject.objectId, user: userModel, imageUrl: imageUrl, text: text, createDate: postObject.createDate)
                         
                         
+                        // likeの状況(自分が過去にLikeしているか？)によってデータを挿入
+                        let likeUsers = postObject.object(forKey: "likeUser") as? [String]
+                        if likeUsers?.contains(currentUser.objectId) == true {
+                            post.isLiked = true
+                        } else {
+                            post.isLiked = false
+                        }
                         
+                        // いいねの件数
+                        if let likes = likeUsers {
+                            post.likeCount = likes.count
+                        }
+                        
+                        // 配列に加える
+                        self.posts.append(post)
                     }
                 }
                 
@@ -301,8 +304,6 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
                 self.timelineTableView.reloadData()
             }
         })
-        
-        
     }
     
     func setRefreshControl() {
@@ -334,14 +335,12 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
                 for following in result as! [NCMBObject] {
                     self.followings.append(following.object(forKey: "following") as! NCMBUser)
                 }
-                self.followings.append(NCMBUser.current())
+                //self.followings.append(NCMBUser.current())
                 
                 self.loadTimeline()
             }
         })
     }
-    
-    
-    
-    
 }
+
+
