@@ -19,7 +19,12 @@ class BigViewController: TabmanViewController {
         // Floatyを生成
         let floaty = Floaty()
         // 開いた時に現れるボタンアイテムを追加
-        floaty.addItem(title: "SampleButton")
+        floaty.addItem("質問", icon: UIImage(named: "question.png"))
+        // 開いた時に現れるボタンアイテムを追加
+        floaty.addItem("ノート",icon: UIImage(named: "note.png")) { item in
+            let PostViewController = self.storyboard?.instantiateViewController(withIdentifier: "PostViewController") as! PostViewController
+            self.present(PostViewController, animated: true, completion: nil)
+        }
         // viewにFloatyを追加
         view.addSubview(floaty)
         
@@ -131,21 +136,21 @@ final class FloatyFactory {
         // Floatyに定義したアイテムを追加する
         fab.addItem(item: closeItem)
 
-        let lineItem = FloatyItem()
-        lineItem.imageSize = CGSize(width: 68, height: 68)
-        //lineItem.title = "Inquiry via LINE".localized
-        lineItem.titleLabel.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
-        lineItem.titleLabel.textAlignment = .right
-        lineItem.icon = UIImage(named: "LINE")
-        lineItem.handler = { item in
-            guard let url = URL(string: "LINEのURLスキームを指定") else { return }
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            } else {
-                //vc.showAlert(title: "LINE App is not installed", message: nil)
-            }
-        }
-        fab.addItem(item: lineItem)
+//        let lineItem = FloatyItem()
+//        lineItem.imageSize = CGSize(width: 68, height: 68)
+//        //lineItem.title = "Inquiry via LINE".localized
+//        lineItem.titleLabel.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+//        lineItem.titleLabel.textAlignment = .right
+//        lineItem.icon = UIImage(named: "LINE")
+//        lineItem.handler = { item in
+//            guard let url = URL(string: "LINEのURLスキームを指定") else { return }
+//            if UIApplication.shared.canOpenURL(url) {
+//                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//            } else {
+//                //vc.showAlert(title: "LINE App is not installed", message: nil)
+//            }
+//        }
+//        fab.addItem(item: lineItem)
 
         return fab
     }

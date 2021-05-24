@@ -19,6 +19,8 @@
 		3B2AE6F8264D765E000AE965 /* SearchCertificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AE6F7264D765E000AE965 /* SearchCertificationViewController.swift */; };
 		3B2AE6FA264E6996000AE965 /* EditUserinfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AE6F9264E6996000AE965 /* EditUserinfoViewController.swift */; };
 		3B2F2DBC265B4B9800ECFD3D /* NoteCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2F2DBB265B4B9800ECFD3D /* NoteCommentsViewController.swift */; };
+		3B2F2DC0265BDC6C00ECFD3D /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2F2DBF265BDC6C00ECFD3D /* question.png */; };
+		3B2F2DC2265BDC7600ECFD3D /* note.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2F2DC1265BDC7600ECFD3D /* note.png */; };
 		3B31F655265520FD00C34864 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B31F654265520FD00C34864 /* DetailViewController.swift */; };
 		3B7DFE162657A55700CD81F4 /* BigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DFE152657A55700CD81F4 /* BigViewController.swift */; };
 		3B7DFE1A2657E50B00CD81F4 /* QuestionTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DFE192657E50B00CD81F4 /* QuestionTimelineViewController.swift */; };
@@ -75,6 +77,8 @@
 		3B2AE6F7264D765E000AE965 /* SearchCertificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCertificationViewController.swift; sourceTree = "<group>"; };
 		3B2AE6F9264E6996000AE965 /* EditUserinfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserinfoViewController.swift; sourceTree = "<group>"; };
 		3B2F2DBB265B4B9800ECFD3D /* NoteCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCommentsViewController.swift; sourceTree = "<group>"; };
+		3B2F2DBF265BDC6C00ECFD3D /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question.png; sourceTree = "<group>"; };
+		3B2F2DC1265BDC7600ECFD3D /* note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = note.png; sourceTree = "<group>"; };
 		3B31F654265520FD00C34864 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3B7DFE152657A55700CD81F4 /* BigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigViewController.swift; sourceTree = "<group>"; };
 		3B7DFE192657E50B00CD81F4 /* QuestionTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTimelineViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 				3B0C4D9C2652BC6500E3F647 /* more.png */,
 				3B0C4DA02652BD3300E3F647 /* heart.png */,
 				3B0C4DA32652D0F400E3F647 /* ouyou.jpeg */,
+				3B2F2DBF265BDC6C00ECFD3D /* question.png */,
+				3B2F2DC1265BDC7600ECFD3D /* note.png */,
 			);
 			path = pictures;
 			sourceTree = "<group>";
@@ -383,6 +389,7 @@
 				3BBDE4682654C7DF00488565 /* Icon-App-20x20@1x.png in Resources */,
 				3BBDE46D2654C7DF00488565 /* Icon-App-20x20@2x.png in Resources */,
 				3BBDE46A2654C7DF00488565 /* Icon-App-20x20@3x.png in Resources */,
+				3B2F2DC2265BDC7600ECFD3D /* note.png in Resources */,
 				3BBDE4752654C7DF00488565 /* README.md in Resources */,
 				3BBDE4642654C7DF00488565 /* iTunesArtwork@1x.png in Resources */,
 				3B0C4D9B2652B17300E3F647 /* TimelineTableViewCell.xib in Resources */,
@@ -393,6 +400,7 @@
 				3BBDE46C2654C7DF00488565 /* Contents.json in Resources */,
 				3B806C2A26536141005FAA3D /* icons8-ハート-60.png in Resources */,
 				3B0C4D9F2652BD2A00E3F647 /* coment.png in Resources */,
+				3B2F2DC0265BDC6C00ECFD3D /* question.png in Resources */,
 				3BBDE46E2654C7DF00488565 /* Icon-App-29x29@3x.png in Resources */,
 				3B0C4DA12652BD3300E3F647 /* heart.png in Resources */,
 				3BBDE4722654C7DF00488565 /* Icon-App-76x76@1x.png in Resources */,

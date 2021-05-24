@@ -31,6 +31,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         postButton.isEnabled = false
         postTextView.placeholder = "キャプションを書く"
         postTextView.delegate = self
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

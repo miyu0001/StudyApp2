@@ -583,7 +583,7 @@
         <!--Navigation Controller-->
         <scene sceneID="guN-SE-BW1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8T2-Rs-U1W" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PostViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8T2-Rs-U1W" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kPn-1M-2PN">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

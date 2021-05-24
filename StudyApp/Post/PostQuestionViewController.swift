@@ -28,6 +28,8 @@ class PostQuestionViewController: UIViewController, UINavigationControllerDelega
         postButton.isEnabled = false
         postTextView.placeholder = "キャプションを書く"
         postTextView.delegate = self
+        
+        
     }
     
     func textViewDidChange(_ textView: UITextView) {
