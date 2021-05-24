@@ -16,6 +16,7 @@ target 'StudyApp' do
   pod 'Kingfisher'
   pod 'SwiftData'
   pod 'Tabman'
+  pod 'Floaty'
   
 end
 

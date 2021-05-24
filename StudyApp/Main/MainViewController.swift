@@ -10,6 +10,7 @@ import SVProgressHUD
 import SwiftUI
 import Kingfisher
 import SwiftData
+import Floaty
 
 class MainViewController: UIViewController , UITableViewDataSource,UITableViewDelegate,TimelineTableViewCellDelegate{
     
@@ -22,29 +23,6 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
     @IBOutlet var timelineTableView : UITableView!
     @IBOutlet weak var button: UIButton!
     
-    
-    //    FAB
-    var startingFrame : CGRect!
-    var endingFrame : CGRect!
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) && self.button.isHidden {
-            self.button.isHidden = false
-            self.button.frame = startingFrame
-            UIView.animate(withDuration: 1.0) {
-                self.button.frame = self.endingFrame
-            }
-        }
-    }
-    func configureSizes() {
-        let screenSize = UIScreen.main.bounds
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
-        
-        startingFrame = CGRect(x: 0, y: screenHeight+100, width: screenWidth, height: 100)
-        endingFrame = CGRect(x: 0, y: screenHeight-100, width: screenWidth, height: 100)
-        
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,7 +33,7 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         
         setRefreshControl()
         
-        //        カスタムビューの取得
+        //カスタムビューの取得
         let nib = UINib(nibName: "TimelineTableViewCell", bundle: Bundle.main)
         timelineTableView.register(nib, forCellReuseIdentifier: "Cell")
         
@@ -75,13 +53,13 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //        if segue.identifier == "toComments" {
-        //            let commentViewController = segue.destination as! CommentViewController
-        //            commentViewController.postId = selectedPost?.objectId
-        //
-        //            print(selectedPost)
-        //
-        //        }
+        if segue.identifier == "toComments" {
+            let commentViewController = segue.destination as! NoteCommentsViewController
+            commentViewController.postId = selectedPost?.objectId
+            
+            print(selectedPost)
+            
+        }
         
         if segue.identifier == "toDetail" {
             let detailViewController = segue.destination as! DetailViewController
@@ -138,13 +116,27 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         
         return cell
     }
-    
+    //いいねボタンが押された時、どのセル、tableViewが押されたのか引数として引っ張ってくる
     func didTapLikeButton(tableViewCell: UITableViewCell, button: UIButton) {
+        
+        guard let currentUser = NCMBUser.current() else {
+            //ログアウトさせる
+            let storyboard = UIStoryboard(name: "SignUp", bundle: Bundle.main)
+            let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootNavigationController")
+            //画面の切り替えができる
+            UIApplication.shared.keyWindow?.rootViewController = rootViewController
+            
+            //次回起動時にログインしていない状態にする
+            let ud = UserDefaults.standard
+            ud.set(false, forKey: "isLogin")
+            ud.synchronize()
+            return
+        }
         
         if posts[tableViewCell.tag].isLiked == false || posts[tableViewCell.tag].isLiked == nil {
             let query = NCMBQuery(className: "Post")
             query?.getObjectInBackground(withId: posts[tableViewCell.tag].objectId, block: { (post, error) in
-                post?.addUniqueObject(NCMBUser.current().objectId, forKey: "likeUser")
+                post?.addUniqueObject(currentUser.objectId, forKey: "likeUser")
                 post?.saveEventually({ (error) in
                     if error != nil {
                         SVProgressHUD.showError(withStatus: error!.localizedDescription)
@@ -244,6 +236,9 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         }
         
         let query = NCMBQuery(className: "Post")
+        
+        //Userの情報も取ってくる
+        query?.includeKey("user")
         
         // 降順
         query?.order(byDescending: "createDate")
