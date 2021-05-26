@@ -119,24 +119,12 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
     //いいねボタンが押された時、どのセル、tableViewが押されたのか引数として引っ張ってくる
     func didTapLikeButton(tableViewCell: UITableViewCell, button: UIButton) {
         
-        guard let currentUser = NCMBUser.current() else {
-            //ログアウトさせる
-            let storyboard = UIStoryboard(name: "SignUp", bundle: Bundle.main)
-            let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootNavigationController")
-            //画面の切り替えができる
-            UIApplication.shared.keyWindow?.rootViewController = rootViewController
-            
-            //次回起動時にログインしていない状態にする
-            let ud = UserDefaults.standard
-            ud.set(false, forKey: "isLogin")
-            ud.synchronize()
-            return
-        }
+        let currentUser = NCMBUser.current()
         
         if posts[tableViewCell.tag].isLiked == false || posts[tableViewCell.tag].isLiked == nil {
             let query = NCMBQuery(className: "Post")
             query?.getObjectInBackground(withId: posts[tableViewCell.tag].objectId, block: { (post, error) in
-                post?.addUniqueObject(currentUser.objectId, forKey: "likeUser")
+                post?.addUniqueObject(currentUser?.objectId, forKey: "likeUser")
                 post?.saveEventually({ (error) in
                     if error != nil {
                         SVProgressHUD.showError(withStatus: error!.localizedDescription)
@@ -220,20 +208,7 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
     
     func loadTimeline (){
         
-        guard let currentUser = NCMBUser.current() else {
-            //画面が戻る
-            
-            //ログアウト成功
-            let storyboard = UIStoryboard(name: "SignUp", bundle: Bundle.main)
-            let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootNavigationController")
-            UIApplication.shared.keyWindow?.rootViewController = rootViewController
-            
-            //ログイン状態の保持
-            let ud = UserDefaults.standard
-            ud.set(false, forKey: "isLogin")
-            ud.synchronize()
-            return
-        }
+        let currentUser = NCMBUser.current() 
         
         let query = NCMBQuery(className: "Post")
         
@@ -279,7 +254,7 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
                         
                         // likeの状況(自分が過去にLikeしているか？)によってデータを挿入
                         let likeUsers = postObject.object(forKey: "likeUser") as? [String]
-                        if likeUsers?.contains(currentUser.objectId) == true {
+                        if likeUsers?.contains(currentUser!.objectId) == true {
                             post.isLiked = true
                         } else {
                             post.isLiked = false

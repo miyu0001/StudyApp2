@@ -411,4 +411,19 @@ class SearchCertificationViewController: UIViewController,UITableViewDelegate,UI
         }
         return cell
     }
+    
+    @IBAction func finishButton(_ sender: Any) {
+        //ログイン成功したので画面遷移
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootTabBarController")
+        
+        //storyboard間の画面遷移
+        UIApplication.shared.keyWindow?.rootViewController = rootViewController
+        
+        //ログイン状態の保持
+        let ud = UserDefaults.standard
+        ud.set(true, forKey: "isLogin")
+        ud.synchronize()
+    }
+    
 }

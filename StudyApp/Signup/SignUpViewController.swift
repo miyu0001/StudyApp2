@@ -73,16 +73,16 @@ class SignUpViewController: UIViewController ,UITextFieldDelegate {
             if error != nil{
                 print(error)
             } else {
-                //登録成功したら画面が移るようにstoryboardを取得する
-                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootTabBarController")
-                //画面の切り替えができる
-                UIApplication.shared.keyWindow?.rootViewController = rootViewController
-                
-                //ログイン状態の保持
-                let ud = UserDefaults.standard
-                ud.set(true, forKey: "isLogin")
-                ud.synchronize()
+//                //登録成功したら画面が移るようにstoryboardを取得する
+//                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//                let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootTabBarController")
+//                //画面の切り替えができる
+//                UIApplication.shared.keyWindow?.rootViewController = rootViewController
+//
+//                //ログイン状態の保持
+//                let ud = UserDefaults.standard
+//                ud.set(true, forKey: "isLogin")
+//                ud.synchronize()
             }
         }
     }

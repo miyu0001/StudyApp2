@@ -300,7 +300,7 @@
         <!--Question Timeline View Controller-->
         <scene sceneID="f2c-7M-H8i">
             <objects>
-                <viewController storyboardIdentifier="QuestionTimelineViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b7T-kL-Myv" customClass="QuestionTimelineViewController" customModule="StudyApp" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionTimelineViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b7T-kL-Myv" customClass="QuestionTimelineViewController" customModule="StudyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fmQ-fO-GR6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -366,6 +366,11 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="button" destination="5dp-Ri-PK5" id="KlF-B9-XMM"/>
+                        <outlet property="likeButton" destination="Leh-5V-SHG" id="RX0-JU-KSt"/>
+                        <outlet property="timelineTableView" destination="ENl-B6-0al" id="dhF-a1-CoO"/>
+                        <outlet property="userNameLabel" destination="PHF-3x-Nhg" id="gWB-f0-Qwo"/>
+                        <outlet property="userPostTextLabel" destination="eqQ-Hp-h9z" id="S7V-rH-YAV"/>
                         <segue destination="Amb-b4-4lw" kind="show" id="Yxl-CR-6e4"/>
                     </connections>
                 </viewController>
@@ -376,35 +381,50 @@
         <!--Post Question View Controller-->
         <scene sceneID="b21-lw-LKL">
             <objects>
-                <viewController id="M39-x2-EYe" customClass="PostQuestionViewController" customModule="StudyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostQuestionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="M39-x2-EYe" customClass="PostQuestionViewController" customModule="StudyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UE2-F4-PaR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="質問を記入" translatesAutoresizingMaskIntoConstraints="NO" id="g8O-0Q-cvs">
-                                <rect key="frame" x="0.0" y="88" width="414" height="304"/>
+                                <rect key="frame" x="72" y="101" width="342" height="369"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OzX-Dw-UcF">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="jZe-uu-mNB">
+                                        <barButtonItem key="leftBarButtonItem" title="キャンセル" id="Mqv-vm-cAj">
+                                            <connections>
+                                                <action selector="cancel" destination="M39-x2-EYe" id="W6W-Jc-Cnt"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="完了" id="Bsh-6y-oDQ">
+                                            <connections>
+                                                <action selector="sharePhoto" destination="M39-x2-EYe" id="Tyt-pq-bNg"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ux2-jf-3PC">
+                                <rect key="frame" x="12" y="101" width="52" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OsU-kv-NDu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="IMF-a2-BW1">
-                        <barButtonItem key="leftBarButtonItem" title="キャンセル" id="87V-tn-vtp">
-                            <connections>
-                                <action selector="cancel" destination="M39-x2-EYe" id="ROT-DM-vU3"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="完了" id="IPa-8g-esJ"/>
-                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="postButton" destination="IPa-8g-esJ" id="rbB-Cl-EqS"/>
+                        <outlet property="postButton" destination="Bsh-6y-oDQ" id="cJu-76-fD2"/>
                         <outlet property="postTextView" destination="g8O-0Q-cvs" id="dFQ-wc-ctS"/>
+                        <outlet property="userImage" destination="Ux2-jf-3PC" id="Xab-XG-Wmt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4aZ-xd-w84" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -508,10 +528,10 @@
             </objects>
             <point key="canvasLocation" x="1768" y="695"/>
         </scene>
-        <!--投稿-->
+        <!--Post View Controller-->
         <scene sceneID="JK9-a1-cQd">
             <objects>
-                <viewController id="YW6-sn-3zB" customClass="PostViewController" customModule="StudyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YW6-sn-3zB" customClass="PostViewController" customModule="StudyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JQY-Lu-Lrt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -554,24 +574,32 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Bg-hb-gI6">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="投稿" id="oR4-jf-NhT">
+                                        <barButtonItem key="leftBarButtonItem" title="キャンセル" id="aSw-L6-DSX">
+                                            <connections>
+                                                <action selector="cancel" destination="YW6-sn-3zB" id="DQl-gh-jQq"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="完了" id="xUi-md-T03">
+                                            <connections>
+                                                <action selector="sharePhoto" destination="YW6-sn-3zB" id="r0i-x7-eue"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="us5-cd-0iO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="投稿" id="KEP-j1-YJD">
-                        <barButtonItem key="leftBarButtonItem" title="キャンセル" id="Ihh-oQ-IJG">
-                            <connections>
-                                <action selector="cancel" destination="YW6-sn-3zB" id="JlG-58-YZk"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="完了" id="udR-sI-AkN">
-                            <connections>
-                                <action selector="sharePhoto" destination="YW6-sn-3zB" id="Sbh-Nb-9gK"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="postButton" destination="udR-sI-AkN" id="95F-NF-tmA"/>
+                        <outlet property="postButton" destination="xUi-md-T03" id="WW4-2e-Mwl"/>
                         <outlet property="postImageView" destination="75y-Zu-yJW" id="0YD-uo-0eP"/>
                         <outlet property="postTextView" destination="zcF-kf-k1x" id="q4c-P2-otz"/>
                     </connections>
@@ -579,24 +607,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S1E-es-4qR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7297.1014492753629" y="494.86607142857139"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="guN-SE-BW1">
-            <objects>
-                <navigationController storyboardIdentifier="PostViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8T2-Rs-U1W" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kPn-1M-2PN">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="YW6-sn-3zB" kind="relationship" relationship="rootViewController" id="exz-KY-NUR"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ew3-f5-v71" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6386.9565217391309" y="494.86607142857139"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="4ZC-tc-x2W">
@@ -613,25 +623,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="USj-0F-jFb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6387" y="-1743"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="H5b-va-Dlu">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2C2-Hn-TXP" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="E0v-he-76H"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KVc-8C-vQo">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="M39-x2-EYe" kind="relationship" relationship="rootViewController" id="1KZ-Cy-QRa"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oz1-tp-oeS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6386.9565217391309" y="-990.40178571428567"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="w8o-2G-uW6">

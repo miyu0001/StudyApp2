@@ -254,7 +254,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="QR4-Rr-lOY">
-                        <barButtonItem key="rightBarButtonItem" title="完了" id="6p3-CS-X7W"/>
+                        <barButtonItem key="rightBarButtonItem" title="完了" id="6p3-CS-X7W">
+                            <connections>
+                                <action selector="finishButton:" destination="xN0-el-YHr" id="7Tj-mt-rAD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="certificationTableView" destination="Q4Y-AW-BsY" id="7Ej-dI-11l"/>

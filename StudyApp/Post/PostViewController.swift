@@ -10,6 +10,9 @@ import NYXImagesKit
 import NCMB
 import UITextView_Placeholder
 import SVProgressHUD
+import Foundation
+
+
 
 class PostViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate {
     
@@ -32,6 +35,15 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         postTextView.placeholder = "キャプションを書く"
         postTextView.delegate = self
         
+        //他のところをタッチしたらキーボードが閉じる
+        let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGR.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapGR)
+        
+    }
+    
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -133,7 +145,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
                         self.postImageView.image = nil
                         self.postImageView.image = UIImage(named: "photo-placeholder")
                         self.postTextView.text = nil
-                        self.navigationController?.popViewController(animated: true)
+                        self.dismiss(animated: true, completion: nil)
                     }
                 })
             }
@@ -160,7 +172,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
             self.postTextView.text = nil
             self.postImageView.image = UIImage(named: "photo-placeholder")
             self.confirmContent()
-            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
         })
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)

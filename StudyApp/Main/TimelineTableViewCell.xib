@@ -39,6 +39,7 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ouyou.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="9td-Y3-thR">
                         <rect key="frame" x="96" y="74" width="243" height="369"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <gestureRecognizers/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Miyu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4m-QA-dwu">
                         <rect key="frame" x="66" y="15" width="65" height="23"/>
@@ -50,6 +51,7 @@
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvr-7J-HIC">
                         <rect key="frame" x="352" y="51" width="37" height="39"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <gestureRecognizers/>
                         <state key="normal" image="icons8-ハート-60.png"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9E-Nc-VK8">
@@ -67,11 +69,14 @@
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gps-1v-el1">
                         <rect key="frame" x="258" y="437" width="156" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <gestureRecognizers/>
                         <state key="normal" title="コメントを表示する"/>
                     </button>
                 </subviews>
+                <gestureRecognizers/>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <gestureRecognizers/>
             <connections>
                 <outlet property="commentTextView" destination="qeY-sN-97c" id="yQl-Wa-5Bv"/>
                 <outlet property="likeButton" destination="Fvr-7J-HIC" id="DvG-vJ-bmE"/>

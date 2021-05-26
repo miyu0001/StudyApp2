@@ -21,6 +21,7 @@ class PostQuestionViewController: UIViewController, UINavigationControllerDelega
     
     @IBOutlet var postTextView: UITextView!
     @IBOutlet var postButton: UIBarButtonItem!
+    @IBOutlet weak var userImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,23 +49,23 @@ class PostQuestionViewController: UIViewController, UINavigationControllerDelega
         // ここを変更（ファイル名無いので）
         //let file = NCMBFile.file(with: data) as! NCMBFile
         //file.saveInBackground({ (error) in
-//            if error != nil {
-//                SVProgressHUD.dismiss()
-//                let alert = UIAlertController(title: "画像アップロードエラー", message: error!.localizedDescription, preferredStyle: .alert)
-//                let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
-//
-//                })
-//                alert.addAction(okAction)
-//                self.present(alert, animated: true, completion: nil)
-//            } else {
-//                if self.postTextView.text.count == 0 {
-//                    print("入力されていません")
-//                    return
-//                }
-//            }
-//        }) { (progress) in
-//            print(progress)
-//        }
+        //            if error != nil {
+        //                SVProgressHUD.dismiss()
+        //                let alert = UIAlertController(title: "画像アップロードエラー", message: error!.localizedDescription, preferredStyle: .alert)
+        //                let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+        //
+        //                })
+        //                alert.addAction(okAction)
+        //                self.present(alert, animated: true, completion: nil)
+        //            } else {
+        //                if self.postTextView.text.count == 0 {
+        //                    print("入力されていません")
+        //                    return
+        //                }
+        //            }
+        //        }) { (progress) in
+        //            print(progress)
+        //        }
     }
     
     func confirmContent() {
@@ -83,8 +84,9 @@ class PostQuestionViewController: UIViewController, UINavigationControllerDelega
         let alert = UIAlertController(title: "投稿内容の破棄", message: "入力中の投稿内容を破棄しますか？", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
             self.postTextView.text = nil
+            //self.postImageView.image = UIImage(named: "photo-placeholder")
             self.confirmContent()
-            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
         })
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
@@ -92,7 +94,6 @@ class PostQuestionViewController: UIViewController, UINavigationControllerDelega
         alert.addAction(okAction)
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
-        
     }
     
 }

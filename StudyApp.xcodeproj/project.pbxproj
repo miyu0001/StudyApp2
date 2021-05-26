@@ -199,6 +199,7 @@
 				3B813AED264CDA650059E521 /* Main.storyboard */,
 				3B7DFE152657A55700CD81F4 /* BigViewController.swift */,
 				3B7DFE192657E50B00CD81F4 /* QuestionTimelineViewController.swift */,
+				3B7DFE1226560AAD00CD81F4 /* Detail */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -257,7 +258,6 @@
 				3B7DFE0D265609A500CD81F4 /* EditUser */,
 				3B7DFE0E265609DD00CD81F4 /* Main */,
 				3B7DFE0F265609F600CD81F4 /* Post */,
-				3B7DFE1226560AAD00CD81F4 /* Detail */,
 				3B7DFE1126560A8900CD81F4 /* more */,
 				3B813AC2264C24BE0059E521 /* AppDelegate.swift */,
 				3B813ADC264C3A370059E521 /* Sharenote.storyboard */,

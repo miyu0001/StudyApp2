@@ -54,4 +54,5 @@ class TimelineTableViewCell: UITableViewCell {
         self.delegate?.didTapCommentsButton(tableViewCell: self, button: button)
     }
     
+    
 }

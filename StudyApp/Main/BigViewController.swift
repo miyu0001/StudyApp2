@@ -19,10 +19,14 @@ class BigViewController: TabmanViewController {
         // Floatyを生成
         let floaty = Floaty()
         // 開いた時に現れるボタンアイテムを追加
-        floaty.addItem("質問", icon: UIImage(named: "question.png"))
+        floaty.addItem("質問", icon: UIImage(named: "question.png")) { item in
+            let PostQuestionViewController = self.storyboard?.instantiateViewController(withIdentifier: "PostQuestionViewController") as! PostQuestionViewController
+            self.present(PostQuestionViewController, animated: true, completion: nil)
+        }
         // 開いた時に現れるボタンアイテムを追加
         floaty.addItem("ノート",icon: UIImage(named: "note.png")) { item in
             let PostViewController = self.storyboard?.instantiateViewController(withIdentifier: "PostViewController") as! PostViewController
+            PostViewController.modalPresentationStyle = .fullScreen
             self.present(PostViewController, animated: true, completion: nil)
         }
         // viewにFloatyを追加
