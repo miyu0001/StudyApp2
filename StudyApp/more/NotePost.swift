@@ -23,6 +23,7 @@ class NotePost: NSObject {
     var comments: [Comment]?
     //いいね数
     var likeCount: Int = 0
+    
 
     //それぞれどのタイミングで初期化するか
     //()内で初期化と同時に何か値を渡すことができる

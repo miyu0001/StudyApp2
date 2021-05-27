@@ -28,14 +28,18 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
     @IBOutlet weak var commentTableview: UITableView!
     
     var selectedUserImage : UIImage!
-    
+    var selectedUserImageUrl : String!
     
     var commentsText = [String]()
     var users = [String]()
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let user = selectedPost?.user
 
         commentTableview.dataSource = self
         commentTableview.delegate = self
@@ -44,14 +48,20 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
         self.userLabel.text = selectedPost?.user.displayName
         self.timeLabel.text = selectedPost?.createDate as? String
         
+        
         //投稿画像をURLとして取得する
         let selectedUrl = (selectedPost?.imageUrl)!
         //URLを画像に変換して表示させる
         self.postImageView.kf.setImage(with: URL(string: selectedUrl))
         
         //ユーザー画像の設定
-//        self.userImage = 
+        //self.userImage =
         loadData()
+        
+        let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user!.objectId as! String
+        print(userImageUrl)
+        
+        userImage.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
         
         
     }

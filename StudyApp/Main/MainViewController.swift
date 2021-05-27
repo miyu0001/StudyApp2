@@ -48,7 +48,7 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         selectedPost = posts[indexPath.row]
-//        selectedUserImage =
+
         //タップしたら次の画面に行くように
         self.performSegue(withIdentifier: "toDetail", sender: nil)
         
@@ -63,7 +63,7 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
             let detailViewController = segue.destination as! DetailNoteViewController
             //選択した投稿が一括で遷移させる
             detailViewController.selectedPost = selectedPost
-            detailViewController
+            
             print(selectedPost)
             
         }
@@ -89,7 +89,9 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         //userImageViewをkfでURLから画像に変換させる
         let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId as! String
         print(userImageUrl)
-        cell.userImageView.kf.setImage(with: URL(string: userImageUrl))
+        
+        cell.userImageView.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
+        
         
         cell.commentTextView.text = posts[indexPath.row].text
         let imageUrl = posts[indexPath.row].imageUrl as! String

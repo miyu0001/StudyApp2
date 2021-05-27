@@ -37,26 +37,29 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         
     }
     
-    
+    //セルをタッチしたときに呼ばれる
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         selectedPost = posts[indexPath.row]
-        self.performSegue(withIdentifier: "toDetail", sender: nil)
         
+        //タッチしたら次の画面に行くように
+        self.performSegue(withIdentifier: "toDetail2", sender: nil)
+     
    
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toComments" {
-            let commentViewController = segue.destination as! NoteCommentsViewController
-            commentViewController.postId = selectedPost?.objectId
-        }
         
-        if segue.identifier == "toDetail" {
-            //let detailViewController = segue.destination as! DetailViewController
-            print(selectedPost)
+        if segue.identifier == "toDetail2" {
+            //次の画面があることを教える
+            let detailViewController = segue.destination as! DetailQuestionViewController
             
+            //選択した投稿が一括で遷移される
+            detailViewController.selectedPost = selectedPost
+            
+            print(selectedPost)
         }
+
         
     }
     
