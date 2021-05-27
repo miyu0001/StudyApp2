@@ -83,7 +83,7 @@
                 <outlet property="menuButton" destination="r9E-Nc-VK8" id="4La-kt-XHM"/>
                 <outlet property="photoImageView" destination="9td-Y3-thR" id="KMa-1d-ExE"/>
                 <outlet property="timestampLabel" destination="Mjf-oR-9KS" id="TKS-zf-yea"/>
-                <outlet property="userImageView" destination="Nvc-JH-kqL" id="D1N-Vp-x1K"/>
+                <outlet property="userImageView" destination="Nvc-JH-kqL" id="oq0-fj-oKN"/>
                 <outlet property="userNameLabel" destination="U4m-QA-dwu" id="wrT-jN-bB1"/>
             </connections>
             <point key="canvasLocation" x="173.91304347826087" y="164.73214285714286"/>

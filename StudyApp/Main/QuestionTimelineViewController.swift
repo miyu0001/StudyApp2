@@ -1,10 +1,3 @@
-//
-//  QuestionTimelineViewController.swift
-//  StudyApp
-//
-//  Created by 佐藤未悠 on 2021/05/21.
-//
-//
 
 import UIKit
 import NCMB
@@ -14,20 +7,15 @@ import Kingfisher
 import SwiftData
 import Floaty
 
-class QuestionTimelineViewController: UIViewController , UITableViewDataSource,UITableViewDelegate,TimelineTableViewCellDelegate{
+class QuestionTimelineViewController: UIViewController , UITableViewDataSource,UITableViewDelegate,QuestionTableViewCellDelegate, TimelineTableViewCellDelegate{
     
-    var selectedPost : Post?
+    var selectedPost : QustionPost?
     
-    var posts = [Post]()
+    var posts = [QustionPost]()
     
     var followings = [NCMBUser]()
     
     @IBOutlet weak var timelineTableView: UITableView!
-    @IBOutlet weak var userImage: UIImageView!
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var userPostTextLabel: UILabel!
-    @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet weak var button: UIButton!
     
     
     override func viewDidLoad() {
@@ -36,17 +24,16 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         timelineTableView.dataSource = self
         timelineTableView.delegate = self
         
-        //loadFollowingUsers()
+        loadFollowingUsers()
         
         setRefreshControl()
         
         //カスタムビューの取得
-        let nib = UINib(nibName: "TimelineTableViewCell", bundle: Bundle.main)
-        timelineTableView.register(nib, forCellReuseIdentifier: "Cell")
+        let nib = UINib(nibName: "QuestionTableViewCell", bundle: Bundle.main)
+        timelineTableView.register(nib, forCellReuseIdentifier: "Cell2")
         
         timelineTableView.tableFooterView = UIView()
-        
-        timelineTableView.rowHeight = 360
+        timelineTableView.rowHeight = 90
         
     }
     
@@ -56,26 +43,17 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         selectedPost = posts[indexPath.row]
         self.performSegue(withIdentifier: "toDetail", sender: nil)
         
-        
+   
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toComments" {
             let commentViewController = segue.destination as! NoteCommentsViewController
             commentViewController.postId = selectedPost?.objectId
-            
-            print(selectedPost)
-            
         }
         
         if segue.identifier == "toDetail" {
-            let detailViewController = segue.destination as! DetailViewController
-            
-            
-            //detailViewController.postId = selectedPost?.objectId
-            //            detailViewController.selectedUserName = selectedPost?.user.displayName
-            
-            
+            //let detailViewController = segue.destination as! DetailViewController
             print(selectedPost)
             
         }
@@ -88,7 +66,7 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = timelineTableView.dequeueReusableCell(withIdentifier: "Cell") as! TimelineTableViewCell
+        let cell = timelineTableView.dequeueReusableCell(withIdentifier: "Cell2") as! QuestionTableViewCell
         
         //内容
         cell.delegate = self
@@ -97,13 +75,13 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         let user = posts[indexPath.row].user
         print(user.userName)
         cell.userNameLabel.text = user.userName
-        //let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId
-        //cell.userImageView.kf.setImage (with: URL (string: userImageUrl), placeholder: UIImage (named: "placeholder.jpg"))
+        let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId
+        cell.userImageView.kf.setImage (with: URL (string: userImageUrl), placeholder: UIImage (named: "placeholder.jpg"))
         
         cell.commentTextView.text = posts[indexPath.row].text
-        //let imageUrl = posts[indexPath.row].imageUrl as! String
+//        let imageUrl = posts[indexPath.row].imageUrl as! String
         
-        //print(imageUrl)
+        
         //cell.photoImageView.kf.setImage(with: URL(string: imageUrl))
         
         // Likeによってハートの表示を変える
@@ -217,7 +195,7 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         
         let currentUser = NCMBUser.current()
         
-        let query = NCMBQuery(className: "Post")
+        let query = NCMBQuery(className: "QuestionPost")
         
         //Userの情報も取ってくる
         query?.includeKey("user")
@@ -229,14 +207,14 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         query?.includeKey("user")
         
         // フォロー中の人 + 自分の投稿だけ持ってくる
-        //               query?.whereKey("user", containedIn: followings)
+        //query?.whereKey("user", containedIn: followings)
         // オブジェクトの取得
         query?.findObjectsInBackground({ (result, error) in
             if error != nil {
                 SVProgressHUD.showError(withStatus: error!.localizedDescription)
             } else {
                 // 投稿を格納しておく配列を初期化(これをしないとreload時にappendで二重に追加されてしまう)
-                self.posts = [Post]()
+                self.posts = [QustionPost]()
                 
                 for postObject in result as! [NCMBObject] {
                     print(result)
@@ -251,12 +229,11 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
                         userModel.displayName = user.object(forKey: "displayName") as? String
                         
                         
-                        // 投稿の情報を取得
-                        let imageUrl = postObject.object(forKey: "imageUrl") as! String
+                        
                         let text = postObject.object(forKey: "text") as! String
                         
                         // 2つのデータ(投稿情報と誰が投稿したか?)を合わせてPostクラスにセット
-                        let post = Post(objectId: postObject.objectId, user: userModel, imageUrl: imageUrl, text: text, createDate: postObject.createDate)
+                        let post = QustionPost(objectId: postObject.objectId, user: userModel, text: text, createDate: postObject.createDate)
                         
                         
                         // likeの状況(自分が過去にLikeしているか？)によってデータを挿入
@@ -319,5 +296,4 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         })
     }
 }
-
 

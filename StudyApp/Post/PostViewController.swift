@@ -32,7 +32,6 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         postImageView.image = placeholderImage
         
         postButton.isEnabled = false
-        postTextView.placeholder = "キャプションを書く"
         postTextView.delegate = self
         
         //他のところをタッチしたらキーボードが閉じる

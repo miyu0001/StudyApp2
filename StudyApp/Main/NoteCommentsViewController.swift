@@ -90,6 +90,9 @@ class NoteCommentsViewController: UIViewController, UITableViewDataSource, UITab
             }
         })
     }
+    @IBAction func back(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func addComment() {
         let alert = UIAlertController(title: "コメント", message: "コメントを入力して下さい", preferredStyle: .alert)

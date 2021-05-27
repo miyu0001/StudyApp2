@@ -14,11 +14,12 @@ import Floaty
 
 class MainViewController: UIViewController , UITableViewDataSource,UITableViewDelegate,TimelineTableViewCellDelegate{
     
-    var selectedPost : Post?
+    var selectedPost : NotePost?
     
-    var posts = [Post]()
+    var posts = [NotePost]()
     
     var followings = [NCMBUser]()
+ 
     
     @IBOutlet var timelineTableView : UITableView!
     @IBOutlet weak var button: UIButton!
@@ -43,32 +44,26 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         
     }
     
-    
+    //移るだけ
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         selectedPost = posts[indexPath.row]
+//        selectedUserImage =
+        //タップしたら次の画面に行くように
         self.performSegue(withIdentifier: "toDetail", sender: nil)
         
         
     }
     
+    //画面が移るときに値を渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toComments" {
-            let commentViewController = segue.destination as! NoteCommentsViewController
-            commentViewController.postId = selectedPost?.objectId
-            
-            print(selectedPost)
-            
-        }
-        
+
         if segue.identifier == "toDetail" {
-            let detailViewController = segue.destination as! DetailViewController
-            
-            
-            //detailViewController.postId = selectedPost?.objectId
-            //            detailViewController.selectedUserName = selectedPost?.user.displayName
-            
-            
+            //次の画面があるのを教える
+            let detailViewController = segue.destination as! DetailNoteViewController
+            //選択した投稿が一括で遷移させる
+            detailViewController.selectedPost = selectedPost
+            detailViewController
             print(selectedPost)
             
         }
@@ -90,14 +85,18 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         let user = posts[indexPath.row].user
         print(user.userName)
         cell.userNameLabel.text = user.userName
-        let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId
-        cell.userImageView.kf.setImage (with: URL (string: userImageUrl), placeholder: UIImage (named: "placeholder.jpg"))
+        
+        //userImageViewをkfでURLから画像に変換させる
+        let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId as! String
+        print(userImageUrl)
+        cell.userImageView.kf.setImage(with: URL(string: userImageUrl))
         
         cell.commentTextView.text = posts[indexPath.row].text
         let imageUrl = posts[indexPath.row].imageUrl as! String
         
         print(imageUrl)
         cell.photoImageView.kf.setImage(with: URL(string: imageUrl))
+        
         
         // Likeによってハートの表示を変える
         if posts[indexPath.row].isLiked == true {
@@ -116,6 +115,9 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         
         return cell
     }
+
+    
+
     //いいねボタンが押された時、どのセル、tableViewが押されたのか引数として引っ張ってくる
     func didTapLikeButton(tableViewCell: UITableViewCell, button: UIButton) {
         
@@ -229,11 +231,14 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
                 SVProgressHUD.showError(withStatus: error!.localizedDescription)
             } else {
                 // 投稿を格納しておく配列を初期化(これをしないとreload時にappendで二重に追加されてしまう)
-                self.posts = [Post]()
+                self.posts = [NotePost]()
                 
                 for postObject in result as! [NCMBObject] {
                     print(result)
                     print(postObject)
+                    
+                    
+                    
                     // ユーザー情報をUserクラスにセット
                     let user = postObject.object(forKey: "user") as! NCMBUser
                     
@@ -243,13 +248,12 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
                         let userModel = User(objectId: user.objectId, userName: user.userName)
                         userModel.displayName = user.object(forKey: "displayName") as? String
                         
-                        
                         // 投稿の情報を取得
                         let imageUrl = postObject.object(forKey: "imageUrl") as! String
                         let text = postObject.object(forKey: "text") as! String
                         
                         // 2つのデータ(投稿情報と誰が投稿したか?)を合わせてPostクラスにセット
-                        let post = Post(objectId: postObject.objectId, user: userModel, imageUrl: imageUrl, text: text, createDate: postObject.createDate)
+                        let post = NotePost(objectId: postObject.objectId, user: userModel, imageUrl: imageUrl, text: text, createDate: postObject.createDate)
                         
                         
                         // likeの状況(自分が過去にLikeしているか？)によってデータを挿入
@@ -311,6 +315,7 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
             }
         })
     }
+    
 }
 
 

@@ -21,11 +21,10 @@
 		3B2F2DBC265B4B9800ECFD3D /* NoteCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2F2DBB265B4B9800ECFD3D /* NoteCommentsViewController.swift */; };
 		3B2F2DC0265BDC6C00ECFD3D /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2F2DBF265BDC6C00ECFD3D /* question.png */; };
 		3B2F2DC2265BDC7600ECFD3D /* note.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2F2DC1265BDC7600ECFD3D /* note.png */; };
-		3B31F655265520FD00C34864 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B31F654265520FD00C34864 /* DetailViewController.swift */; };
 		3B7DFE162657A55700CD81F4 /* BigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DFE152657A55700CD81F4 /* BigViewController.swift */; };
 		3B7DFE1A2657E50B00CD81F4 /* QuestionTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DFE192657E50B00CD81F4 /* QuestionTimelineViewController.swift */; };
 		3B806C2A26536141005FAA3D /* icons8-ハート-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B806C2926536141005FAA3D /* icons8-ハート-60.png */; };
-		3B806C2C265365E2005FAA3D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B806C2B265365E2005FAA3D /* Post.swift */; };
+		3B806C2C265365E2005FAA3D /* NotePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B806C2B265365E2005FAA3D /* NotePost.swift */; };
 		3B806C2E265365FA005FAA3D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B806C2D265365FA005FAA3D /* User.swift */; };
 		3B806C30265368BC005FAA3D /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B806C2F265368BC005FAA3D /* Comment.swift */; };
 		3B813AC3264C24BE0059E521 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B813AC2264C24BE0059E521 /* AppDelegate.swift */; };
@@ -59,8 +58,13 @@
 		3BBDE4752654C7DF00488565 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3BBDE4612654C7DF00488565 /* README.md */; };
 		3BBDE4762654C7DF00488565 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BBDE4622654C7DF00488565 /* iTunesArtwork@2x.png */; };
 		3BBDE4772654C7DF00488565 /* iTunesArtwork@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BBDE4632654C7DF00488565 /* iTunesArtwork@3x.png */; };
-		3BBDE4792655076000488565 /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BBDE4782655076000488565 /* Post.storyboard */; };
 		3BBDE47B2655098300488565 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDE47A2655098300488565 /* PostViewController.swift */; };
+		3BE47271265E1D1500B068D2 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4726F265E1D1500B068D2 /* QuestionTableViewCell.swift */; };
+		3BE47272265E1D1500B068D2 /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE47270265E1D1500B068D2 /* QuestionTableViewCell.xib */; };
+		3BE47274265E2EC500B068D2 /* QuestionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE47273265E2EC500B068D2 /* QuestionPost.swift */; };
+		3BE47279265E38B000B068D2 /* CustomClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE47278265E38B000B068D2 /* CustomClass.swift */; };
+		3BE4727D265E4BE400B068D2 /* PostNoteCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4727C265E4BE400B068D2 /* PostNoteCommentViewController.swift */; };
+		3BE4727F265E576D00B068D2 /* DetailNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4727E265E576D00B068D2 /* DetailNoteViewController.swift */; };
 		E6265A95AB2609F711D33F3F /* Pods_StudyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 421AC816A7B11910C2A5BCAC /* Pods_StudyApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,11 +83,10 @@
 		3B2F2DBB265B4B9800ECFD3D /* NoteCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCommentsViewController.swift; sourceTree = "<group>"; };
 		3B2F2DBF265BDC6C00ECFD3D /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question.png; sourceTree = "<group>"; };
 		3B2F2DC1265BDC7600ECFD3D /* note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = note.png; sourceTree = "<group>"; };
-		3B31F654265520FD00C34864 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3B7DFE152657A55700CD81F4 /* BigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigViewController.swift; sourceTree = "<group>"; };
 		3B7DFE192657E50B00CD81F4 /* QuestionTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTimelineViewController.swift; sourceTree = "<group>"; };
 		3B806C2926536141005FAA3D /* icons8-ハート-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-ハート-60.png"; sourceTree = "<group>"; };
-		3B806C2B265365E2005FAA3D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		3B806C2B265365E2005FAA3D /* NotePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePost.swift; sourceTree = "<group>"; };
 		3B806C2D265365FA005FAA3D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3B806C2F265368BC005FAA3D /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		3B813ABF264C24BE0059E521 /* StudyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,8 +122,13 @@
 		3BBDE4612654C7DF00488565 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3BBDE4622654C7DF00488565 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		3BBDE4632654C7DF00488565 /* iTunesArtwork@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@3x.png"; sourceTree = "<group>"; };
-		3BBDE4782655076000488565 /* Post.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
 		3BBDE47A2655098300488565 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		3BE4726F265E1D1500B068D2 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
+		3BE47270265E1D1500B068D2 /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
+		3BE47273265E2EC500B068D2 /* QuestionPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPost.swift; sourceTree = "<group>"; };
+		3BE47278265E38B000B068D2 /* CustomClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClass.swift; sourceTree = "<group>"; };
+		3BE4727C265E4BE400B068D2 /* PostNoteCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNoteCommentViewController.swift; sourceTree = "<group>"; };
+		3BE4727E265E576D00B068D2 /* DetailNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNoteViewController.swift; sourceTree = "<group>"; };
 		421AC816A7B11910C2A5BCAC /* Pods_StudyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0BBB0ED2A9316A411383E58 /* Pods-StudyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.release.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.release.xcconfig"; sourceTree = "<group>"; };
 		B860F088B16E545FB0B131EC /* Pods-StudyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.debug.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -197,9 +205,10 @@
 				3B2AE6EF264CE53C000AE965 /* MainViewController.swift */,
 				3B2F2DBB265B4B9800ECFD3D /* NoteCommentsViewController.swift */,
 				3B813AED264CDA650059E521 /* Main.storyboard */,
+				3BE4726F265E1D1500B068D2 /* QuestionTableViewCell.swift */,
+				3BE47270265E1D1500B068D2 /* QuestionTableViewCell.xib */,
 				3B7DFE152657A55700CD81F4 /* BigViewController.swift */,
 				3B7DFE192657E50B00CD81F4 /* QuestionTimelineViewController.swift */,
-				3B7DFE1226560AAD00CD81F4 /* Detail */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -207,7 +216,6 @@
 		3B7DFE0F265609F600CD81F4 /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				3BBDE4782655076000488565 /* Post.storyboard */,
 				3B95FD8E265912390078A858 /* PostQuestionViewController.swift */,
 				3BBDE47A2655098300488565 /* PostViewController.swift */,
 			);
@@ -217,19 +225,13 @@
 		3B7DFE1126560A8900CD81F4 /* more */ = {
 			isa = PBXGroup;
 			children = (
-				3B806C2B265365E2005FAA3D /* Post.swift */,
+				3B806C2B265365E2005FAA3D /* NotePost.swift */,
+				3BE47273265E2EC500B068D2 /* QuestionPost.swift */,
 				3B806C2D265365FA005FAA3D /* User.swift */,
+				3BE47278265E38B000B068D2 /* CustomClass.swift */,
 				3B806C2F265368BC005FAA3D /* Comment.swift */,
 			);
 			path = more;
-			sourceTree = "<group>";
-		};
-		3B7DFE1226560AAD00CD81F4 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				3B31F654265520FD00C34864 /* DetailViewController.swift */,
-			);
-			path = Detail;
 			sourceTree = "<group>";
 		};
 		3B813AB6264C24BE0059E521 = {
@@ -258,6 +260,8 @@
 				3B7DFE0D265609A500CD81F4 /* EditUser */,
 				3B7DFE0E265609DD00CD81F4 /* Main */,
 				3B7DFE0F265609F600CD81F4 /* Post */,
+				3BE47280265E577300B068D2 /* Detail */,
+				3BE4727B265E4BC700B068D2 /* Comment */,
 				3B7DFE1126560A8900CD81F4 /* more */,
 				3B813AC2264C24BE0059E521 /* AppDelegate.swift */,
 				3B813ADC264C3A370059E521 /* Sharenote.storyboard */,
@@ -305,6 +309,22 @@
 				3BBDE4602654C7DF00488565 /* Icon-App-29x29@2x.png */,
 			);
 			path = AppIcon.appiconset;
+			sourceTree = "<group>";
+		};
+		3BE4727B265E4BC700B068D2 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				3BE4727C265E4BE400B068D2 /* PostNoteCommentViewController.swift */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		3BE47280265E577300B068D2 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				3BE4727E265E576D00B068D2 /* DetailNoteViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		3DC91E4D0F120711B7905CFB /* Pods */ = {
@@ -379,7 +399,6 @@
 				3B813AD9264C39D40059E521 /* SignUp.storyboard in Resources */,
 				3B813ACF264C24C00059E521 /* LaunchScreen.storyboard in Resources */,
 				3BBDE4762654C7DF00488565 /* iTunesArtwork@2x.png in Resources */,
-				3BBDE4792655076000488565 /* Post.storyboard in Resources */,
 				3B0C4DA42652D0F400E3F647 /* ouyou.jpeg in Resources */,
 				3B0C4D9D2652BC6500E3F647 /* more.png in Resources */,
 				3BBDE4712654C7DF00488565 /* Icon-App-60x60@2x.png in Resources */,
@@ -408,6 +427,7 @@
 				3BBDE4732654C7DF00488565 /* Icon-App-40x40@3x.png in Resources */,
 				3BBDE4652654C7DF00488565 /* Icon-App-76x76@2x.png in Resources */,
 				3B94E59F26514A1400A2CC03 /* profile_icon.png in Resources */,
+				3BE47272265E1D1500B068D2 /* QuestionTableViewCell.xib in Resources */,
 				3B813ACC264C24C00059E521 /* Assets.xcassets in Resources */,
 				3BBDE4672654C7DF00488565 /* Icon-App-40x40@1x.png in Resources */,
 			);
@@ -463,7 +483,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B813AC7264C24BE0059E521 /* SearchgenreViewController.swift in Sources */,
-				3B806C2C265365E2005FAA3D /* Post.swift in Sources */,
+				3BE47271265E1D1500B068D2 /* QuestionTableViewCell.swift in Sources */,
+				3BE47274265E2EC500B068D2 /* QuestionPost.swift in Sources */,
+				3BE4727F265E576D00B068D2 /* DetailNoteViewController.swift in Sources */,
+				3B806C2C265365E2005FAA3D /* NotePost.swift in Sources */,
 				3BBDE47B2655098300488565 /* PostViewController.swift in Sources */,
 				3B7DFE162657A55700CD81F4 /* BigViewController.swift in Sources */,
 				3B813AC3264C24BE0059E521 /* AppDelegate.swift in Sources */,
@@ -471,14 +494,15 @@
 				3B2AE6F4264D2AB4000AE965 /* SignInViewController.swift in Sources */,
 				3B2AE6F8264D765E000AE965 /* SearchCertificationViewController.swift in Sources */,
 				3B813AC5264C24BE0059E521 /* SceneDelegate.swift in Sources */,
+				3BE4727D265E4BE400B068D2 /* PostNoteCommentViewController.swift in Sources */,
 				3B813ADB264C39E20059E521 /* SignUpViewController.swift in Sources */,
 				3B806C30265368BC005FAA3D /* Comment.swift in Sources */,
 				3B806C2E265365FA005FAA3D /* User.swift in Sources */,
 				3B2AE6F0264CE53C000AE965 /* MainViewController.swift in Sources */,
-				3B31F655265520FD00C34864 /* DetailViewController.swift in Sources */,
 				3B2F2DBC265B4B9800ECFD3D /* NoteCommentsViewController.swift in Sources */,
 				3B7DFE1A2657E50B00CD81F4 /* QuestionTimelineViewController.swift in Sources */,
 				3B2AE6F6264D38C3000AE965 /* UserPageViewController.swift in Sources */,
+				3BE47279265E38B000B068D2 /* CustomClass.swift in Sources */,
 				3B2AE6FA264E6996000AE965 /* EditUserinfoViewController.swift in Sources */,
 				3B95FD8F265912390078A858 /* PostQuestionViewController.swift in Sources */,
 			);

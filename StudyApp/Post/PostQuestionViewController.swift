@@ -27,8 +27,47 @@ class PostQuestionViewController: UIViewController, UINavigationControllerDelega
         super.viewDidLoad()
         
         postButton.isEnabled = false
-        postTextView.placeholder = "キャプションを書く"
+        //postTextView.placeholder = "キャプションを書く"
         postTextView.delegate = self
+        
+        userImage.layer.cornerRadius = userImage.bounds.width / 2
+        
+        
+        let user = NCMBUser.current()
+        
+        //NCMBUser.currentを取得してuserという変数に代入する。その時にnilじゃなかったら{}内でuserという定数が使える
+        if let user = NCMBUser.current() {
+            //それぞれ画像やテキストをNCMBのデータから引っ張って代入
+            
+            
+            //取得するファイル名を変更してNCMBfile型で取得
+            let file = NCMBFile.file(withName: user.objectId ,  data: nil) as! NCMBFile
+            file.getDataInBackground { (data, error) in
+                if error != nil {
+                    print(error)
+                } else {
+                    //画像の取得に成功したら
+                    //ますはデータをそのまま渡す
+                    if data != nil {
+                        let image = UIImage(data: data!)
+                        self.userImage.image = image
+                    }
+                }
+            }
+        } else {
+            //NCMBuser.currentがnilだった時ログイン画面にもどす=ログアウトさせる
+            let storyboard = UIStoryboard(name: "SignUp", bundle: Bundle.main)
+            let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootNavigationController")
+            //画面の切り替えができる
+            UIApplication.shared.keyWindow?.rootViewController = rootViewController
+            
+            //次回起動時にログインしていない状態にする
+            let ud = UserDefaults.standard
+            ud.set(false, forKey: "isLogin")
+            ud.synchronize()
+        }
+        
+        
         
         
     }
@@ -42,32 +81,6 @@ class PostQuestionViewController: UIViewController, UINavigationControllerDelega
     }
     
     
-    @IBAction func sharePhoto() {
-        SVProgressHUD.show()
-        
-        //let data = resizedImage.pngData()
-        // ここを変更（ファイル名無いので）
-        //let file = NCMBFile.file(with: data) as! NCMBFile
-        //file.saveInBackground({ (error) in
-        //            if error != nil {
-        //                SVProgressHUD.dismiss()
-        //                let alert = UIAlertController(title: "画像アップロードエラー", message: error!.localizedDescription, preferredStyle: .alert)
-        //                let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
-        //
-        //                })
-        //                alert.addAction(okAction)
-        //                self.present(alert, animated: true, completion: nil)
-        //            } else {
-        //                if self.postTextView.text.count == 0 {
-        //                    print("入力されていません")
-        //                    return
-        //                }
-        //            }
-        //        }) { (progress) in
-        //            print(progress)
-        //        }
-    }
-    
     func confirmContent() {
         if postTextView.text.count > 0  {
             postButton.isEnabled = true
@@ -75,6 +88,28 @@ class PostQuestionViewController: UIViewController, UINavigationControllerDelega
             postButton.isEnabled = false
         }
     }
+    
+    
+    @IBAction func sharePhoto() {
+        SVProgressHUD.show()
+        let postObject = NCMBObject(className: "QuestionPost")
+        if self.postTextView.text.count == 0 {
+            print("入力されていません")
+            return
+        }
+        postObject?.setObject(self.postTextView.text!, forKey: "text")
+        postObject?.setObject(NCMBUser.current(), forKey: "user")
+        postObject?.saveInBackground({ (error) in
+            if error != nil {
+                SVProgressHUD.showError(withStatus: error!.localizedDescription)
+            } else {
+                SVProgressHUD.dismiss()
+                self.postTextView.text = nil
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
+    }
+    
     
     @IBAction func cancel() {
         if postTextView.isFirstResponder == true {
