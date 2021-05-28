@@ -689,8 +689,7 @@
         <!--Detail Question View Controller-->
         <scene sceneID="4ZC-tc-x2W">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="USj-0F-jFb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController id="Amb-b4-4lw" customClass="DetailQuestionViewController" customModule="StudyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Amb-b4-4lw" customClass="DetailQuestionViewController" customModule="StudyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4SP-Tz-CY7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -748,12 +747,28 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="rj1-s5-b31">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="rj1-s5-b31">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rj1-s5-b31" id="8pt-Cq-XMP">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKA-pI-FQ4">
+                                                    <rect key="frame" x="74" y="5" width="340" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4e-da-TLR">
+                                                    <rect key="frame" x="12" y="11" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -763,7 +778,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="この投稿に返信する"/>
                                 <connections>
-                                    <segue destination="3Uf-GR-vE8" kind="show" id="LfO-Fq-M6k"/>
+                                    <segue destination="3Uf-GR-vE8" kind="show" identifier="toComments" id="LfO-Fq-M6k"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -780,13 +795,14 @@
                         <outlet property="userLabel" destination="8bw-IL-4Ah" id="zL7-71-Mjc"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="USj-0F-jFb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8208.6956521739139" y="-1783.2589285714284"/>
         </scene>
-        <!--View Controller-->
+        <!--Post Question Comment View Controller-->
         <scene sceneID="Szn-A0-0vt">
             <objects>
-                <viewController id="3Uf-GR-vE8" sceneMemberID="viewController">
+                <viewController id="3Uf-GR-vE8" customClass="PostQuestionCommentViewController" customModule="StudyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cDc-lV-2ld">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -809,16 +825,24 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FY8-Hw-5k5">
-                                <rect key="frame" x="344" y="371" width="50" height="42"/>
+                                <rect key="frame" x="344" y="436" width="50" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="送信"/>
+                                <connections>
+                                    <action selector="postComment:" destination="3Uf-GR-vE8" eventType="touchUpInside" id="FZW-mF-YyB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tFj-R2-s6g"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Vtl-pK-HtH"/>
+                    <connections>
+                        <outlet property="commentTextView" destination="ePm-XM-nzp" id="ygS-cQ-Qwx"/>
+                        <outlet property="postButton" destination="FY8-Hw-5k5" id="f6d-z3-9Q4"/>
+                        <outlet property="userImage" destination="9HG-Og-24o" id="ClT-gV-MFS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KMR-CP-qs8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -827,7 +851,7 @@
     </scenes>
     <resources>
         <image name="heart.png" width="24" height="24"/>
-        <image name="house" catalog="system" width="32" height="32"/>
+        <image name="house" catalog="system" width="128" height="106"/>
         <image name="more.png" width="30" height="30"/>
         <image name="ouyou.jpeg" width="334.5" height="480"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>

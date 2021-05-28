@@ -1,8 +1,8 @@
 //
-//  NoteComment.swift
+//  PostQuestionCommentViewController.swift
 //  StudyApp
 //
-//  Created by 佐藤未悠 on 2021/05/26.
+//  Created by 佐藤未悠 on 2021/05/28.
 //
 
 import UIKit
@@ -11,34 +11,33 @@ import NCMB
 import UITextView_Placeholder
 import SVProgressHUD
 
-
-class PostNoteCommentViewController: UIViewController {
+class PostQuestionCommentViewController: UIViewController {
     
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var postButton: UIButton!
     
     var postId : String!
-    
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        //userImage.layer.cornerRadius = userImage.bounds.width / 2
-        
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
         let user = NCMBUser.current()
-        
         
     }
     
     @IBAction func postComment(_ sender: Any) {
+        
         SVProgressHUD.show()
-        let postObject = NCMBObject(className: "Comment")
+        
+        let postObject = NCMBUser(className: "postComment")
+        
         if self.commentTextView.text.count == 0 {
             print("入力されていません")
             return
         }
-        postObject?.setObject(self.commentTextView.text!, forKey: "text")
+        
+        postObject?.setObject(self.commentTextView.text, forKey: "text")
         postObject?.setObject(NCMBUser.current(), forKey: "user")
         postObject?.setObject(self.postId, forKey: "postId")
         postObject?.saveInBackground({ (error) in
@@ -50,7 +49,8 @@ class PostNoteCommentViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             }
         })
-        
     }
     
+    
+
 }

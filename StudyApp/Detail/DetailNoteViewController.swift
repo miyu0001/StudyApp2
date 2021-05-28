@@ -38,14 +38,12 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let user = selectedPost?.user
 
         commentTableview.dataSource = self
         commentTableview.delegate = self
         
         self.commentTextView.text = selectedPost?.text as! String
-        self.userLabel.text = selectedPost?.user.displayName
+        self.userLabel.text = selectedPost?.user.userName
         self.timeLabel.text = selectedPost?.createDate as? String
         
         
@@ -54,13 +52,12 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
         //URLを画像に変換して表示させる
         self.postImageView.kf.setImage(with: URL(string: selectedUrl))
         
-        //ユーザー画像の設定
-        //self.userImage =
         loadData()
         
-        let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user!.objectId as! String
-        print(userImageUrl)
+        let user = selectedPost?.user
         
+        let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user!.objectId as! String
+               
         userImage.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
         
         

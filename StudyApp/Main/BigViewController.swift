@@ -39,7 +39,10 @@ class BigViewController: TabmanViewController {
         //tabmanの宣言
         let bar = TMBar.ButtonBar()
         bar.layout.transitionStyle = .snap
+        bar.layout.contentMode = .fit
         addBar(bar, dataSource: self, at: .top)
+        
+        
         
     }
     //子コントローラーの選択
