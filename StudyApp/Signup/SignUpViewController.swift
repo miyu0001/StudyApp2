@@ -15,6 +15,8 @@ class SignUpViewController: UIViewController ,UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmTextField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var missLabel: UILabel!
     
     //タップした時にキーボードが閉じる処理
     //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -24,6 +26,11 @@ class SignUpViewController: UIViewController ,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        signUpButton.layer.cornerRadius = 10.0
+        
+        //ラベルは隠しておく
+        missLabel.isHidden = true
         
         userIdTextField.delegate = self
         emailTextField.delegate = self
@@ -50,6 +57,7 @@ class SignUpViewController: UIViewController ,UITextFieldDelegate {
     }
     
     @IBAction func signUp (_ sender: Any) {
+        
         let user = NCMBUser()
         
         //userIdが4文字以下だったらこれ以下のコードは呼ばれない
@@ -58,31 +66,25 @@ class SignUpViewController: UIViewController ,UITextFieldDelegate {
             return
         }
         
-        //username = userIdになる
-        user.userName = userIdTextField.text!
-        user.mailAddress = emailTextField.text!
-        
-        if passwordTextField.text == confirmTextField.text {
-            user.password = passwordTextField.text!
-        } else {
-            print("パスワードが一致しません")
-        }
-        
-        user.signUpInBackground { (error) in
-            //エラーがあった場合
-            if error != nil{
-                print(error)
+        if (passwordTextField.text?.count)! <= 7 {
+            missLabel.isHidden = false
+            
+            signUpButton.isEnabled = false
+            //username = userIdになる
+            user.userName = userIdTextField.text!
+            user.mailAddress = emailTextField.text!
+            
+            if passwordTextField.text == confirmTextField.text {
+                user.password = passwordTextField.text!
             } else {
-//                //登録成功したら画面が移るようにstoryboardを取得する
-//                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//                let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootTabBarController")
-//                //画面の切り替えができる
-//                UIApplication.shared.keyWindow?.rootViewController = rootViewController
-//
-//                //ログイン状態の保持
-//                let ud = UserDefaults.standard
-//                ud.set(true, forKey: "isLogin")
-//                ud.synchronize()
+                print("パスワードが一致しません")
+            }
+            
+            user.signUpInBackground { (error) in
+                //エラーがあった場合
+                if error != nil{
+                    print(error)
+                }
             }
         }
     }

@@ -14,6 +14,7 @@ class SignInViewController: UIViewController , UITextFieldDelegate {
     
     @IBOutlet var userIdTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var signInButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -23,6 +24,9 @@ class SignInViewController: UIViewController , UITextFieldDelegate {
         let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGR.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapGR)
+        
+        signInButton.layer.cornerRadius = 10.0
+        
     }
     
     @objc func dismissKeyboard() {

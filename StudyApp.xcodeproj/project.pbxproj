@@ -58,6 +58,7 @@
 		3B813ADB264C39E20059E521 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B813ADA264C39E20059E521 /* SignUpViewController.swift */; };
 		3B813ADD264C3A370059E521 /* Sharenote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B813ADC264C3A370059E521 /* Sharenote.storyboard */; };
 		3B813AEE264CDA650059E521 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B813AED264CDA650059E521 /* Main.storyboard */; };
+		3B8341032660B68700CBD534 /* icon-th.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B8341022660B68700CBD534 /* icon-th.jpg */; };
 		3B94E59F26514A1400A2CC03 /* profile_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B94E59E26514A1400A2CC03 /* profile_icon.png */; };
 		3B95FD8F265912390078A858 /* PostQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95FD8E265912390078A858 /* PostQuestionViewController.swift */; };
 		3BBDE47B2655098300488565 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDE47A2655098300488565 /* PostViewController.swift */; };
@@ -124,6 +125,7 @@
 		3B813ADA264C39E20059E521 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3B813ADC264C3A370059E521 /* Sharenote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sharenote.storyboard; sourceTree = "<group>"; };
 		3B813AED264CDA650059E521 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3B8341022660B68700CBD534 /* icon-th.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-th.jpg"; sourceTree = "<group>"; };
 		3B94E59E26514A1400A2CC03 /* profile_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_icon.png; sourceTree = "<group>"; };
 		3B95FD8E265912390078A858 /* PostQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostQuestionViewController.swift; sourceTree = "<group>"; };
 		3BBDE47A2655098300488565 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		3B0C4DA22652BD4C00E3F647 /* pictures */ = {
 			isa = PBXGroup;
 			children = (
+				3B8341022660B68700CBD534 /* icon-th.jpg */,
 				3B806C2926536141005FAA3D /* icons8-ハート-60.png */,
 				3B94E59E26514A1400A2CC03 /* profile_icon.png */,
 				3B0C4D9E2652BD2A00E3F647 /* coment.png */,
@@ -429,6 +432,7 @@
 				3B45958E26609BDC00724AC5 /* Icon-App-20x20@2x.png in Resources */,
 				3B45958B26609BDC00724AC5 /* Icon-App-20x20@3x.png in Resources */,
 				3B45959126609BDC00724AC5 /* Icon-App-60x60@3x.png in Resources */,
+				3B8341032660B68700CBD534 /* icon-th.jpg in Resources */,
 				3B45959426609BDC00724AC5 /* Icon-App-40x40@3x.png in Resources */,
 				3B45958526609BDC00724AC5 /* iTunesArtwork@1x.png in Resources */,
 				3B806C2A26536141005FAA3D /* icons8-ハート-60.png in Resources */,
