@@ -174,7 +174,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="bCg-Tu-XPK">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="JCt-le-4VS">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="icons8-設定-50.png" id="JCt-le-4VS">
+                            <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="3"/>
+                            <color key="tintColor" red="0.21960784310000001" green="0.40784313729999999" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="showMenu:" destination="Ybj-1r-Fic" id="VZu-D8-ieP"/>
                             </connections>
@@ -852,6 +854,7 @@
     <resources>
         <image name="heart.png" width="24" height="24"/>
         <image name="house" catalog="system" width="128" height="106"/>
+        <image name="icons8-設定-50.png" width="50" height="50"/>
         <image name="more.png" width="30" height="30"/>
         <image name="ouyou.jpeg" width="334.5" height="480"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>

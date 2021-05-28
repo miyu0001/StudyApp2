@@ -59,6 +59,8 @@
 		3B813ADD264C3A370059E521 /* Sharenote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B813ADC264C3A370059E521 /* Sharenote.storyboard */; };
 		3B813AEE264CDA650059E521 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B813AED264CDA650059E521 /* Main.storyboard */; };
 		3B8341032660B68700CBD534 /* icon-th.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B8341022660B68700CBD534 /* icon-th.jpg */; };
+		3B8341052660C80500CBD534 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B8341042660C80500CBD534 /* LaunchScreen.storyboard */; };
+		3B8341072660D9B700CBD534 /* icons8-設定-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B8341062660D9B700CBD534 /* icons8-設定-50.png */; };
 		3B94E59F26514A1400A2CC03 /* profile_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B94E59E26514A1400A2CC03 /* profile_icon.png */; };
 		3B95FD8F265912390078A858 /* PostQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95FD8E265912390078A858 /* PostQuestionViewController.swift */; };
 		3BBDE47B2655098300488565 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDE47A2655098300488565 /* PostViewController.swift */; };
@@ -126,6 +128,8 @@
 		3B813ADC264C3A370059E521 /* Sharenote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sharenote.storyboard; sourceTree = "<group>"; };
 		3B813AED264CDA650059E521 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3B8341022660B68700CBD534 /* icon-th.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-th.jpg"; sourceTree = "<group>"; };
+		3B8341042660C80500CBD534 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3B8341062660D9B700CBD534 /* icons8-設定-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-設定-50.png"; sourceTree = "<group>"; };
 		3B94E59E26514A1400A2CC03 /* profile_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_icon.png; sourceTree = "<group>"; };
 		3B95FD8E265912390078A858 /* PostQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostQuestionViewController.swift; sourceTree = "<group>"; };
 		3BBDE47A2655098300488565 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 		3B0C4DA22652BD4C00E3F647 /* pictures */ = {
 			isa = PBXGroup;
 			children = (
+				3B8341062660D9B700CBD534 /* icons8-設定-50.png */,
 				3B8341022660B68700CBD534 /* icon-th.jpg */,
 				3B806C2926536141005FAA3D /* icons8-ハート-60.png */,
 				3B94E59E26514A1400A2CC03 /* profile_icon.png */,
@@ -226,6 +231,7 @@
 		3B7DFE0A2656092B00CD81F4 /* Signup */ = {
 			isa = PBXGroup;
 			children = (
+				3B8341042660C80500CBD534 /* LaunchScreen.storyboard */,
 				3B813ADA264C39E20059E521 /* SignUpViewController.swift */,
 				3B2AE6F3264D2AB4000AE965 /* SignInViewController.swift */,
 				3B813AD8264C39D40059E521 /* SignUp.storyboard */,
@@ -415,6 +421,7 @@
 				3B813AD9264C39D40059E521 /* SignUp.storyboard in Resources */,
 				3B813ACF264C24C00059E521 /* LaunchScreen.storyboard in Resources */,
 				3B0C4DA42652D0F400E3F647 /* ouyou.jpeg in Resources */,
+				3B8341072660D9B700CBD534 /* icons8-設定-50.png in Resources */,
 				3B0C4D9D2652BC6500E3F647 /* more.png in Resources */,
 				3B45959326609BDC00724AC5 /* Icon-App-76x76@1x.png in Resources */,
 				3B45959526609BDC00724AC5 /* Icon-App-29x29@2x.png in Resources */,
@@ -443,6 +450,7 @@
 				3B0C4DA12652BD3300E3F647 /* heart.png in Resources */,
 				3B45958926609BDC00724AC5 /* Icon-App-20x20@1x.png in Resources */,
 				3B45958826609BDC00724AC5 /* Icon-App-40x40@1x.png in Resources */,
+				3B8341052660C80500CBD534 /* LaunchScreen.storyboard in Resources */,
 				3B94E59F26514A1400A2CC03 /* profile_icon.png in Resources */,
 				3B45959726609BDC00724AC5 /* iTunesArtwork@2x.png in Resources */,
 				3BE47272265E1D1500B068D2 /* QuestionTableViewCell.xib in Resources */,

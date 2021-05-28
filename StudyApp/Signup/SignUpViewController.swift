@@ -27,6 +27,21 @@ class SignUpViewController: UIViewController ,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        self.navigationController?.navigationBar.barStyle = .black
+        //バーの色を設定
+        self.navigationController!.navigationBar.barTintColor = #colorLiteral(red: 0.2196078431, green: 0.4078431373, blue: 0.8, alpha: 1)
+        //navigationbarの下のカラー
+        self.navigationController!.navigationBar.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        self.navigationItem.backBarButtonItem?.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        //バーの色も同じにしてくれるけど全体が下に下がる
+        self.navigationController?.navigationBar.isTranslucent = false
+        //y座標の調整
+        extendedLayoutIncludesOpaqueBars = true
+    
+        
+        //ボタンを丸くする
         signUpButton.layer.cornerRadius = 10.0
         
         //ラベルは隠しておく
@@ -45,8 +60,8 @@ class SignUpViewController: UIViewController ,UITextFieldDelegate {
     }
     
     @objc func dismissKeyboard() {
-           self.view.endEditing(true)
-       }
+        self.view.endEditing(true)
+    }
     
     //入力後に入力用キーボードを閉じる
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -70,24 +85,27 @@ class SignUpViewController: UIViewController ,UITextFieldDelegate {
             missLabel.isHidden = false
             
             signUpButton.isEnabled = false
-            //username = userIdになる
-            user.userName = userIdTextField.text!
-            user.mailAddress = emailTextField.text!
             
-            if passwordTextField.text == confirmTextField.text {
-                user.password = passwordTextField.text!
-            } else {
-                print("パスワードが一致しません")
-            }
-            
-            user.signUpInBackground { (error) in
-                //エラーがあった場合
-                if error != nil{
-                    print(error)
-                }
+        }
+        
+        //username = userIdになる
+        user.userName = userIdTextField.text!
+        user.mailAddress = emailTextField.text!
+        
+        if passwordTextField.text == confirmTextField.text {
+            user.password = passwordTextField.text!
+        } else {
+            print("パスワードが一致しません")
+        }
+        
+        user.signUpInBackground { (error) in
+            //エラーがあった場合
+            if error != nil{
+                print(error)
             }
         }
     }
+    
     
 }
 

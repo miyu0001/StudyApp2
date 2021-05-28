@@ -25,8 +25,19 @@ class SignInViewController: UIViewController , UITextFieldDelegate {
         tapGR.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapGR)
         
+        //ボタン丸くする
         signInButton.layer.cornerRadius = 10.0
         
+        //バーの色変更
+        self.navigationController?.navigationBar.barStyle = .black
+        self.navigationController!.navigationBar.barTintColor = #colorLiteral(red: 0.2196078431, green: 0.4078431373, blue: 0.8, alpha: 1)
+        self.navigationController!.navigationBar.tintColor = #colorLiteral(red: 0.2196078431, green: 0.4078431373, blue: 0.8, alpha: 1)
+        self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        self.navigationItem.backBarButtonItem?.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        //バーの色も同じにしてくれるけど全体が下に下がる
+        self.navigationController?.navigationBar.isTranslucent = false
+        //y座標の調整
+        extendedLayoutIncludesOpaqueBars = true
     }
     
     @objc func dismissKeyboard() {
