@@ -58,9 +58,13 @@
 		3B813ADB264C39E20059E521 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B813ADA264C39E20059E521 /* SignUpViewController.swift */; };
 		3B813ADD264C3A370059E521 /* Sharenote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B813ADC264C3A370059E521 /* Sharenote.storyboard */; };
 		3B813AEE264CDA650059E521 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B813AED264CDA650059E521 /* Main.storyboard */; };
-		3B8341032660B68700CBD534 /* icon-th.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B8341022660B68700CBD534 /* icon-th.jpg */; };
 		3B8341052660C80500CBD534 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B8341042660C80500CBD534 /* LaunchScreen.storyboard */; };
 		3B8341072660D9B700CBD534 /* icons8-設定-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B8341062660D9B700CBD534 /* icons8-設定-50.png */; };
+		3B83410A2662921B00CBD534 /* icon-red.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3B8341082662921B00CBD534 /* icon-red.JPG */; };
+		3B83410B2662921B00CBD534 /* icon-th.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B8341092662921B00CBD534 /* icon-th.jpg */; };
+		3B83410E266292AB00CBD534 /* icon-fff.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3B83410C266292AB00CBD534 /* icon-fff.JPG */; };
+		3B83410F266292AB00CBD534 /* icon-ff.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3B83410D266292AB00CBD534 /* icon-ff.JPG */; };
+		3B8341112662930800CBD534 /* this.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3B8341102662930800CBD534 /* this.JPG */; };
 		3B94E59F26514A1400A2CC03 /* profile_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B94E59E26514A1400A2CC03 /* profile_icon.png */; };
 		3B95FD8F265912390078A858 /* PostQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95FD8E265912390078A858 /* PostQuestionViewController.swift */; };
 		3BBDE47B2655098300488565 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDE47A2655098300488565 /* PostViewController.swift */; };
@@ -127,9 +131,13 @@
 		3B813ADA264C39E20059E521 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3B813ADC264C3A370059E521 /* Sharenote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sharenote.storyboard; sourceTree = "<group>"; };
 		3B813AED264CDA650059E521 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		3B8341022660B68700CBD534 /* icon-th.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-th.jpg"; sourceTree = "<group>"; };
 		3B8341042660C80500CBD534 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B8341062660D9B700CBD534 /* icons8-設定-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-設定-50.png"; sourceTree = "<group>"; };
+		3B8341082662921B00CBD534 /* icon-red.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-red.JPG"; sourceTree = "<group>"; };
+		3B8341092662921B00CBD534 /* icon-th.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "icon-th.jpg"; path = "../../../../Desktop/icon-th.jpg"; sourceTree = "<group>"; };
+		3B83410C266292AB00CBD534 /* icon-fff.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-fff.JPG"; sourceTree = "<group>"; };
+		3B83410D266292AB00CBD534 /* icon-ff.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-ff.JPG"; sourceTree = "<group>"; };
+		3B8341102662930800CBD534 /* this.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = this.JPG; sourceTree = "<group>"; };
 		3B94E59E26514A1400A2CC03 /* profile_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_icon.png; sourceTree = "<group>"; };
 		3B95FD8E265912390078A858 /* PostQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostQuestionViewController.swift; sourceTree = "<group>"; };
 		3BBDE47A2655098300488565 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -168,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				3B8341062660D9B700CBD534 /* icons8-設定-50.png */,
-				3B8341022660B68700CBD534 /* icon-th.jpg */,
 				3B806C2926536141005FAA3D /* icons8-ハート-60.png */,
 				3B94E59E26514A1400A2CC03 /* profile_icon.png */,
 				3B0C4D9E2652BD2A00E3F647 /* coment.png */,
@@ -177,6 +184,9 @@
 				3B0C4DA32652D0F400E3F647 /* ouyou.jpeg */,
 				3B2F2DBF265BDC6C00ECFD3D /* question.png */,
 				3B2F2DC1265BDC7600ECFD3D /* note.png */,
+				3B8341082662921B00CBD534 /* icon-red.JPG */,
+				3B8341092662921B00CBD534 /* icon-th.jpg */,
+				3B8341102662930800CBD534 /* this.JPG */,
 			);
 			path = pictures;
 			sourceTree = "<group>";
@@ -294,6 +304,8 @@
 			isa = PBXGroup;
 			children = (
 				3B813AC1264C24BE0059E521 /* StudyApp */,
+				3B83410D266292AB00CBD534 /* icon-ff.JPG */,
+				3B83410C266292AB00CBD534 /* icon-fff.JPG */,
 				3B813AC0264C24BE0059E521 /* Products */,
 				3DC91E4D0F120711B7905CFB /* Pods */,
 				21A59F70BFFB7C2BA44F5EAA /* Frameworks */,
@@ -421,27 +433,31 @@
 				3B813AD9264C39D40059E521 /* SignUp.storyboard in Resources */,
 				3B813ACF264C24C00059E521 /* LaunchScreen.storyboard in Resources */,
 				3B0C4DA42652D0F400E3F647 /* ouyou.jpeg in Resources */,
+				3B8341112662930800CBD534 /* this.JPG in Resources */,
 				3B8341072660D9B700CBD534 /* icons8-設定-50.png in Resources */,
+				3B83410B2662921B00CBD534 /* icon-th.jpg in Resources */,
 				3B0C4D9D2652BC6500E3F647 /* more.png in Resources */,
 				3B45959326609BDC00724AC5 /* Icon-App-76x76@1x.png in Resources */,
 				3B45959526609BDC00724AC5 /* Icon-App-29x29@2x.png in Resources */,
 				3B813ADD264C3A370059E521 /* Sharenote.storyboard in Resources */,
 				3B45959626609BDC00724AC5 /* README.md in Resources */,
 				3B45959226609BDC00724AC5 /* Icon-App-60x60@2x.png in Resources */,
+				3B83410E266292AB00CBD534 /* icon-fff.JPG in Resources */,
 				3B45959826609BDC00724AC5 /* iTunesArtwork@3x.png in Resources */,
 				3B2F2DC2265BDC7600ECFD3D /* note.png in Resources */,
 				3B45958626609BDC00724AC5 /* Icon-App-76x76@2x.png in Resources */,
 				3B45958F26609BDC00724AC5 /* Icon-App-29x29@3x.png in Resources */,
 				3B0C4D9B2652B17300E3F647 /* TimelineTableViewCell.xib in Resources */,
+				3B83410A2662921B00CBD534 /* icon-red.JPG in Resources */,
 				3B45958A26609BDC00724AC5 /* Icon-App-83.5x83.5@2x.png in Resources */,
 				3B813AEE264CDA650059E521 /* Main.storyboard in Resources */,
 				3B45958726609BDC00724AC5 /* Icon-App-29x29@1x.png in Resources */,
 				3B45958E26609BDC00724AC5 /* Icon-App-20x20@2x.png in Resources */,
 				3B45958B26609BDC00724AC5 /* Icon-App-20x20@3x.png in Resources */,
 				3B45959126609BDC00724AC5 /* Icon-App-60x60@3x.png in Resources */,
-				3B8341032660B68700CBD534 /* icon-th.jpg in Resources */,
 				3B45959426609BDC00724AC5 /* Icon-App-40x40@3x.png in Resources */,
 				3B45958526609BDC00724AC5 /* iTunesArtwork@1x.png in Resources */,
+				3B83410F266292AB00CBD534 /* icon-ff.JPG in Resources */,
 				3B806C2A26536141005FAA3D /* icons8-ハート-60.png in Resources */,
 				3B0C4D9F2652BD2A00E3F647 /* coment.png in Resources */,
 				3B2F2DC0265BDC6C00ECFD3D /* question.png in Resources */,

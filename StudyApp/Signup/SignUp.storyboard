@@ -50,8 +50,10 @@
                                     <action selector="forgetPassword:" destination="6WQ-8Y-Ur5" eventType="touchUpInside" id="zoR-y1-seg"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-th.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="4oO-hV-EQS">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-App-60x60.png" translatesAutoresizingMaskIntoConstraints="NO" id="4oO-hV-EQS">
                                 <rect key="frame" x="139" y="136" width="150" height="150"/>
+                                <color key="backgroundColor" red="0.10980392160000001" green="0.40784313729999999" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.10980392160000001" green="0.40784313729999999" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="OD3-zI-QYz"/>
                                     <constraint firstAttribute="height" constant="150" id="Qg2-5e-lDS"/>
@@ -74,11 +76,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nH3-Xi-NXB">
-                                <rect key="frame" x="114" y="554.66666666666663" width="200" height="60"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="48" y="554.66666666666663" width="332" height="60"/>
+                                <color key="backgroundColor" red="0.93062931299999996" green="0.66747516389999995" blue="0.31362584230000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="htZ-vR-CVd"/>
-                                    <constraint firstAttribute="width" constant="200" id="uOM-sf-njF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="ログイン">
@@ -90,7 +91,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Iq0-Zz-FBx"/>
-                        <color key="backgroundColor" red="0.2196078431372549" green="0.40784313725490196" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.2196078431372549" green="0.40784313729999999" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Arl-x4-poi" firstAttribute="centerX" secondItem="ieA-rz-BUj" secondAttribute="centerX" id="1Q3-dD-6Ce"/>
                             <constraint firstItem="ieA-rz-BUj" firstAttribute="leading" secondItem="Iq0-Zz-FBx" secondAttribute="leading" constant="60" id="4IE-Jc-OHz"/>
@@ -103,6 +104,8 @@
                             <constraint firstItem="qtC-jF-vWh" firstAttribute="top" secondItem="25e-JN-EZN" secondAttribute="bottom" constant="8" id="AIj-L3-0YP"/>
                             <constraint firstItem="brJ-s1-vqs" firstAttribute="top" secondItem="4oO-hV-EQS" secondAttribute="bottom" constant="8" id="J8Z-sE-O7Y"/>
                             <constraint firstItem="4oO-hV-EQS" firstAttribute="top" secondItem="Iq0-Zz-FBx" secondAttribute="top" constant="48" id="Ks9-Eg-tuf"/>
+                            <constraint firstItem="nH3-Xi-NXB" firstAttribute="leading" secondItem="Iq0-Zz-FBx" secondAttribute="leading" constant="48" id="M6X-RG-0lE"/>
+                            <constraint firstItem="Iq0-Zz-FBx" firstAttribute="trailing" secondItem="nH3-Xi-NXB" secondAttribute="trailing" constant="48" id="Nn8-WG-Vu7"/>
                             <constraint firstItem="brJ-s1-vqs" firstAttribute="centerX" secondItem="4oO-hV-EQS" secondAttribute="centerX" id="Pha-ue-pfO"/>
                             <constraint firstItem="Iq0-Zz-FBx" firstAttribute="trailing" secondItem="brJ-s1-vqs" secondAttribute="trailing" constant="120" id="T6T-wI-kfi"/>
                             <constraint firstItem="0T6-x0-AE6" firstAttribute="top" secondItem="brJ-s1-vqs" secondAttribute="bottom" constant="54" id="WBq-ux-XrZ"/>
@@ -172,34 +175,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mf-MJ-QA5">
-                                <rect key="frame" x="124" y="618" width="164" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="プライバシーポリシー">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="CI2-pi-LKm" kind="show" id="Vkb-dt-fr6"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="と" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQn-eF-d8o">
-                                <rect key="frame" x="101" y="621" width="18" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="に同意して" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zyk-sB-mHs">
-                                <rect key="frame" x="296" y="621" width="87" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UsX-TA-9SV">
-                                <rect key="frame" x="78" y="665" width="250" height="57"/>
+                                <rect key="frame" x="48" y="665" width="332" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.93062931299999996" green="0.66747516389999995" blue="0.31362584230000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="新規登録">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -234,16 +213,41 @@
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHG-Tm-tTf">
-                                <rect key="frame" x="31" y="618" width="62" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="利用規約">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="RXH-in-fSW" kind="show" id="BlP-3D-mM6"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="equalSpacing" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="gEu-a1-wfO">
+                                <rect key="frame" x="44" y="618" width="340" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHG-Tm-tTf">
+                                        <rect key="frame" x="0.0" y="0.0" width="62" height="30"/>
+                                        <state key="normal" title="利用規約">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="RXH-in-fSW" kind="show" id="BlP-3D-mM6"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="と" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQn-eF-d8o">
+                                        <rect key="frame" x="69" y="0.0" width="17.333333333333329" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mf-MJ-QA5">
+                                        <rect key="frame" x="93.333333333333314" y="0.0" width="153" height="30"/>
+                                        <state key="normal" title="プライバシーポリシー">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="CI2-pi-LKm" kind="show" id="Vkb-dt-fr6"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="に同意して" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zyk-sB-mHs">
+                                        <rect key="frame" x="253.33333333333334" y="0.0" width="86.666666666666657" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1vh-D5-CPB"/>
                         <color key="backgroundColor" red="0.2196078431372549" green="0.40784313725490196" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -570,6 +574,7 @@ e. その他，開発者が本サービスの利用を適当でないと判断�
     </scenes>
     <color key="tintColor" red="0.2196078431372549" green="0.40784313725490196" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
+        <image name="Icon-App-60x60.png" width="60" height="60"/>
         <image name="icon-th.jpg" width="1280" height="1280"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

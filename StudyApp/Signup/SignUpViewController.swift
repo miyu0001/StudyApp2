@@ -21,7 +21,7 @@ class SignUpViewController: UIViewController ,UITextFieldDelegate {
     //タップした時にキーボードが閉じる処理
     //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     //            self.view.endEditing(true)
-    //        }
+    //    }
     
     
     override func viewDidLoad() {
