@@ -52,15 +52,16 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
         //URLを画像に変換して表示させる
         self.postImageView.kf.setImage(with: URL(string: selectedUrl))
         
-        loadData()
-        
         let user = selectedPost?.user
         
         let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user!.objectId as! String
                
         userImage.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
-        
-        
+   
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadData()
     }
     
     

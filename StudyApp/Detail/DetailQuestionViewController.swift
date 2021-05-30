@@ -32,8 +32,6 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadData()
-        
         commentTableview.dataSource = self
         commentTableview.delegate = self
         
@@ -47,6 +45,10 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
       
         userImage.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,7 +73,7 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
     @IBAction func loadData() {
         let currentUser = NCMBUser.current()
         
-        let query = NCMBQuery(className: "Comment")
+        let query = NCMBQuery(className: "postComment")
 
         // 降順
         query?.order(byDescending: "createDate")
