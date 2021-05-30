@@ -10,8 +10,8 @@ import UIKit
 
 class Genre: NSObject {
     
-    //なんのジャンルか
-    var genreId: String
+    //資格id
+    var id: String
     //名前????
     var genleName: String
     //
@@ -20,11 +20,11 @@ class Genre: NSObject {
     //それぞれどのタイミングで初期化するか
     //()内で初期化と同時に何か値を渡すことができる
     //オプショナル型ではないものは値を渡すときに必ず何かの値が入らなといけない
-    init(genreId:String, genleName:String) {
+    init(objectId:String, id:String, genleName:String) {
         
         self.genleName = genleName
-        self.genreId = genreId
-        
+        self.id = id
+    
         
     }
 }

@@ -9,24 +9,22 @@ import Foundation
 import UIKit
 
 class Certification: NSObject {
-    
+   
     //資格id
-    var certificationId: String
-    //なんのジャンルか
+    var id: String
+    //なんのジャンルか?
     var genreId: [Genre]?
-    //名前
-    var genleName: String
-    
-    var certifications : [Certification]?
-    
+    //名前??
+    var CertificationName: String
+ 
     //それぞれどのタイミングで初期化するか
     //()内で初期化と同時に何か値を渡すことができる
     //オプショナル型ではないものは値を渡すときに必ず何かの値が入らなといけない
-    init(certificationId: String, genreId:String, genleName:String) {
+    init(id: String, genreId:String, CertificationName:String) {
         
-        self.certificationId = certificationId
-        self.genleName = genleName
-        
+        self.id = id
+        self.CertificationName = CertificationName
+    
     }
     
 }
