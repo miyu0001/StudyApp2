@@ -97,6 +97,9 @@ class PostQuestionViewController: UIViewController, UINavigationControllerDelega
             print("入力されていません")
             return
         }
+        //今選択してる情報が何か
+        let selectedCertification = UserDefaults.standard.string(forKey: "certification")
+        postObject?.setObject(selectedCertification!, forKey: "certification")
         postObject?.setObject(self.postTextView.text!, forKey: "text")
         postObject?.setObject(NCMBUser.current(), forKey: "user")
         postObject?.saveInBackground({ (error) in
@@ -106,6 +109,8 @@ class PostQuestionViewController: UIViewController, UINavigationControllerDelega
                 SVProgressHUD.dismiss()
                 self.postTextView.text = nil
                 self.dismiss(animated: true, completion: nil)
+                
+                
             }
         })
     }

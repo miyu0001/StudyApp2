@@ -96,12 +96,15 @@ class SignUpViewController: UIViewController ,UITextFieldDelegate {
             user.password = passwordTextField.text!
         } else {
             print("パスワードが一致しません")
+            return
         }
         
         user.signUpInBackground { (error) in
             //エラーがあった場合
             if error != nil{
                 print(error)
+            } else {
+                self.performSegue(withIdentifier: "toGenre", sender: nil)
             }
         }
     }

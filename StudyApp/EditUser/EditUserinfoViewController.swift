@@ -17,6 +17,7 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userIdTextField: UITextField!
     @IBOutlet weak var introductionTextView: UITextView!
+    @IBOutlet weak var changeCertification: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +77,11 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
         }
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        changeCertification.setTitle(UserDefaults.standard.string(forKey: "certification"), for: .normal)
+    }
+ 
     
     @objc func dismissKeyboard() {
         self.view.endEditing(true)

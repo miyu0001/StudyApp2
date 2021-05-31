@@ -194,7 +194,6 @@
                                 </state>
                                 <connections>
                                     <action selector="signUp:" destination="gqG-Dl-pVH" eventType="touchUpInside" id="V6i-D9-TRS"/>
-                                    <segue destination="RVO-e8-WE0" kind="show" id="P0c-C9-pIu"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ユーザーID（4文字以上）" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="19o-wh-uGW">
@@ -300,6 +299,7 @@
                         <outlet property="passwordTextField" destination="6d9-vM-cyH" id="Gb5-Mm-FaU"/>
                         <outlet property="signUpButton" destination="UsX-TA-9SV" id="TdD-FQ-Twf"/>
                         <outlet property="userIdTextField" destination="19o-wh-uGW" id="85K-3e-j35"/>
+                        <segue destination="RVO-e8-WE0" kind="show" identifier="toGenre" id="jNW-TH-0n9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mIk-Xj-A7o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -37,6 +37,10 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.loadTimeline()
+    }
+    
     //セルをタッチしたときに呼ばれる
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -204,8 +208,14 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         // 降順
         query?.order(byDescending: "createDate")
         
+        //投稿した資格の名前と一致するものを持ってくる
+        query?.whereKey("certification", equalTo: UserDefaults.standard.string(forKey:"certification")!)
+        
         // 投稿したユーザーの情報も同時取得
         query?.includeKey("user")
+        
+        //投稿した資格の名前と一致するものを持ってくる
+        query?.whereKey("certification", equalTo: UserDefaults.standard.string(forKey:"certification")!)
         
         // フォロー中の人 + 自分の投稿だけ持ってくる
         //query?.whereKey("user", containedIn: followings)
@@ -229,12 +239,12 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
                         let userModel = User(objectId: user.objectId, userName: user.userName)
                         userModel.displayName = user.object(forKey: "displayName") as? String
                         
-                        
+                        //let id = postObject.object(forKey: "id") as! String
                         
                         let text = postObject.object(forKey: "text") as! String
                         
                         // 2つのデータ(投稿情報と誰が投稿したか?)を合わせてPostクラスにセット
-                        let post = QustionPost(objectId: postObject.objectId, user: userModel, text: text, createDate: postObject.createDate)
+                        let post = QustionPost(objectId: postObject.objectId,  user: userModel, text: text, createDate: postObject.createDate)
                         
                         
                         // likeの状況(自分が過去にLikeしているか？)によってデータを挿入

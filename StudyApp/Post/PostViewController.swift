@@ -132,6 +132,9 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
                     print("入力されていません")
                     return
                 }
+                //今選択してる情報が何か
+                let selectedCertification = UserDefaults.standard.string(forKey: "certification")
+                postObject?.setObject(selectedCertification!, forKey: "certification")
                 postObject?.setObject(self.postTextView.text!, forKey: "text")
                 postObject?.setObject(NCMBUser.current(), forKey: "user")
                 let url = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + file.name

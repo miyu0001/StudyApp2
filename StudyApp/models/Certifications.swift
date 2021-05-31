@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-class Certification: NSObject {
+class Certifications: NSObject {
    
     //資格id
-    var id: String
+    //var id: String
     //なんのジャンルか?
     var genreId: [Genre]?
     //名前??
@@ -22,7 +22,7 @@ class Certification: NSObject {
     //オプショナル型ではないものは値を渡すときに必ず何かの値が入らなといけない
     init(id: String, genreId:String, CertificationName:String) {
         
-        self.id = id
+       // self.id = id
         self.CertificationName = CertificationName
     
     }

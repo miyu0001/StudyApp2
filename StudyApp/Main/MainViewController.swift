@@ -44,6 +44,10 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {        self.loadTimeline()
+    }
+    
+    
     //移るだけ
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -222,7 +226,10 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         // 降順
         query?.order(byDescending: "createDate")
         
-        // 投稿したユーザーの情報も同時取得
+        //投稿した資格の名前と一致するものを持ってくる
+        query?.whereKey("certification", equalTo: UserDefaults.standard.string(forKey:"certification")!)
+        
+        // 投稿したユーザーの情報も同時取得←
         query?.includeKey("user")
         
         // フォロー中の人 + 自分の投稿だけ持ってくる
@@ -254,8 +261,11 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
                         let imageUrl = postObject.object(forKey: "imageUrl") as! String
                         let text = postObject.object(forKey: "text") as! String
                         
+                        //投稿したものがなんの資格か
+                        //let id = postObject.object(forKey: "id") as! String
+                        
                         // 2つのデータ(投稿情報と誰が投稿したか?)を合わせてPostクラスにセット
-                        let post = NotePost(objectId: postObject.objectId, user: userModel, imageUrl: imageUrl, text: text, createDate: postObject.createDate)
+                        let post = NotePost(objectId: postObject.objectId ,user: userModel, imageUrl: imageUrl, text: text, createDate: postObject.createDate)
                         
                         
                         // likeの状況(自分が過去にLikeしているか？)によってデータを挿入

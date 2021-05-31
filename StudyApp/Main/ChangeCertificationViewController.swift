@@ -1,14 +1,14 @@
 //
-//  SearchCertificationViewController.swift
+//  ChangeCertificationViewController.swift
 //  StudyApp
 //
-//  Created by 佐藤未悠 on 2021/05/13.
+//  Created by 佐藤未悠 on 2021/05/31.
 //
 
 import UIKit
 
 
-class SearchCertificationViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
+class ChangeCertificationViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
     
     
@@ -323,7 +323,6 @@ class SearchCertificationViewController: UIViewController,UITableViewDelegate,UI
        
         return cell
     }
-    
     @IBAction func finishButton(_ sender: Any) {
     
         //indexPath=クリックされたcellになった
@@ -338,12 +337,9 @@ class SearchCertificationViewController: UIViewController,UITableViewDelegate,UI
         ud.set(true, forKey: "isLogin")
         ud.synchronize()
         
-        //ログイン成功したので画面遷移
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootTabBarController")
-        
-        //storyboard間の画面遷移
-        UIApplication.shared.keyWindow?.rootViewController = rootViewController
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
+
+

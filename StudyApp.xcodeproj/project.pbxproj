@@ -67,6 +67,8 @@
 		3B8341112662930800CBD534 /* this.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3B8341102662930800CBD534 /* this.JPG */; };
 		3B8341132663447000CBD534 /* Certifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8341122663446F00CBD534 /* Certifications.swift */; };
 		3B8341152663448C00CBD534 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8341142663448C00CBD534 /* Genre.swift */; };
+		3B8341172664B2F200CBD534 /* ChangeCertificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8341162664B2F100CBD534 /* ChangeCertificationViewController.swift */; };
+		3B8341192664B30900CBD534 /* changeGenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8341182664B30900CBD534 /* changeGenreViewController.swift */; };
 		3B94E59F26514A1400A2CC03 /* profile_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B94E59E26514A1400A2CC03 /* profile_icon.png */; };
 		3B95FD8F265912390078A858 /* PostQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95FD8E265912390078A858 /* PostQuestionViewController.swift */; };
 		3BBDE47B2655098300488565 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDE47A2655098300488565 /* PostViewController.swift */; };
@@ -142,6 +144,8 @@
 		3B8341102662930800CBD534 /* this.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = this.JPG; sourceTree = "<group>"; };
 		3B8341122663446F00CBD534 /* Certifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Certifications.swift; sourceTree = "<group>"; };
 		3B8341142663448C00CBD534 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		3B8341162664B2F100CBD534 /* ChangeCertificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCertificationViewController.swift; sourceTree = "<group>"; };
+		3B8341182664B30900CBD534 /* changeGenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changeGenreViewController.swift; sourceTree = "<group>"; };
 		3B94E59E26514A1400A2CC03 /* profile_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_icon.png; sourceTree = "<group>"; };
 		3B95FD8E265912390078A858 /* PostQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostQuestionViewController.swift; sourceTree = "<group>"; };
 		3BBDE47A2655098300488565 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -278,6 +282,8 @@
 				3B2F2DBB265B4B9800ECFD3D /* NoteCommentsViewController.swift */,
 				3B813AED264CDA650059E521 /* Main.storyboard */,
 				3B7DFE152657A55700CD81F4 /* BigViewController.swift */,
+				3B8341182664B30900CBD534 /* changeGenreViewController.swift */,
+				3B8341162664B2F100CBD534 /* ChangeCertificationViewController.swift */,
 				3B7DFE192657E50B00CD81F4 /* QuestionTimelineViewController.swift */,
 			);
 			path = Main;
@@ -538,9 +544,11 @@
 				3BE4727F265E576D00B068D2 /* DetailNoteViewController.swift in Sources */,
 				3B806C2C265365E2005FAA3D /* NotePost.swift in Sources */,
 				3BBDE47B2655098300488565 /* PostViewController.swift in Sources */,
+				3B8341192664B30900CBD534 /* changeGenreViewController.swift in Sources */,
 				3B7DFE162657A55700CD81F4 /* BigViewController.swift in Sources */,
 				3B813AC3264C24BE0059E521 /* AppDelegate.swift in Sources */,
 				3B0C4D9A2652B17300E3F647 /* TimelineTableViewCell.swift in Sources */,
+				3B8341172664B2F200CBD534 /* ChangeCertificationViewController.swift in Sources */,
 				3B2AE6F4264D2AB4000AE965 /* SignInViewController.swift in Sources */,
 				3B2AE6F8264D765E000AE965 /* SearchCertificationViewController.swift in Sources */,
 				3B5B17BB265F8A2A005D3E37 /* DetailQuestionViewController.swift in Sources */,
