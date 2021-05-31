@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NCMB
 
 
 class SearchCertificationViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
@@ -337,6 +338,10 @@ class SearchCertificationViewController: UIViewController,UITableViewDelegate,UI
         ud.set(dataList[getCell][indexPath.row], forKey: "certification")
         ud.set(true, forKey: "isLogin")
         ud.synchronize()
+        let currentuser = NCMBUser.current()
+        currentuser?.setObject(dataList[getCell][indexPath.row], forKey:"certification")
+        currentuser?.saveInBackground(nil)
+        
         
         //ログイン成功したので画面遷移
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)

@@ -58,6 +58,14 @@ class SignInViewController: UIViewController , UITextFieldDelegate {
                 if error != nil {
                     print(error)
                 } else {
+                    
+                    //ログイン状態の保持
+                    let ud = UserDefaults.standard
+                    //ログインしてもともと持ってたアカウントの資格に入れる
+                    ud.set(user?.object(forKey: "certification"), forKey: "certification")
+                    ud.set(true, forKey: "isLogin")
+                    ud.synchronize()
+                    
                     //ログイン成功したので画面遷移
                     let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                     let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootTabBarController")
@@ -65,10 +73,7 @@ class SignInViewController: UIViewController , UITextFieldDelegate {
                     //storyboard間の画面遷移
                     UIApplication.shared.keyWindow?.rootViewController = rootViewController
                     
-                    //ログイン状態の保持
-                    let ud = UserDefaults.standard
-                    ud.set(true, forKey: "isLogin")
-                    ud.synchronize()
+                    
                 }
             }
         }

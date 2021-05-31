@@ -9,10 +9,11 @@ import UIKit
 
 
 class changeGenreViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
-
+    
+    var parentVC : EditUserinfoViewController!
     
     @IBOutlet weak var GenreTableView: UITableView!
-
+    
     // ジャンルデータ一覧
     let genreDataList = [
         "IT資格/パソコン系",
@@ -76,9 +77,10 @@ class changeGenreViewController: UIViewController,UITableViewDelegate,UITableVie
         //changeCertificationViewControllernogetcellに選択された画像を設定する
         print(indexpath.row)
         secVC.getCell = indexpath.row
-    
+        secVC.parentVC = parentVC
+       
     }
     
     
 }
-    
+

@@ -34,6 +34,7 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
         userNameTextField.delegate = self
         userIdTextField.delegate = self
         
+        changeCertification.setTitle(UserDefaults.standard.string(forKey: "certification"), for: .normal)
         
         //それぞれ画像やテキストをNCMBのデータから引っ張って代入
         if let user = NCMBUser.current() {
@@ -79,7 +80,7 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        changeCertification.setTitle(UserDefaults.standard.string(forKey: "certification"), for: .normal)
+        
     }
  
     
@@ -169,16 +170,36 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toChange" {
+            let NC = segue.destination as! UINavigationController
+            
+            //次の画面があるのを教える
+            let changeGenreViewController = NC.topViewController as! changeGenreViewController
+            //選択した投稿が一括で遷移させる
+            changeGenreViewController.parentVC = self
+         
+            
+        }
+    }
+    
+    
     @IBAction func closeEditViewController(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func saveUserInfo() {
+        //今使ってるuserdefaultsを取り出す
+        UserDefaults.standard.set(changeCertification.currentTitle, forKey: "certification")
+        
         let user = NCMBUser.current()
         user?.setObject(userNameTextField.text, forKey: "displayName")
         user?.setObject(userIdTextField.text, forKey: "userName")
         user?.setObject(introductionTextView.text, forKey: "introduction")
+        
+        user?.setObject(changeCertification.currentTitle, forKey: "certification")
+        
         user?.saveInBackground{ (error) in
             if error != nil {
                 print(error)

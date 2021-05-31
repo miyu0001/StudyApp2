@@ -229,11 +229,11 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         //投稿した資格の名前と一致するものを持ってくる
         query?.whereKey("certification", equalTo: UserDefaults.standard.string(forKey:"certification")!)
         
-        // 投稿したユーザーの情報も同時取得←
-        query?.includeKey("user")
+        print(currentUser)
+        
         
         // フォロー中の人 + 自分の投稿だけ持ってくる
-        //               query?.whereKey("user", containedIn: followings)
+        //query?.whereKey("user", containedIn: followings)
         // オブジェクトの取得
         query?.findObjectsInBackground({ (result, error) in
             if error != nil {
@@ -245,15 +245,18 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
                 for postObject in result as! [NCMBObject] {
                     print(result)
                     print(postObject)
-                    
-                    
-                    
+             
                     // ユーザー情報をUserクラスにセット
                     let user = postObject.object(forKey: "user") as! NCMBUser
                     
+                    
+                    
                     // 退会済みユーザーの投稿を避けるため、activeがfalse以外のモノだけを表示
                     if user.object(forKey: "active") as? Bool != false {
+                        
                         // 投稿したユーザーの情報をUserモデルにまとめる
+                        
+                        print(user.userName)
                         let userModel = User(objectId: user.objectId, userName: user.userName)
                         userModel.displayName = user.object(forKey: "displayName") as? String
                         

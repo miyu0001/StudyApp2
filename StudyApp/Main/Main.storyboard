@@ -290,7 +290,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="医師国家試験"/>
                                 <connections>
-                                    <segue destination="Var-F5-6E2" kind="modal" id="Y8U-ad-9Z9"/>
+                                    <segue destination="Var-F5-6E2" kind="modal" identifier="toChange" id="Y8U-ad-9Z9"/>
                                 </connections>
                             </button>
                         </subviews>

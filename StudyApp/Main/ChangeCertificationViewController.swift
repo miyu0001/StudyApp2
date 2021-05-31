@@ -10,7 +10,7 @@ import UIKit
 
 class ChangeCertificationViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
-    
+    var parentVC : EditUserinfoViewController!
     
     @IBOutlet weak var certificationTableView: UITableView!
     
@@ -330,12 +330,14 @@ class ChangeCertificationViewController: UIViewController,UITableViewDelegate,UI
             return
         }
         
-        //ログイン状態の保持
-        let ud = UserDefaults.standard
-        //クリックされた資格情報をcertificationに保存
-        ud.set(dataList[getCell][indexPath.row], forKey: "certification")
-        ud.set(true, forKey: "isLogin")
-        ud.synchronize()
+//        //ログイン状態の保持
+//        let ud = UserDefaults.standard
+//        //クリックされた資格情報をcertificationに保存
+//        ud.set(dataList[getCell][indexPath.row], forKey: "certification")
+//        ud.set(true, forKey: "isLogin")
+//        ud.synchronize()
+        
+        parentVC.changeCertification.setTitle(dataList[getCell][indexPath.row], for: .normal)
         
         self.dismiss(animated: true, completion: nil)
     }
