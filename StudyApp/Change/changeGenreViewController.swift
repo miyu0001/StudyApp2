@@ -81,6 +81,9 @@ class changeGenreViewController: UIViewController,UITableViewDelegate,UITableVie
        
     }
     
+    @IBAction func cancelChange(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
 }
 

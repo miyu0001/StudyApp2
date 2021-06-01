@@ -14,6 +14,7 @@ import Floaty
 
 class MainViewController: UIViewController , UITableViewDataSource,UITableViewDelegate,TimelineTableViewCellDelegate{
     
+    //作ったNotePostモデルを取得する
     var selectedPost : NotePost?
     
     var posts = [NotePost]()
@@ -30,81 +31,72 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         timelineTableView.dataSource = self
         timelineTableView.delegate = self
         
+        //下に書いた変数を呼び出す
         loadFollowingUsers()
-        
         setRefreshControl()
         
-        //カスタムビューの取得
+        
+        //カスタムビューの取得,xibの登録
         let nib = UINib(nibName: "TimelineTableViewCell", bundle: Bundle.main)
         timelineTableView.register(nib, forCellReuseIdentifier: "Cell")
         
+        //tableviewの下の線を消すだっけ？？
         timelineTableView.tableFooterView = UIView()
-        
-        timelineTableView.rowHeight = 360
-        
     }
     
-    override func viewWillAppear(_ animated: Bool) {        self.loadTimeline()
+    override func viewWillAppear(_ animated: Bool) {
+        //投稿したものがリアルタイムで更新されるようにする
+        self.loadTimeline()
     }
     
     
-    //移るだけ
+    //セルをタップした時の処理
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        //選択したpostsをselectedPostに代入
         selectedPost = posts[indexPath.row]
-
-        //タップしたら次の画面に行くように
+        //タップしたら次の画面に行くように、これは画面が遷移するだけで値は渡せてない
         self.performSegue(withIdentifier: "toDetail", sender: nil)
-        
-        
     }
     
-    //画面が移るときに値を渡す
+    //画面遷移
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        //画面が移るときに値を渡す。""ないがsegueの名前
         if segue.identifier == "toDetail" {
-            //次の画面があるのを教える
+            //次の画面があるのを教えて名前をつけて次の画面の型に変換する
             let detailViewController = segue.destination as! DetailNoteViewController
-            //選択した投稿が一括で遷移させる
+            //遷移した先のselectedPostにこっち側の投稿を一括で遷移させる
             detailViewController.selectedPost = selectedPost
-            
-            print(selectedPost)
-            
         }
         
     }
-    
+    //セルに表示させる数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
-    
+    //セルに表示させる内容
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = timelineTableView.dequeueReusableCell(withIdentifier: "Cell") as! TimelineTableViewCell
-        
-        //内容
+
         cell.delegate = self
         cell.tag = indexPath.row
         
         let user = posts[indexPath.row].user
-        print(user.userName)
         cell.userNameLabel.text = user.userName
         
         //userImageViewをkfでURLから画像に変換させる
         let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId as! String
-        print(userImageUrl)
-        
+        //userImageを設定する
         cell.userImageView.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
         
-        
+        //投稿したコメントの設定
         cell.commentTextView.text = posts[indexPath.row].text
+        //投稿した写真の設定
         let imageUrl = posts[indexPath.row].imageUrl as! String
-        
-        print(imageUrl)
         cell.photoImageView.kf.setImage(with: URL(string: imageUrl))
         
         
-        // Likeによってハートの表示を変える
+        // Likeによってハートの表示を変える（できてない）
         if posts[indexPath.row].isLiked == true {
             cell.likeButton.setImage(UIImage(named: "heart-fill"), for: .normal)
         } else {
@@ -116,9 +108,7 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         
         // タイムスタンプ(投稿日時) (※フォーマットのためにSwiftDateライブラリをimport)
         //cell.timestampLabel.text = posts[indexPath.row].createDate.toString()
-        
-        
-        
+  
         return cell
     }
 

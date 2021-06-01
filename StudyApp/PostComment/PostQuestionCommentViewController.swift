@@ -24,6 +24,15 @@ class PostQuestionCommentViewController: UIViewController {
 
         let user = NCMBUser.current()
         
+        //他のところをタッチしたらキーボードが閉じる
+        let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGR.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapGR)
+    }
+    
+    //他のところをタッチしたらキーボードが下がる
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
     }
     
     @IBAction func postComment(_ sender: Any) {
@@ -51,6 +60,9 @@ class PostQuestionCommentViewController: UIViewController {
         })
     }
     
+    @IBAction func cancelPostButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
 
 }

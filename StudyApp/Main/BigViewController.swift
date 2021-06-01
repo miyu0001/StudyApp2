@@ -78,7 +78,6 @@ extension BigViewController: PageboyViewControllerDataSource, TMBarDataSource{
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
         return nil
     }
-    
 }
 
 // MARK: - FloatyDelegate
@@ -93,7 +92,6 @@ extension BigViewController: FloatyDelegate {
         // ボタンが押されてFloatyが閉じる時に行いたいことを書く
     }
 }
-
 
 final class FloatyFactory {
 

@@ -51,9 +51,4 @@ class QuestionTableViewCell: UITableViewCell {
         self.delegate?.didTapMenuButton(tableViewCell: self, button: button)
     }
 
-    @IBAction func showComments(button: UIButton) {
-        self.delegate?.didTapCommentsButton(tableViewCell: self, button: button)
-    }
-    
-    
 }

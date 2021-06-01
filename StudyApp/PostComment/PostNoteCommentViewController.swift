@@ -17,9 +17,23 @@ class PostNoteCommentViewController: UIViewController {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var postButton: UIButton!
+    @IBOutlet weak var cancelPostButton: UIButton!
     
     var postId : String!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //他のところをタッチしたらキーボードが閉じる
+        let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGR.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapGR)
+    }
+    
+    //他のところをタッチしたらキーボードが下がる
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -52,5 +66,10 @@ class PostNoteCommentViewController: UIViewController {
         })
         
     }
+    
+    @IBAction func cancelPostButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
 }

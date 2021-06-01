@@ -40,28 +40,34 @@ class SignInViewController: UIViewController , UITextFieldDelegate {
         extendedLayoutIncludesOpaqueBars = true
     }
     
+    //キーボード下げる関数
     @objc func dismissKeyboard() {
         self.view.endEditing(true)
     }
-    
-    
+
     //入力後に入力用キーボードを閉じる
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        //閉じるコード
         textField.resignFirstResponder()
+        //改行ボタンがつくようになる
         return true
     }
     
+    
+    //ログインボタンを押した時
     @IBAction func signIn(_ sender: Any) {
+        //もしuseridとパスワードに1文字以上なんかが入力されていたら
         if (userIdTextField.text?.count)! > 0 && (passwordTextField.text?.count)! > 0 {
-            
+            //ここの意味がいまいちわからん
             NCMBUser.logInWithUsername(inBackground: userIdTextField.text, password: passwordTextField.text) { (user, error) in
+                //エラーがあった時
                 if error != nil {
                     print(error)
                 } else {
-                    
-                    //ログイン状態の保持
+                    //自分の端末にログイン状態の保持
                     let ud = UserDefaults.standard
-                    //ログインしてもともと持ってたアカウントの資格に入れる
+                    
+                    //再度ログインしてももともと持ってたアカウントの資格に入れる
                     ud.set(user?.object(forKey: "certification"), forKey: "certification")
                     ud.set(true, forKey: "isLogin")
                     ud.synchronize()
@@ -72,12 +78,9 @@ class SignInViewController: UIViewController , UITextFieldDelegate {
                     
                     //storyboard間の画面遷移
                     UIApplication.shared.keyWindow?.rootViewController = rootViewController
-                    
-                    
                 }
             }
         }
-        
     }
     @IBAction func forgetPassword(_ sender: Any) {
         //置いておく

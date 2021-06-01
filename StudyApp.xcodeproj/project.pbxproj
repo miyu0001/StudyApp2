@@ -180,6 +180,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3B0C04572665E2B0007B62A5 /* Change */ = {
+			isa = PBXGroup;
+			children = (
+				3B8341182664B30900CBD534 /* changeGenreViewController.swift */,
+				3B8341162664B2F100CBD534 /* ChangeCertificationViewController.swift */,
+			);
+			path = Change;
+			sourceTree = "<group>";
+		};
 		3B0C4DA22652BD4C00E3F647 /* pictures */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,8 +291,6 @@
 				3B2F2DBB265B4B9800ECFD3D /* NoteCommentsViewController.swift */,
 				3B813AED264CDA650059E521 /* Main.storyboard */,
 				3B7DFE152657A55700CD81F4 /* BigViewController.swift */,
-				3B8341182664B30900CBD534 /* changeGenreViewController.swift */,
-				3B8341162664B2F100CBD534 /* ChangeCertificationViewController.swift */,
 				3B7DFE192657E50B00CD81F4 /* QuestionTimelineViewController.swift */,
 			);
 			path = Main;
@@ -341,7 +348,8 @@
 				3B7DFE0E265609DD00CD81F4 /* Main */,
 				3B7DFE0F265609F600CD81F4 /* Post */,
 				3BE47280265E577300B068D2 /* Detail */,
-				3BE4727B265E4BC700B068D2 /* Comment */,
+				3B0C04572665E2B0007B62A5 /* Change */,
+				3BE4727B265E4BC700B068D2 /* PostComment */,
 				3B5B17B9265F87DD005D3E37 /* xib */,
 				3B7DFE1126560A8900CD81F4 /* models */,
 				3B813AC2264C24BE0059E521 /* AppDelegate.swift */,
@@ -356,13 +364,13 @@
 			path = StudyApp;
 			sourceTree = "<group>";
 		};
-		3BE4727B265E4BC700B068D2 /* Comment */ = {
+		3BE4727B265E4BC700B068D2 /* PostComment */ = {
 			isa = PBXGroup;
 			children = (
 				3BE4727C265E4BE400B068D2 /* PostNoteCommentViewController.swift */,
 				3B54765526608F3A0006B97F /* PostQuestionCommentViewController.swift */,
 			);
-			path = Comment;
+			path = PostComment;
 			sourceTree = "<group>";
 		};
 		3BE47280265E577300B068D2 /* Detail */ = {
