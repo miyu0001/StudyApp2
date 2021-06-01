@@ -9,12 +9,14 @@ import Foundation
 import UIKit
 import NCMB
 
-class UserPageViewController: UIViewController {
+class UserPageViewController: UIViewController{
     
+    var posts = [NotePost]()
     
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userDisplayNameLabel: UILabel!
     @IBOutlet weak var userIntroductionTextView: UITextView!
+    @IBOutlet weak var userPageTableView: UITableView!
     
     
     override func viewDidLoad() {
@@ -65,6 +67,7 @@ class UserPageViewController: UIViewController {
             ud.synchronize()
         }
     }
+    
     
     
     @IBAction func showMenu(_ sender: Any) {

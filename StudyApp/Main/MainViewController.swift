@@ -11,6 +11,7 @@ import SwiftUI
 import Kingfisher
 import SwiftData
 import Floaty
+import SwiftData
 
 class MainViewController: UIViewController , UITableViewDataSource,UITableViewDelegate,TimelineTableViewCellDelegate{
     
@@ -107,7 +108,7 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         //cell.likeCountLabel.text = "\(posts[indexPath.row].likeCount)件"
         
         // タイムスタンプ(投稿日時) (※フォーマットのためにSwiftDateライブラリをimport)
-        //cell.timestampLabel.text = posts[indexPath.row].createDate.toString()
+        //cell.timestampLabel.text = posts[indexPath.row].createDate()
   
         return cell
     }

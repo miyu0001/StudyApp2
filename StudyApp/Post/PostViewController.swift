@@ -182,7 +182,9 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         alert.addAction(okAction)
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
-        
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        return textView.text.count + (text.count - range.length) <= 55
     }
     
 }

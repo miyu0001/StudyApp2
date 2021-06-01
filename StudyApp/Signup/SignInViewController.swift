@@ -58,7 +58,7 @@ class SignInViewController: UIViewController , UITextFieldDelegate {
     @IBAction func signIn(_ sender: Any) {
         //もしuseridとパスワードに1文字以上なんかが入力されていたら
         if (userIdTextField.text?.count)! > 0 && (passwordTextField.text?.count)! > 0 {
-            //ここの意味がいまいちわからん
+            
             NCMBUser.logInWithUsername(inBackground: userIdTextField.text, password: passwordTextField.text) { (user, error) in
                 //エラーがあった時
                 if error != nil {
