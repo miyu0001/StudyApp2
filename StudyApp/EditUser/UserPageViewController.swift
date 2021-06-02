@@ -8,15 +8,24 @@
 import Foundation
 import UIKit
 import NCMB
+import SVProgressHUD
 
-class UserPageViewController: UIViewController{
+
+class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTableViewCellDelegate{
     
-    var posts = [NotePost]()
+    
+    var notePosts = [NotePost]()
+    var questionPosts = [QustionPost]()
     
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userDisplayNameLabel: UILabel!
     @IBOutlet weak var userIntroductionTextView: UITextView!
     @IBOutlet weak var userPageTableView: UITableView!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+    var myQuestionIndex : IndexPath!
+    
+    var selectSegmentIndex:Int = 0
+    
     
     
     override func viewDidLoad() {
@@ -25,11 +34,26 @@ class UserPageViewController: UIViewController{
         //画像を資格から丸にする
         userImageView.layer.cornerRadius =  userImageView.bounds.width / 2
         userImageView.layer.masksToBounds = true
+        
+        userPageTableView.dataSource = self
+        
+        
+        //自分が載せたノートのカスタムビューの取得,xibの登録
+        let nib = UINib(nibName: "TimelineTableViewCell", bundle: Bundle.main)
+        userPageTableView.register(nib, forCellReuseIdentifier: "Cell")
+        
+        userPageTableView.rowHeight = 461
+        
+        //自分が載せた質問のカスタムビューの取得
+        let nib2 = UINib(nibName: "QuestionTableViewCell", bundle: Bundle.main)
+        userPageTableView.register(nib2, forCellReuseIdentifier: "Cell2")
     }
     
     //画面が戻った時に画像が入っているようにするためにviewwillappearを使う！
     override func viewWillAppear(_ animated: Bool) {
         
+        loadDate()
+        loadQuestion()
         //それぞれのユーザーの情報を取得する
         let user = NCMBUser.current()
         
@@ -123,4 +147,282 @@ class UserPageViewController: UIViewController{
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    @IBAction func segmentControl(_ sender: UISegmentedControl) {
+        self.selectSegmentIndex = sender.selectedSegmentIndex
+        switch sender.selectedSegmentIndex {
+        case 0:
+            loadDate()
+        case 1:
+            loadQuestion()
+        case 2:
+            break
+            //loadGoodField()
+        case 3:
+            break
+            //manthLoadWorldRanking()
+        default:
+            break
+        }
+        userPageTableView.reloadData()
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch self.selectSegmentIndex{
+        case 0 :
+            return notePosts.count
+        case 1 :
+            return questionPosts.count
+        default:
+            return notePosts.count
+        }
+    }
+    
+    //セルの内容
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //let cell = userPageTableView.dequeueReusableCell(withIdentifier: "Cell", for:indexPath) as! TimelineTableViewCell
+        
+        switch self.selectSegmentIndex {
+        case 0:
+            userPageTableView.rowHeight = 461
+            let cell = userPageTableView.dequeueReusableCell(withIdentifier: "Cell") as! TimelineTableViewCell
+
+            cell.delegate = self
+            cell.tag = indexPath.row
+            
+            let user = notePosts[indexPath.row].user
+            cell.userNameLabel.text = user.userName
+            
+            //userImageViewをkfでURLから画像に変換させる
+            let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId as! String
+            //userImageを設定する
+            cell.userImageView.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
+            
+            //投稿したコメントの設定
+            cell.commentTextView.text = notePosts[indexPath.row].text
+            //投稿した写真の設定
+            let imageUrl = notePosts[indexPath.row].imageUrl as! String
+            cell.photoImageView.kf.setImage(with: URL(string: imageUrl))
+            
+            
+            // Likeによってハートの表示を変える（できてない）
+            if notePosts[indexPath.row].isLiked == true {
+                cell.likeButton.setImage(UIImage(named: "heart-fill"), for: .normal)
+            } else {
+                cell.likeButton.setImage(UIImage(named: "heart-outline"), for: .normal)
+            }
+            
+            // Likeの数
+            //cell.likeCountLabel.text = "\(posts[indexPath.row].likeCount)件"
+            
+            // タイムスタンプ(投稿日時) (※フォーマットのためにSwiftDateライブラリをimport)
+            //cell.timestampLabel.text = posts[indexPath.row].createDate()
+      
+            return cell
+        case 1:
+            let cell = userPageTableView.dequeueReusableCell(withIdentifier: "Cell2") as! QuestionTableViewCell
+            
+            //内容
+            cell.delegate = self
+            cell.tag = indexPath.row
+            
+            let user = questionPosts[indexPath.row].user
+            print(user.userName)
+            cell.userNameLabel.text = user.userName
+            let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId
+            cell.userImageView.kf.setImage (with: URL (string: userImageUrl), placeholder: UIImage (named: "placeholder.jpg"))
+            
+            cell.commentTextView.text = questionPosts[indexPath.row].text
+    
+            // Likeによってハートの表示を変える
+            if questionPosts[indexPath.row].isLiked == true {
+                cell.likeButton.setImage(UIImage(named: "heart-fill"), for: .normal)
+            } else {
+                cell.likeButton.setImage(UIImage(named: "heart-outline"), for: .normal)
+            }
+            
+       
+            return cell
+           
+        case 2:
+            let cell = userPageTableView.dequeueReusableCell(withIdentifier: "Cell") as! TimelineTableViewCell
+            return cell
+            //cell.textLabel?.text = segmentControl.titleForSegment(at: segmentIndex)
+        case 3:
+            let cell = userPageTableView.dequeueReusableCell(withIdentifier: "Cell") as! TimelineTableViewCell
+            return cell
+            //cell.textLabel?.text = segmentControl.titleForSegment(at: segmentIndex)
+        default:
+            let cell = userPageTableView.dequeueReusableCell(withIdentifier: "Cell") as! TimelineTableViewCell
+            return cell
+        }
+    }
+    
+    //いいねボタンが押された時、どのセル、tableViewが押されたのか引数として引っ張ってくる
+    func didTapLikeButton(tableViewCell: UITableViewCell, button: UIButton) {
+        
+        let currentUser = NCMBUser.current()
+        
+        if notePosts[tableViewCell.tag].isLiked == false || notePosts[tableViewCell.tag].isLiked == nil {
+            let query = NCMBQuery(className: "Post")
+            query?.getObjectInBackground(withId: notePosts[tableViewCell.tag].objectId, block: { (post, error) in
+                post?.addUniqueObject(currentUser?.objectId, forKey: "likeUser")
+                post?.saveEventually({ (error) in
+                    if error != nil {
+                        SVProgressHUD.showError(withStatus: error!.localizedDescription)
+                    } else {
+                        //self.loadTimeline()
+                    }
+                })
+            })
+        } else {
+            let query = NCMBQuery(className: "Post")
+            query?.getObjectInBackground(withId: notePosts[tableViewCell.tag].objectId, block: { (post, error) in
+                if error != nil {
+                    SVProgressHUD.showError(withStatus: error!.localizedDescription)
+                } else {
+                    post?.removeObjects(in: [NCMBUser.current().objectId], forKey: "likeUser")
+                    post?.saveEventually({ (error) in
+                        if error != nil {
+                            SVProgressHUD.showError(withStatus: error!.localizedDescription)
+                        } else {
+                            //self.loadTimeline()
+                        }
+                    })
+                }
+            })
+        }
+    }
+    
+    func didTapMenuButton(tableViewCell: UITableViewCell, button: UIButton){
+        
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "削除する", style: .destructive) { (action) in
+            SVProgressHUD.show()
+            let query = NCMBQuery(className: "Post")
+            query?.getObjectInBackground(withId: self.notePosts[tableViewCell.tag].objectId, block: { (post, error) in
+                if error != nil {
+                    SVProgressHUD.showError(withStatus: error!.localizedDescription)
+                } else {
+                    // 取得した投稿オブジェクトを削除
+                    post?.deleteInBackground({ (error) in
+                        if error != nil {
+                            SVProgressHUD.showError(withStatus: error!.localizedDescription)
+                        } else {
+                            // 再読込
+                            //self.loadTimeline()
+                            SVProgressHUD.dismiss()
+                        }
+                    })
+                }
+            })
+        }
+        let reportAction = UIAlertAction(title: "報告する", style: .destructive) { (action) in
+            SVProgressHUD.showSuccess(withStatus: "この投稿を報告しました。ご協力ありがとうございました。")
+        }
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel) { (action) in
+            alertController.dismiss(animated: true, completion: nil)
+        }
+        if notePosts[tableViewCell.tag].user.objectId == NCMBUser.current().objectId {
+            // 自分の投稿なので、削除ボタンを出す
+            alertController.addAction(deleteAction)
+        } else {
+            // 他人の投稿なので、報告ボタンを出す
+            alertController.addAction(reportAction)
+        }
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    func didTapCommentsButton(tableViewCell: UITableViewCell, button: UIButton){
+        
+        // 選ばれた投稿を一時的に格納
+        //selectedPost = notePosts[tableViewCell.tag]
+        
+        // 遷移させる(このとき、prepareForSegue関数で値を渡す)
+        self.performSegue(withIdentifier: "toComments", sender: nil)
+        
+    }
+    
+    
+    
+    func loadDate(){
+        let query = NCMBQuery(className: "Post")
+        query?.includeKey("user")
+        //投稿した順番
+        query?.order(byDescending: "createDate")
+        //取得するものが今ログインしている自分のものになる
+        query?.whereKey("user", equalTo: NCMBUser.current())
+        query?.findObjectsInBackground({ (result, error) in
+            if error != nil {
+                //エラー
+                print(error)
+            } else {
+                //notePostsをからにする
+                self.notePosts = [NotePost]()
+                //NCMBObject型に変換する
+                for notePost in result as! [NCMBObject]{
+                    //objectの中のuserを持ってくる
+                    let user = notePost.object(forKey: "user") as! NCMBUser
+                    //UserモデルにNCMBuser型の情報を当てはめる
+                    let userModel = User(objectId: user.objectId, userName: user.userName)
+                    userModel.displayName = user.object(forKey: "displayName") as! String
+                   
+                    //投稿の情報を取得
+                    let imageUrl = notePost.object(forKey: "imageUrl") as! String
+                    let text = notePost.object(forKey: "text") as! String
+                    
+                    let post = NotePost(objectId: notePost.objectId, user: userModel, imageUrl: imageUrl, text: text, createDate: notePost.createDate)
+                    
+                    //likeの状況(自分が過去にlikeしているか？)によってデータを挿入
+                    //let likeUser = notePost.object(forKey: "likeUser") as! [String]
+                    //if likeUser.
+                    
+                    //配列に加える
+                    self.notePosts.append(post)
+                }
+            }
+            self.userPageTableView.reloadData()
+        })
+        
+    }
+    
+    func loadQuestion(){
+        let query = NCMBQuery(className: "QuestionPost")
+        query?.includeKey("user")
+        //投稿した順番
+        query?.order(byDescending: "createDate")
+        //取得するものが今ログインしている自分のものになる
+        query?.whereKey("user", equalTo: NCMBUser.current())
+
+        query?.findObjectsInBackground({ [self] (result, error) in
+            if error != nil{
+                 //エラー
+                print(error)
+            } else {
+                //questionPostの中身を空にする
+                self.questionPosts = [QustionPost]()
+                //NCMBobject型に変換する
+                for questionPost in result as! [NCMBObject]{
+                    //objectの中のuserを持ってくる
+                    let user = questionPost.object(forKey: "user") as! NCMBUser
+                    //userモデルにNCMBuser型の情報に当てはめる
+                    let userModel = User(objectId: user.objectId, userName: user.userName)
+                    userModel.displayName = user.object(forKey: "displayName") as! String
+                    
+                    //投稿の情報を取得
+//                    let imageUrl = questionPost.object(forKey: "imageUrl") as! Strin/
+                    let text = questionPost.object(forKey: "text") as! String
+                    
+                    let question = QustionPost(objectId: questionPost.objectId, user: userModel, text: text, createDate: questionPost.createDate)
+                    
+                    //配列に加える
+                    self.questionPosts.append(question)
+                    print(questionPost)
+                }
+            }
+            self.userPageTableView.reloadData()
+        })
+    }
+    
 }

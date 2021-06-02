@@ -36,7 +36,7 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         loadFollowingUsers()
         setRefreshControl()
         
-        
+       
         //カスタムビューの取得,xibの登録
         let nib = UINib(nibName: "TimelineTableViewCell", bundle: Bundle.main)
         timelineTableView.register(nib, forCellReuseIdentifier: "Cell")
