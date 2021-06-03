@@ -12,8 +12,6 @@ protocol TimelineTableViewCellDelegate {
     func didTapLikeButton(tableViewCell: UITableViewCell, button: UIButton)
     //メニューボタンが押された
     func didTapMenuButton(tableViewCell: UITableViewCell, button: UIButton)
-    //コメントボタンが押された
-    func didTapCommentsButton(tableViewCell: UITableViewCell, button: UIButton)
 }
 
 class TimelineTableViewCell: UITableViewCell {
@@ -50,9 +48,4 @@ class TimelineTableViewCell: UITableViewCell {
         self.delegate?.didTapMenuButton(tableViewCell: self, button: button)
     }
 
-    @IBAction func showComments(button: UIButton) {
-        self.delegate?.didTapCommentsButton(tableViewCell: self, button: button)
-    }
-    
-    
 }

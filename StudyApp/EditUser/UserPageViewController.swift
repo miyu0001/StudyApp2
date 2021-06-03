@@ -22,6 +22,8 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
     @IBOutlet weak var userIntroductionTextView: UITextView!
     @IBOutlet weak var userPageTableView: UITableView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
+    @IBOutlet weak var toEditButton: UIButton!
+    
     var myQuestionIndex : IndexPath!
     
     var selectSegmentIndex:Int = 0
@@ -30,6 +32,13 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        toEditButton.layer.cornerRadius = 10
+        //プロフィール編集ボタンに枠をつける,枠線色
+        toEditButton.layer.borderColor = UIColor.gray.cgColor
+        //枠線幅
+        toEditButton.layer.borderWidth = 1
         
         //画像を資格から丸にする
         userImageView.layer.cornerRadius =  userImageView.bounds.width / 2
