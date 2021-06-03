@@ -25,7 +25,6 @@
 		3B5B17BB265F8A2A005D3E37 /* DetailQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B17BA265F8A2A005D3E37 /* DetailQuestionViewController.swift */; };
 		3B7DFE162657A55700CD81F4 /* BigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DFE152657A55700CD81F4 /* BigViewController.swift */; };
 		3B7DFE1A2657E50B00CD81F4 /* QuestionTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DFE192657E50B00CD81F4 /* QuestionTimelineViewController.swift */; };
-		3B806C2A26536141005FAA3D /* icons8-ハート-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B806C2926536141005FAA3D /* icons8-ハート-60.png */; };
 		3B806C2C265365E2005FAA3D /* NotePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B806C2B265365E2005FAA3D /* NotePost.swift */; };
 		3B806C2E265365FA005FAA3D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B806C2D265365FA005FAA3D /* User.swift */; };
 		3B806C30265368BC005FAA3D /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B806C2F265368BC005FAA3D /* Comment.swift */; };
@@ -57,6 +56,7 @@
 		3BE47279265E38B000B068D2 /* CustomClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE47278265E38B000B068D2 /* CustomClass.swift */; };
 		3BE4727D265E4BE400B068D2 /* PostNoteCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4727C265E4BE400B068D2 /* PostNoteCommentViewController.swift */; };
 		3BE4727F265E576D00B068D2 /* DetailNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4727E265E576D00B068D2 /* DetailNoteViewController.swift */; };
+		3BEFBCCE26694429006C207D /* icons8-ハート-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BEFBCCD26694428006C207D /* icons8-ハート-60.png */; };
 		E6265A95AB2609F711D33F3F /* Pods_StudyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 421AC816A7B11910C2A5BCAC /* Pods_StudyApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,7 +79,6 @@
 		3B5B17BA265F8A2A005D3E37 /* DetailQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailQuestionViewController.swift; sourceTree = "<group>"; };
 		3B7DFE152657A55700CD81F4 /* BigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigViewController.swift; sourceTree = "<group>"; };
 		3B7DFE192657E50B00CD81F4 /* QuestionTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTimelineViewController.swift; sourceTree = "<group>"; };
-		3B806C2926536141005FAA3D /* icons8-ハート-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-ハート-60.png"; sourceTree = "<group>"; };
 		3B806C2B265365E2005FAA3D /* NotePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePost.swift; sourceTree = "<group>"; };
 		3B806C2D265365FA005FAA3D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3B806C2F265368BC005FAA3D /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -113,6 +112,7 @@
 		3BE47278265E38B000B068D2 /* CustomClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClass.swift; sourceTree = "<group>"; };
 		3BE4727C265E4BE400B068D2 /* PostNoteCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNoteCommentViewController.swift; sourceTree = "<group>"; };
 		3BE4727E265E576D00B068D2 /* DetailNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNoteViewController.swift; sourceTree = "<group>"; };
+		3BEFBCCD26694428006C207D /* icons8-ハート-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-ハート-60.png"; sourceTree = "<group>"; };
 		421AC816A7B11910C2A5BCAC /* Pods_StudyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0BBB0ED2A9316A411383E58 /* Pods-StudyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.release.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.release.xcconfig"; sourceTree = "<group>"; };
 		B860F088B16E545FB0B131EC /* Pods-StudyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.debug.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,10 +151,10 @@
 			isa = PBXGroup;
 			children = (
 				3B8341062660D9B700CBD534 /* icons8-設定-50.png */,
-				3B806C2926536141005FAA3D /* icons8-ハート-60.png */,
 				3B94E59E26514A1400A2CC03 /* profile_icon.png */,
 				3B0C4D9E2652BD2A00E3F647 /* coment.png */,
 				3B0C4D9C2652BC6500E3F647 /* more.png */,
+				3BEFBCCD26694428006C207D /* icons8-ハート-60.png */,
 				3B0C4DA02652BD3300E3F647 /* heart.png */,
 				3B0C4DA32652D0F400E3F647 /* ouyou.jpeg */,
 				3B2F2DBF265BDC6C00ECFD3D /* question.png */,
@@ -383,13 +383,13 @@
 				3B83410A2662921B00CBD534 /* icon-red.JPG in Resources */,
 				3B813AEE264CDA650059E521 /* Main.storyboard in Resources */,
 				3B83410F266292AB00CBD534 /* icon-ff.JPG in Resources */,
-				3B806C2A26536141005FAA3D /* icons8-ハート-60.png in Resources */,
 				3B0C4D9F2652BD2A00E3F647 /* coment.png in Resources */,
 				3B2F2DC0265BDC6C00ECFD3D /* question.png in Resources */,
 				3B0C4DA12652BD3300E3F647 /* heart.png in Resources */,
 				3B8341052660C80500CBD534 /* LaunchScreen.storyboard in Resources */,
 				3B94E59F26514A1400A2CC03 /* profile_icon.png in Resources */,
 				3BE47272265E1D1500B068D2 /* QuestionTableViewCell.xib in Resources */,
+				3BEFBCCE26694429006C207D /* icons8-ハート-60.png in Resources */,
 				3B813ACC264C24C00059E521 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
