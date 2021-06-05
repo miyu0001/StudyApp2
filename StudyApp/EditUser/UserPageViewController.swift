@@ -391,17 +391,9 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                     
                     //配列に加える
                     self.notePosts.append(post)
+                    self.noteCountLabel.text = String(self.notePosts.count)
                 }
             }
-            
-            //投稿したノートの数をラベルに表示させる
-            query?.countObjectsInBackground({ (count, error) in
-                if error != nil{
-                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
-                } else {
-                    self.noteCountLabel.text = String(count)
-                }
-            })
             self.userPageTableView.reloadData()
         })
         
@@ -438,18 +430,10 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                     
                     //配列に加える
                     self.questionPosts.append(question)
+                    self.questionCountLabel.text = String(self.questionPosts.count)
                 }
             }
         })
-        
-//        //投稿したノートの数をラベルに表示させる
-//        query?.countObjectsInBackground({ (count, error) in
-//            if error != nil{
-//                SVProgressHUD.showError(withStatus: error?.localizedDescription)
-//            } else {
-//                self.questionCountLabel.text = String(count)
-//            }
-//        })
         self.userPageTableView.reloadData()
     }
     
