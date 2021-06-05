@@ -32,6 +32,9 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //セルの選択不可
+        self.commentTableview.allowsSelection = false
+        
         commentTableview.dataSource = self
         commentTableview.delegate = self
         

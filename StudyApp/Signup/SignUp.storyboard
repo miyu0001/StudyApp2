@@ -48,9 +48,10 @@
                                 </state>
                                 <connections>
                                     <action selector="forgetPassword:" destination="6WQ-8Y-Ur5" eventType="touchUpInside" id="zoR-y1-seg"/>
+                                    <segue destination="Swi-0d-ynQ" kind="show" id="Gbz-em-r7I"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-App-60x60.png" translatesAutoresizingMaskIntoConstraints="NO" id="4oO-hV-EQS">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_0302.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="4oO-hV-EQS">
                                 <rect key="frame" x="139" y="136" width="150" height="150"/>
                                 <color key="backgroundColor" red="0.10980392160000001" green="0.40784313729999999" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.10980392160000001" green="0.40784313729999999" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -146,6 +147,72 @@
             </objects>
             <point key="canvasLocation" x="268" y="135"/>
         </scene>
+        <!--Reset Passward View Controller-->
+        <scene sceneID="UZJ-mw-Ro1">
+            <objects>
+                <viewController id="Swi-0d-ynQ" customClass="ResetPasswardViewController" customModule="StudyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PDA-XB-92q">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メールアドレス" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cRi-jB-do6">
+                                <rect key="frame" x="32" y="316.66666666666669" width="364" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpj-Q3-gQe">
+                                <rect key="frame" x="114" y="440.66666666666669" width="200" height="65"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="hYY-XU-5xZ"/>
+                                    <constraint firstAttribute="width" constant="200" id="lgW-iR-zci"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="メールを送信する">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetPassward:" destination="Swi-0d-ynQ" eventType="touchUpInside" id="EHB-DU-LXD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="入力してください" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwg-Th-3qi">
+                                <rect key="frame" x="144.66666666666669" y="216.33333333333334" width="138.66666666666669" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード再設定用のメールアドレスを" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcv-Br-73r">
+                                <rect key="frame" x="57" y="188" width="314" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="eiR-qo-uKL"/>
+                        <color key="backgroundColor" red="0.2196078431372549" green="0.40784313725490196" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="cRi-jB-do6" firstAttribute="centerX" secondItem="jwg-Th-3qi" secondAttribute="centerX" id="4al-e5-ZRP"/>
+                            <constraint firstItem="eiR-qo-uKL" firstAttribute="trailing" secondItem="cRi-jB-do6" secondAttribute="trailing" constant="32" id="BZy-YX-Q9y"/>
+                            <constraint firstItem="wcv-Br-73r" firstAttribute="leading" secondItem="eiR-qo-uKL" secondAttribute="leading" constant="57" id="Mv4-go-J7q"/>
+                            <constraint firstItem="jwg-Th-3qi" firstAttribute="top" secondItem="wcv-Br-73r" secondAttribute="bottom" constant="8" id="Ojc-Ew-hai"/>
+                            <constraint firstItem="wcv-Br-73r" firstAttribute="top" secondItem="eiR-qo-uKL" secondAttribute="top" constant="100" id="TF2-Sw-Q36"/>
+                            <constraint firstItem="Gpj-Q3-gQe" firstAttribute="centerX" secondItem="cRi-jB-do6" secondAttribute="centerX" id="WmD-NA-OSq"/>
+                            <constraint firstItem="cRi-jB-do6" firstAttribute="leading" secondItem="eiR-qo-uKL" secondAttribute="leading" constant="32" id="au7-Ho-ize"/>
+                            <constraint firstItem="eiR-qo-uKL" firstAttribute="trailing" secondItem="wcv-Br-73r" secondAttribute="trailing" constant="57" id="bwb-U2-Mz6"/>
+                            <constraint firstItem="Gpj-Q3-gQe" firstAttribute="top" secondItem="cRi-jB-do6" secondAttribute="bottom" constant="90" id="h7M-LN-f0e"/>
+                            <constraint firstItem="cRi-jB-do6" firstAttribute="top" secondItem="jwg-Th-3qi" secondAttribute="bottom" constant="80" id="wZ3-wP-gjN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="K6b-BC-5Cl"/>
+                    <connections>
+                        <outlet property="passwardTextField" destination="cRi-jB-do6" id="CHE-7s-if4"/>
+                        <outlet property="resetButton" destination="Gpj-Q3-gQe" id="ji3-y6-MA1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZDa-Ix-nhq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1289.7196261682243" y="922.67818574514047"/>
+        </scene>
         <!--新規登録-->
         <scene sceneID="16g-hK-Nke">
             <objects>
@@ -205,7 +272,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-th.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="iNb-nh-1Jk">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_0302.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="iNb-nh-1Jk">
                                 <rect key="frame" x="139" y="104" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="X8e-Bu-d47"/>
@@ -314,15 +381,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BZh-ec-s2W">
-                                <rect key="frame" x="20" y="88" width="374" height="808"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zgD-4H-1Xi">
+                                <rect key="frame" x="20" y="111" width="388" height="3541.3333333333335"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dVJ-L8-xTU">
-                                        <rect key="frame" x="21" y="0.0" width="333" height="3508"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.2196078431372549" green="0.40784313725490196" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <string key="text">この利用規約（以下，「本規約」といいます。）は、佐藤未悠（以下，「開発者」といいます。）がこのアプリ上で提供するサービス（以下，「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆さま（以下，「ユーザー」といいます。）には，本規約に従って，本サービスをご利用いただきます。
+                                <color key="backgroundColor" red="0.21960784310000001" green="0.40784313729999999" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <mutableString key="text">この利用規約（以下，「本規約」といいます。）は、佐藤未悠（以下，「開発者」といいます。）がこのアプリ上で提供するサービス（以下，「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆さま（以下，「ユーザー」といいます。）には，本規約に従って，本サービスをご利用いただきます。
 
 第1条（適用）
 1. 本規約は，ユーザーと開発者との間の本サービスの利用に関わる一切の関係に適用されるものとします。
@@ -420,16 +483,11 @@ e. その他，開発者が本サービスの利用を適当でないと判断�
 第15条（準拠法・裁判管轄）
 本規約の解釈にあたっては，日本法を準拠法とします。
 本サービスに関して紛争が生じた場合には，開発者の本店所在地を管轄する裁判所を専属的合意管轄とします。
-</string>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.2196078431372549" green="0.40784313725490196" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="jIT-IR-CVB"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="JvK-Cc-3Qv"/>
-                            </scrollView>
+</mutableString>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1tg-ag-9Vk"/>
                         <color key="backgroundColor" red="0.2196078431372549" green="0.40784313725490196" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -438,7 +496,7 @@ e. その他，開発者が本サービスの利用を適当でないと判断�
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZGh-x2-Q2R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3521.739130434783" y="-658.25892857142856"/>
+            <point key="canvasLocation" x="3521.4953271028035" y="-658.31533477321818"/>
         </scene>
         <!--資格ジャンル選択-->
         <scene sceneID="3VB-6f-KhG">
@@ -614,8 +672,7 @@ e. その他，開発者が本サービスの利用を適当でないと判断�
     </scenes>
     <color key="tintColor" red="0.2196078431372549" green="0.40784313725490196" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
-        <image name="Icon-App-60x60.png" width="60" height="60"/>
-        <image name="icon-th.jpg" width="1280" height="1280"/>
+        <image name="IMG_0302.JPG" width="1280" height="1280"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

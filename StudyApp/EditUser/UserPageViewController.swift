@@ -23,6 +23,9 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
     @IBOutlet weak var userPageTableView: UITableView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var toEditButton: UIButton!
+    @IBOutlet weak var noteCountLabel: UILabel!
+    @IBOutlet weak var questionCountLabel: UILabel!
+    @IBOutlet weak var likeCountLabel: UILabel!
     
     var myQuestionIndex : IndexPath!
     
@@ -235,7 +238,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
             cell.tag = indexPath.row
             
             let user = questionPosts[indexPath.row].user
-            print(user.userName)
+            
             cell.userNameLabel.text = user.userName
             let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId
             cell.userImageView.kf.setImage (with: URL (string: userImageUrl), placeholder: UIImage (named: "placeholder.jpg"))
@@ -385,12 +388,20 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                     
                     //likeの状況(自分が過去にlikeしているか？)によってデータを挿入
                     //let likeUser = notePost.object(forKey: "likeUser") as! [String]
-                    //if likeUser.
                     
                     //配列に加える
                     self.notePosts.append(post)
                 }
             }
+            
+            //投稿したノートの数をラベルに表示させる
+            query?.countObjectsInBackground({ (count, error) in
+                if error != nil{
+                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
+                } else {
+                    self.noteCountLabel.text = String(count)
+                }
+            })
             self.userPageTableView.reloadData()
         })
         
@@ -427,11 +438,19 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                     
                     //配列に加える
                     self.questionPosts.append(question)
-                    print(questionPost)
                 }
             }
-            self.userPageTableView.reloadData()
         })
+        
+//        //投稿したノートの数をラベルに表示させる
+//        query?.countObjectsInBackground({ (count, error) in
+//            if error != nil{
+//                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+//            } else {
+//                self.questionCountLabel.text = String(count)
+//            }
+//        })
+        self.userPageTableView.reloadData()
     }
     
 }

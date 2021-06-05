@@ -81,24 +81,17 @@
                                 <rect key="frame" x="19" y="107" width="107" height="111"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54G-m1-8hw">
-                                <rect key="frame" x="174" y="133" width="37" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOY-4O-k51">
-                                <rect key="frame" x="248" y="133" width="37" height="27"/>
+                                <rect key="frame" x="245" y="133" width="42" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A30-yh-npo">
-                                <rect key="frame" x="323" y="133" width="37" height="27"/>
+                                <rect key="frame" x="322" y="133" width="38" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -117,7 +110,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTr-Um-4W7">
-                                <rect key="frame" x="186" y="197" width="176" height="30"/>
+                                <rect key="frame" x="161" y="197" width="217" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="プロフィールを編集する">
@@ -165,24 +158,31 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4ET-Ic-GG8">
-                                <rect key="frame" x="11" y="325" width="392" height="32"/>
+                                <rect key="frame" x="10" y="325" width="395" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="自分のノート"/>
                                     <segment title="自分の質問"/>
-                                    <segment title="いいねノート"/>
-                                    <segment title="いいね質問"/>
+                                    <segment title="👏ノート"/>
+                                    <segment title="👏質問"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentControl:" destination="Ybj-1r-Fic" eventType="valueChanged" id="6yC-Gc-7tL"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54G-m1-8hw">
+                                <rect key="frame" x="173" y="133" width="39" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="139-aj-tTQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="bCg-Tu-XPK">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="smiley.fill" catalog="system" id="JCt-le-4VS">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="figure.walk" catalog="system" id="JCt-le-4VS">
                             <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="3"/>
                             <color key="tintColor" red="0.21960784310000001" green="0.40784313729999999" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -191,6 +191,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="likeCountLabel" destination="A30-yh-npo" id="eRs-Hc-X1A"/>
+                        <outlet property="noteCountLabel" destination="54G-m1-8hw" id="Y9y-Dq-j2d"/>
+                        <outlet property="questionCountLabel" destination="aOY-4O-k51" id="lyC-oe-5v9"/>
                         <outlet property="segmentControl" destination="4ET-Ic-GG8" id="H9d-Be-5ca"/>
                         <outlet property="toEditButton" destination="cTr-Um-4W7" id="jL0-Yb-1QI"/>
                         <outlet property="userDisplayNameLabel" destination="K1N-gL-Dpj" id="YUp-hj-yla"/>
@@ -1003,13 +1006,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="figure.walk" catalog="system" width="95" height="128"/>
         <image name="heart.png" width="24" height="24"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="more.png" width="30" height="30"/>
         <image name="ouyou.jpeg" width="334.5" height="480"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="profile_icon.png" width="500" height="500"/>
-        <image name="smiley.fill" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

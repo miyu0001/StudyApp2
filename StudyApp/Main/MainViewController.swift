@@ -29,6 +29,9 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //投稿したものの読み込み
+        self.loadTimeline()
+        
         timelineTableView.dataSource = self
         timelineTableView.delegate = self
         
@@ -43,11 +46,13 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         
         //tableviewの下の線を消すだっけ？？
         timelineTableView.tableFooterView = UIView()
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //投稿したものがリアルタイムで更新されるようにする
-        self.loadTimeline()
+        //投稿したものがリアルタイムで更新されるようにする　→　画像の表示が毎回時間かかる
+        //self.loadTimeline()
     }
     
     
@@ -57,6 +62,8 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         selectedPost = posts[indexPath.row]
         //タップしたら次の画面に行くように、これは画面が遷移するだけで値は渡せてない
         self.performSegue(withIdentifier: "toDetail", sender: nil)
+        //セルの選択解除
+        timelineTableView.deselectRow(at: indexPath,animated:true)
     }
     
     //画面遷移
@@ -120,7 +127,6 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         
         guard let currentUser = NCMBUser.current() else {
              //ログインに戻る
-            //ログアウト成功
             let storyboard = UIStoryboard(name: "SignUp", bundle: Bundle.main)
             let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootNavigationController")
             //画面の切り替えができる
@@ -239,9 +245,6 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         //投稿した資格の名前と一致するものを持ってくる
         query?.whereKey("certification", equalTo: UserDefaults.standard.string(forKey:"certification")!)
         
-        print(currentUser)
-        
-        
         // フォロー中の人 + 自分の投稿だけ持ってくる
         //query?.whereKey("user", containedIn: followings)
         // オブジェクトの取得
@@ -253,9 +256,7 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
                 self.posts = [NotePost]()
                 
                 for postObject in result as! [NCMBObject] {
-                    print(result)
-                    print(postObject)
-             
+                    
                     // ユーザー情報をUserクラスにセット
                     let user = postObject.object(forKey: "user") as! NCMBUser
                     
@@ -266,7 +267,6 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
                         
                         // 投稿したユーザーの情報をUserモデルにまとめる
                         
-                        print(user.userName)
                         let userModel = User(objectId: user.objectId, userName: user.userName)
                         userModel.displayName = user.object(forKey: "displayName") as? String
                         

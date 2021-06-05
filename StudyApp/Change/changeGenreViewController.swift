@@ -75,7 +75,7 @@ class changeGenreViewController: UIViewController,UITableViewDelegate,UITableVie
         //遷移先のViewControllerのインスタンスを生成
         let secVC = segue.destination as! ChangeCertificationViewController
         //changeCertificationViewControllernogetcellに選択された画像を設定する
-        print(indexpath.row)
+
         secVC.getCell = indexpath.row
         secVC.parentVC = parentVC
        

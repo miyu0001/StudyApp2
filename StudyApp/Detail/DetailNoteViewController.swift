@@ -38,6 +38,8 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        commentTableview.allowsSelection = false
 
         commentTableview.dataSource = self
         commentTableview.delegate = self
@@ -75,8 +77,6 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
         let userNameLabel = cell.viewWithTag(1) as! UILabel
         let commentLabel = cell.viewWithTag(2) as! UILabel
         
-        print(users[indexPath.row])
-        print(commentsText[indexPath.row])
         userNameLabel.text = users[indexPath.row]
         commentLabel.text = commentsText[indexPath.row]
         

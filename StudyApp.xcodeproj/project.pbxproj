@@ -47,6 +47,8 @@
 		3B8341152663448C00CBD534 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8341142663448C00CBD534 /* Genre.swift */; };
 		3B8341172664B2F200CBD534 /* ChangeCertificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8341162664B2F100CBD534 /* ChangeCertificationViewController.swift */; };
 		3B8341192664B30900CBD534 /* changeGenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8341182664B30900CBD534 /* changeGenreViewController.swift */; };
+		3B88CF7B2669C441008C9C01 /* IMG_0302.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3B88CF7A2669C441008C9C01 /* IMG_0302.JPG */; };
+		3B88CF7D2669C4A6008C9C01 /* ResetPasswardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B88CF7C2669C4A6008C9C01 /* ResetPasswardViewController.swift */; };
 		3B94E59F26514A1400A2CC03 /* profile_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B94E59E26514A1400A2CC03 /* profile_icon.png */; };
 		3B95FD8F265912390078A858 /* PostQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95FD8E265912390078A858 /* PostQuestionViewController.swift */; };
 		3BBDE47B2655098300488565 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDE47A2655098300488565 /* PostViewController.swift */; };
@@ -57,7 +59,6 @@
 		3BE4727D265E4BE400B068D2 /* PostNoteCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4727C265E4BE400B068D2 /* PostNoteCommentViewController.swift */; };
 		3BE4727F265E576D00B068D2 /* DetailNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4727E265E576D00B068D2 /* DetailNoteViewController.swift */; };
 		3BEFBCCE26694429006C207D /* icons8-ハート-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BEFBCCD26694428006C207D /* icons8-ハート-60.png */; };
-		E6265A95AB2609F711D33F3F /* Pods_StudyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 421AC816A7B11910C2A5BCAC /* Pods_StudyApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +104,8 @@
 		3B8341142663448C00CBD534 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		3B8341162664B2F100CBD534 /* ChangeCertificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCertificationViewController.swift; sourceTree = "<group>"; };
 		3B8341182664B30900CBD534 /* changeGenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changeGenreViewController.swift; sourceTree = "<group>"; };
+		3B88CF7A2669C441008C9C01 /* IMG_0302.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0302.JPG; sourceTree = "<group>"; };
+		3B88CF7C2669C4A6008C9C01 /* ResetPasswardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswardViewController.swift; sourceTree = "<group>"; };
 		3B94E59E26514A1400A2CC03 /* profile_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_icon.png; sourceTree = "<group>"; };
 		3B95FD8E265912390078A858 /* PostQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostQuestionViewController.swift; sourceTree = "<group>"; };
 		3BBDE47A2655098300488565 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -113,7 +116,6 @@
 		3BE4727C265E4BE400B068D2 /* PostNoteCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNoteCommentViewController.swift; sourceTree = "<group>"; };
 		3BE4727E265E576D00B068D2 /* DetailNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNoteViewController.swift; sourceTree = "<group>"; };
 		3BEFBCCD26694428006C207D /* icons8-ハート-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-ハート-60.png"; sourceTree = "<group>"; };
-		421AC816A7B11910C2A5BCAC /* Pods_StudyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0BBB0ED2A9316A411383E58 /* Pods-StudyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.release.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.release.xcconfig"; sourceTree = "<group>"; };
 		B860F088B16E545FB0B131EC /* Pods-StudyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.debug.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,7 +125,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6265A95AB2609F711D33F3F /* Pods_StudyApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +134,6 @@
 		21A59F70BFFB7C2BA44F5EAA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				421AC816A7B11910C2A5BCAC /* Pods_StudyApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -150,6 +150,7 @@
 		3B0C4DA22652BD4C00E3F647 /* pictures */ = {
 			isa = PBXGroup;
 			children = (
+				3B88CF7A2669C441008C9C01 /* IMG_0302.JPG */,
 				3B8341062660D9B700CBD534 /* icons8-設定-50.png */,
 				3B94E59E26514A1400A2CC03 /* profile_icon.png */,
 				3B0C4D9E2652BD2A00E3F647 /* coment.png */,
@@ -181,6 +182,7 @@
 			children = (
 				3B8341042660C80500CBD534 /* LaunchScreen.storyboard */,
 				3B813ADA264C39E20059E521 /* SignUpViewController.swift */,
+				3B88CF7C2669C4A6008C9C01 /* ResetPasswardViewController.swift */,
 				3B2AE6F3264D2AB4000AE965 /* SignInViewController.swift */,
 				3B813AD8264C39D40059E521 /* SignUp.storyboard */,
 			);
@@ -390,6 +392,7 @@
 				3B94E59F26514A1400A2CC03 /* profile_icon.png in Resources */,
 				3BE47272265E1D1500B068D2 /* QuestionTableViewCell.xib in Resources */,
 				3BEFBCCE26694429006C207D /* icons8-ハート-60.png in Resources */,
+				3B88CF7B2669C441008C9C01 /* IMG_0302.JPG in Resources */,
 				3B813ACC264C24C00059E521 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +471,7 @@
 				3B2F2DBC265B4B9800ECFD3D /* NoteCommentsViewController.swift in Sources */,
 				3B7DFE1A2657E50B00CD81F4 /* QuestionTimelineViewController.swift in Sources */,
 				3B54765626608F3A0006B97F /* PostQuestionCommentViewController.swift in Sources */,
+				3B88CF7D2669C4A6008C9C01 /* ResetPasswardViewController.swift in Sources */,
 				3B2AE6F6264D38C3000AE965 /* UserPageViewController.swift in Sources */,
 				3BE47279265E38B000B068D2 /* CustomClass.swift in Sources */,
 				3B2AE6FA264E6996000AE965 /* EditUserinfoViewController.swift in Sources */,

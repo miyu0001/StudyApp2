@@ -45,9 +45,10 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         selectedPost = posts[indexPath.row]
-        
         //タッチしたら次の画面に行くように
         self.performSegue(withIdentifier: "toDetail2", sender: nil)
+        //セルの選択解除
+        timelineTableView.deselectRow(at: indexPath,animated:true)
      
    
     }
@@ -60,8 +61,7 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
             
             //選択した投稿が一括で遷移される
             detailViewController.selectedPost = selectedPost
-            
-            print(selectedPost)
+        
         }
     }
     
@@ -78,7 +78,7 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         cell.tag = indexPath.row
         
         let user = posts[indexPath.row].user
-        print(user.userName)
+       
         cell.userNameLabel.text = user.userName
         let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId
         cell.userImageView.kf.setImage (with: URL (string: userImageUrl), placeholder: UIImage (named: "placeholder.jpg"))
@@ -228,8 +228,7 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
                 self.posts = [QustionPost]()
                 
                 for postObject in result as! [NCMBObject] {
-                    print(result)
-                    print(postObject)
+            
                     // ユーザー情報をUserクラスにセット
                     let user = postObject.object(forKey: "user") as! NCMBUser
                     
