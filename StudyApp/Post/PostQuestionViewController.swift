@@ -66,10 +66,6 @@ class PostQuestionViewController: UIViewController, UINavigationControllerDelega
             ud.set(false, forKey: "isLogin")
             ud.synchronize()
         }
-        
-        
-        
-        
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -109,8 +105,6 @@ class PostQuestionViewController: UIViewController, UINavigationControllerDelega
                 SVProgressHUD.dismiss()
                 self.postTextView.text = nil
                 self.dismiss(animated: true, completion: nil)
-                
-                
             }
         })
     }
@@ -135,10 +129,5 @@ class PostQuestionViewController: UIViewController, UINavigationControllerDelega
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
     }
-    
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        return textView.text.count + (text.count - range.length) <= 55
-    }
-    
 }
 

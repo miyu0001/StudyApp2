@@ -33,7 +33,12 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         timelineTableView.register(nib, forCellReuseIdentifier: "Cell2")
         
         timelineTableView.tableFooterView = UIView()
-        timelineTableView.rowHeight = 90
+        //timelineTableView.rowHeight = 90
+        
+        //自動で高さを変更する
+        timelineTableView.estimatedRowHeight = 30
+        //timelineTableView.rowHeight <= self.view.bounds.height - 20
+        timelineTableView.rowHeight = UITableView.automaticDimension
         
     }
     
@@ -83,7 +88,7 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId
         cell.userImageView.kf.setImage (with: URL (string: userImageUrl), placeholder: UIImage (named: "placeholder.jpg"))
         
-        cell.commentTextView.text = posts[indexPath.row].text
+        cell.commentLabel.text = posts[indexPath.row].text
 //        let imageUrl = posts[indexPath.row].imageUrl as! String
         
         

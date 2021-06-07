@@ -49,6 +49,7 @@
 		3B8341192664B30900CBD534 /* changeGenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8341182664B30900CBD534 /* changeGenreViewController.swift */; };
 		3B88CF7B2669C441008C9C01 /* IMG_0302.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3B88CF7A2669C441008C9C01 /* IMG_0302.JPG */; };
 		3B88CF7D2669C4A6008C9C01 /* ResetPasswardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B88CF7C2669C4A6008C9C01 /* ResetPasswardViewController.swift */; };
+		3B8C046B266BD4B10062E224 /* icons8-画像-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B8C046A266BD4B10062E224 /* icons8-画像-100.png */; };
 		3B94E59F26514A1400A2CC03 /* profile_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B94E59E26514A1400A2CC03 /* profile_icon.png */; };
 		3B95FD8F265912390078A858 /* PostQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95FD8E265912390078A858 /* PostQuestionViewController.swift */; };
 		3BBDE47B2655098300488565 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDE47A2655098300488565 /* PostViewController.swift */; };
@@ -106,6 +107,7 @@
 		3B8341182664B30900CBD534 /* changeGenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changeGenreViewController.swift; sourceTree = "<group>"; };
 		3B88CF7A2669C441008C9C01 /* IMG_0302.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0302.JPG; sourceTree = "<group>"; };
 		3B88CF7C2669C4A6008C9C01 /* ResetPasswardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswardViewController.swift; sourceTree = "<group>"; };
+		3B8C046A266BD4B10062E224 /* icons8-画像-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-画像-100.png"; sourceTree = "<group>"; };
 		3B94E59E26514A1400A2CC03 /* profile_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_icon.png; sourceTree = "<group>"; };
 		3B95FD8E265912390078A858 /* PostQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostQuestionViewController.swift; sourceTree = "<group>"; };
 		3BBDE47A2655098300488565 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		3B0C4DA22652BD4C00E3F647 /* pictures */ = {
 			isa = PBXGroup;
 			children = (
+				3B8C046A266BD4B10062E224 /* icons8-画像-100.png */,
 				3B88CF7A2669C441008C9C01 /* IMG_0302.JPG */,
 				3B8341062660D9B700CBD534 /* icons8-設定-50.png */,
 				3B94E59E26514A1400A2CC03 /* profile_icon.png */,
@@ -222,8 +225,8 @@
 		3B7DFE0F265609F600CD81F4 /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				3B95FD8E265912390078A858 /* PostQuestionViewController.swift */,
 				3BBDE47A2655098300488565 /* PostViewController.swift */,
+				3B95FD8E265912390078A858 /* PostQuestionViewController.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				3B0C4DA42652D0F400E3F647 /* ouyou.jpeg in Resources */,
 				3B8341112662930800CBD534 /* this.JPG in Resources */,
 				3B8341072660D9B700CBD534 /* icons8-設定-50.png in Resources */,
+				3B8C046B266BD4B10062E224 /* icons8-画像-100.png in Resources */,
 				3B0C4D9D2652BC6500E3F647 /* more.png in Resources */,
 				3B813ADD264C3A370059E521 /* Sharenote.storyboard in Resources */,
 				3B83410E266292AB00CBD534 /* icon-fff.JPG in Resources */,

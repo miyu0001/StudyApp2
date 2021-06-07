@@ -13,19 +13,19 @@ import SVProgressHUD
 
 
 class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate{
-   
-    
     
     //選ばれたpostをそのまま渡してる（投稿全体をバラバラにせずに）
     var selectedPost: NotePost?
 
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userLabel: UILabel!
-    @IBOutlet weak var commentTextView: UITextView!
+    @IBOutlet weak var commentLabel: UILabel!
+    //@IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var commentReplyButton: UIButton!
     @IBOutlet weak var commentTableview: UITableView!
+    @IBOutlet weak var menuButton: UIButton!
     
     var selectedUserImage : UIImage!
     var selectedUserImageUrl : String!
@@ -38,16 +38,22 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+ 
         commentTableview.allowsSelection = false
 
         commentTableview.dataSource = self
         commentTableview.delegate = self
         
-        self.commentTextView.text = selectedPost?.text as! String
+        self.commentLabel.text = selectedPost?.text as! String
+        self.commentLabel.sizeToFit()
+        self.commentLabel.numberOfLines=0
         self.userLabel.text = selectedPost?.user.userName
         self.timeLabel.text = selectedPost?.createDate as? String
         
+        //自動で高さを変更する
+        commentTableview.estimatedRowHeight = 30
+        //timelineTableView.rowHeight <= self.view.bounds.height - 20
+        commentTableview.rowHeight = UITableView.automaticDimension
         
         //投稿画像をURLとして取得する
         let selectedUrl = (selectedPost?.imageUrl)!
@@ -64,6 +70,13 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
     
     override func viewWillAppear(_ animated: Bool) {
         loadData()
+        
+        // タイムスタンプ(投稿日時) (※フォーマットのためにSwiftDateライブラリをimport)
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP") as Locale
+        dateFormatter.dateFormat = "MM/dd HH"
+        let dateString = dateFormatter.string(from: self.selectedPost!.createDate)
+        self.timeLabel.text = dateString + "時"
     }
     
     
@@ -145,6 +158,5 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         return textView.text.count + (text.count - range.length) <= 55
     }
-    
     
 }

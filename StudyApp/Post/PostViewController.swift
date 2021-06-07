@@ -21,15 +21,24 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
     var resizedImage: UIImage!
     
     @IBOutlet var postImageView: UIImageView!
-    
     @IBOutlet var postTextView: UITextView!
-    
+    @IBOutlet weak var selectImageButton: UIButton!
     @IBOutlet var postButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        postImageView.image = placeholderImage
+        selectImageButton.layer.cornerRadius = 10
+        selectImageButton.layer.borderColor = UIColor.gray.cgColor //枠線色
+        selectImageButton.layer.borderWidth = 1 //枠線幅
+        
+        // 枠のカラー
+        postTextView.layer.borderColor = UIColor.gray.cgColor
+        // 枠の幅
+        postTextView.layer.borderWidth = 1
+        
+        postImageView.layer.borderColor = UIColor.gray.cgColor
+        postImageView.layer.borderWidth = 1
         
         postButton.isEnabled = false
         postTextView.delegate = self
@@ -105,6 +114,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     @IBAction func sharePhoto() {
         SVProgressHUD.show()
+        
         
         // 撮影した画像をデータ化したときに右に90度回転してしまう問題の解消
         UIGraphicsBeginImageContext(resizedImage.size)
@@ -183,9 +193,5 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
     }
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        return textView.text.count + (text.count - range.length) <= 55
-    }
-    
 }
 

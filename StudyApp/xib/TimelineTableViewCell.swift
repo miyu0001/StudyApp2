@@ -22,7 +22,7 @@ class TimelineTableViewCell: UITableViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet weak var commentTextView: UITextView!
+    @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var menuButton: UIButton!
     

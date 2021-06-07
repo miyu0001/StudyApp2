@@ -210,7 +210,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
             cell.userImageView.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
             
             //投稿したコメントの設定
-            cell.commentTextView.text = notePosts[indexPath.row].text
+            cell.commentLabel.text = notePosts[indexPath.row].text
             //投稿した写真の設定
             let imageUrl = notePosts[indexPath.row].imageUrl as! String
             cell.photoImageView.kf.setImage(with: URL(string: imageUrl))
@@ -243,7 +243,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
             let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId
             cell.userImageView.kf.setImage (with: URL (string: userImageUrl), placeholder: UIImage (named: "placeholder.jpg"))
             
-            cell.commentTextView.text = questionPosts[indexPath.row].text
+            cell.commentLabel.text = questionPosts[indexPath.row].text
     
             // Likeによってハートの表示を変える
             if questionPosts[indexPath.row].isLiked == true {

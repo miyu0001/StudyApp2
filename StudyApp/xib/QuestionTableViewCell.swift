@@ -26,7 +26,8 @@ class QuestionTableViewCell: UITableViewCell {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var menuButton: UIButton!
-    @IBOutlet weak var commentTextView: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
+    
     
 
     

@@ -47,7 +47,10 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         //tableviewの下の線を消すだっけ？？
         timelineTableView.tableFooterView = UIView()
         
-        
+        //自動で高さを変更する
+        timelineTableView.estimatedRowHeight = 597
+        //timelineTableView.rowHeight <= self.view.bounds.height - 20
+        timelineTableView.rowHeight = UITableView.automaticDimension
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,7 +101,7 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         cell.userImageView.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
         
         //投稿したコメントの設定
-        cell.commentTextView.text = posts[indexPath.row].text
+        cell.commentLabel.text = posts[indexPath.row].text
         //投稿した写真の設定
         let imageUrl = posts[indexPath.row].imageUrl as! String
         cell.photoImageView.kf.setImage(with: URL(string: imageUrl))
@@ -114,9 +117,13 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         // Likeの数
         //cell.likeCountLabel.text = "\(posts[indexPath.row].likeCount)件"
         
-        // タイムスタンプ(投稿日時) (※フォーマットのためにSwiftDateライブラリをimport)
-        //cell.timestampLabel.text = posts[indexPath.row].createDate()
-  
+//        // タイムスタンプ(投稿日時) (※フォーマットのためにSwiftDateライブラリをimport)
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP") as Locale
+//        dateFormatter.dateFormat = "yyyy/MM/dd HH"
+//        let dateString = dateFormatter.string(from: self.selectedPost!.createDate)
+//        self.timestampLabel.text = dateString + "時"
+        
         return cell
     }
 
