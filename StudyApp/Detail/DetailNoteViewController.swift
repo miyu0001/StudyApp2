@@ -32,10 +32,7 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
     
     var commentsText = [String]()
     var users = [String]()
-    
-    
-    
-    
+      
     override func viewDidLoad() {
         super.viewDidLoad()
  
@@ -65,7 +62,6 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
         let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user!.objectId as! String
                
         userImage.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
-   
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,24 +75,49 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
         self.timeLabel.text = dateString + "時"
     }
     
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return commentsText.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = commentTableview.dequeueReusableCell(withIdentifier: "Cell")!
-        let userNameLabel = cell.viewWithTag(1) as! UILabel
+        let userImage = cell.viewWithTag(1) as! UILabel
         let commentLabel = cell.viewWithTag(2) as! UILabel
         
-        userNameLabel.text = users[indexPath.row]
+        userImage.layer.cornerRadius = userImage.bounds.width / 2
+        //NCMBUser.currentを取得してuserという変数に代入する。その時にnilじゃなかったら{}内でuserという定数が使える
+        if let user = NCMBUser.current() {
+           
+            //取得するファイル名を変更してNCMBfile型で取得
+            let file = NCMBFile.file(withName: user.objectId ,  data: nil) as! NCMBFile
+            file.getDataInBackground { (data, error) in
+                if error != nil {
+                    print(error)
+                } else {
+                    //画像の取得に成功したら
+                    //ますはデータをそのまま渡す
+                    if data != nil {
+                        let image = UIImage(data: data!)
+                        self.userImage.image = image
+                    }
+                }
+            }
+        } else {
+            //NCMBuser.currentがnilだった時ログイン画面にもどす=ログアウトさせる
+            let storyboard = UIStoryboard(name: "SignUp", bundle: Bundle.main)
+            let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootNavigationController")
+            //画面の切り替えができる
+            UIApplication.shared.keyWindow?.rootViewController = rootViewController
+            
+            //次回起動時にログインしていない状態にする
+            let ud = UserDefaults.standard
+            ud.set(false, forKey: "isLogin")
+            ud.synchronize()
+        }
         commentLabel.text = commentsText[indexPath.row]
         
         return cell
-        
     }
-    
     
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -132,9 +153,7 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
                     let userData = postObject.object(forKey: "user") as! NCMBObject
                     let user = userData.object(forKey: "userName") as! String
                     let text = postObject.object(forKey: "text") as! String
-                    
-                    
-                    
+                  
                     self.users.append(user)
                     self.commentsText.append(text)
                 }

@@ -31,15 +31,9 @@ class PostQuestionViewController: UIViewController, UINavigationControllerDelega
         postTextView.delegate = self
         
         userImage.layer.cornerRadius = userImage.bounds.width / 2
-        
-        
-        let user = NCMBUser.current()
-        
         //NCMBUser.currentを取得してuserという変数に代入する。その時にnilじゃなかったら{}内でuserという定数が使える
         if let user = NCMBUser.current() {
-            //それぞれ画像やテキストをNCMBのデータから引っ張って代入
-            
-            
+           
             //取得するファイル名を変更してNCMBfile型で取得
             let file = NCMBFile.file(withName: user.objectId ,  data: nil) as! NCMBFile
             file.getDataInBackground { (data, error) in

@@ -39,6 +39,8 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
         commentTableview.delegate = self
         
         self.commentLavel.text = selectedPost?.text as! String
+        self.commentLavel.sizeToFit()
+        self.commentLavel.numberOfLines=0
         self.userLabel.text = selectedPost?.user.userName
         self.timeLabel.text = selectedPost?.createDate as? String
         

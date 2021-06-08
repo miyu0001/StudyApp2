@@ -23,11 +23,42 @@ class PostQuestionCommentViewController: UIViewController {
         super.viewDidLoad()
 
         let user = NCMBUser.current()
-        
+       
         //他のところをタッチしたらキーボードが閉じる
         let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGR.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapGR)
+        
+        userImage.layer.cornerRadius = userImage.bounds.width / 2
+             
+        //NCMBUser.currentを取得してuserという変数に代入する。その時にnilじゃなかったら{}内でuserという定数が使える
+        if let user = NCMBUser.current() {
+            //取得するファイル名を変更してNCMBfile型で取得
+            let file = NCMBFile.file(withName: user.objectId ,  data: nil) as! NCMBFile
+            file.getDataInBackground { (data, error) in
+                if error != nil {
+                    print(error)
+                } else {
+                    //画像の取得に成功したら
+                    //ますはデータをそのまま渡す
+                    if data != nil {
+                        let image = UIImage(data: data!)
+                        self.userImage.image = image
+                    }
+                }
+            }
+        } else {
+            //NCMBuser.currentがnilだった時ログイン画面にもどす=ログアウトさせる
+            let storyboard = UIStoryboard(name: "SignUp", bundle: Bundle.main)
+            let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootNavigationController")
+            //画面の切り替えができる
+            UIApplication.shared.keyWindow?.rootViewController = rootViewController
+            
+            //次回起動時にログインしていない状態にする
+            let ud = UserDefaults.standard
+            ud.set(false, forKey: "isLogin")
+            ud.synchronize()
+        }
     }
     
     //他のところをタッチしたらキーボードが下がる
