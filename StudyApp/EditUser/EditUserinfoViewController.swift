@@ -9,9 +9,10 @@ import Foundation
 import UIKit
 import NCMB
 import NYXImagesKit
+import CropViewController
 
 
-class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate ,CropViewControllerDelegate{
     
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameTextField: UITextField!
@@ -102,7 +103,7 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
     //フォトライブラリから画像が選ばれた時に呼ばれる関数
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         //pickerからUIImage型として画像データを取り出す
-        let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as! UIImage
         
         //縦横比を維持しながらリサイズしてくれる
         let resizedImage = selectedImage.scale(byFactor: 0.3)
@@ -140,6 +141,7 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
                 //カメラから引っ張ってくる
                 picker.sourceType = .camera
                 picker.delegate = self
+                picker.allowsEditing = true
                 self.present(picker, animated: true, completion: nil)
             } else {
                 print("この機種ではカメラは使えません")
@@ -153,7 +155,9 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
                 //フォトライブラリから引っ張ってくる
                 picker.sourceType = .photoLibrary
                 picker.delegate = self
+                picker.allowsEditing = true
                 self.present(picker, animated: true, completion: nil)
+
             } else {
                 print("この機種ではフォトライブラリは使えません")
             }
@@ -209,5 +213,5 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
             
         }
     }
-    
+
 }

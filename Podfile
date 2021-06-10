@@ -17,6 +17,7 @@ target 'StudyApp' do
   pod 'SwiftData'
   pod 'Tabman'
   pod 'Floaty'
+  pod 'CropViewController'
   
 end
 

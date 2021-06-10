@@ -9,9 +9,10 @@ import Foundation
 import UIKit
 import NCMB
 import SVProgressHUD
+import CropViewController
 
 
-class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTableViewCellDelegate, QuestionTableViewCellDelegate{
+class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTableViewCellDelegate, QuestionTableViewCellDelegate,CropViewControllerDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
     
     var likeNotePosts = [NotePost]()
     var likeQuestionPosts = [QustionPost]()
@@ -587,5 +588,4 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
             }
         }
     }
-
 }

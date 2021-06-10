@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B4C68A0E3422578CF91B44A /* Pods_StudyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC1EF0669CC219D4CF94464 /* Pods_StudyApp.framework */; };
 		3B0C4D9A2652B17300E3F647 /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0C4D982652B17300E3F647 /* TimelineTableViewCell.swift */; };
 		3B0C4D9B2652B17300E3F647 /* TimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B0C4D992652B17300E3F647 /* TimelineTableViewCell.xib */; };
 		3B0C4D9D2652BC6500E3F647 /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B0C4D9C2652BC6500E3F647 /* more.png */; };
@@ -63,6 +64,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0FC1EF0669CC219D4CF94464 /* Pods_StudyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B0C4D982652B17300E3F647 /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
 		3B0C4D992652B17300E3F647 /* TimelineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineTableViewCell.xib; sourceTree = "<group>"; };
 		3B0C4D9C2652BC6500E3F647 /* more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more.png; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B4C68A0E3422578CF91B44A /* Pods_StudyApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +139,7 @@
 		21A59F70BFFB7C2BA44F5EAA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0FC1EF0669CC219D4CF94464 /* Pods_StudyApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
