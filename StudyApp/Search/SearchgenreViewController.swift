@@ -74,7 +74,7 @@ class SerchgenreViewController: UIViewController,UITableViewDelegate,UITableView
         //遷移先のViewControllerのインスタンスを生成
         let secVC = segue.destination as! SearchCertificationViewController
         //SearchCertificationViewControllernogetcellに選択された画像を設定する
-        print(indexpath.row)
+        
         secVC.getCell = indexpath.row
     
     }

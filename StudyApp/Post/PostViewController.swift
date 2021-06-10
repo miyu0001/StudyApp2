@@ -10,6 +10,9 @@ import NYXImagesKit
 import NCMB
 import UITextView_Placeholder
 import SVProgressHUD
+import Foundation
+
+
 
 class PostViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate {
     
@@ -18,23 +21,41 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
     var resizedImage: UIImage!
     
     @IBOutlet var postImageView: UIImageView!
-    
     @IBOutlet var postTextView: UITextView!
-    
+    @IBOutlet weak var selectImageButton: UIButton!
     @IBOutlet var postButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        postImageView.image = placeholderImage
+        selectImageButton.layer.cornerRadius = 10
+        selectImageButton.layer.borderColor = UIColor.gray.cgColor //枠線色
+        selectImageButton.layer.borderWidth = 1 //枠線幅
+        
+        // 枠のカラー
+        postTextView.layer.borderColor = UIColor.gray.cgColor
+        // 枠の幅
+        postTextView.layer.borderWidth = 1
+        
+        postImageView.layer.borderColor = UIColor.gray.cgColor
+        postImageView.layer.borderWidth = 1
         
         postButton.isEnabled = false
-        postTextView.placeholder = "キャプションを書く"
         postTextView.delegate = self
+        
+        //他のところをタッチしたらキーボードが閉じる
+        let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGR.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapGR)
+        
+    }
+    
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as! UIImage
         
         resizedImage = selectedImage.scale(byFactor: 0.3)
         
@@ -67,6 +88,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
                 let picker = UIImagePickerController()
                 picker.sourceType = .camera
                 picker.delegate = self
+                picker.allowsEditing = true
                 self.present(picker, animated: true, completion: nil)
             } else {
                 print("この機種ではカメラが使用出来ません。")
@@ -78,6 +100,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
                 let picker = UIImagePickerController()
                 picker.sourceType = .photoLibrary
                 picker.delegate = self
+                picker.allowsEditing = true
                 self.present(picker, animated: true, completion: nil)
             } else {
                 print("この機種ではフォトライブラリが使用出来ません。")
@@ -93,6 +116,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     @IBAction func sharePhoto() {
         SVProgressHUD.show()
+        
         
         // 撮影した画像をデータ化したときに右に90度回転してしまう問題の解消
         UIGraphicsBeginImageContext(resizedImage.size)
@@ -120,6 +144,9 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
                     print("入力されていません")
                     return
                 }
+                //今選択してる情報が何か
+                let selectedCertification = UserDefaults.standard.string(forKey: "certification")
+                postObject?.setObject(selectedCertification!, forKey: "certification")
                 postObject?.setObject(self.postTextView.text!, forKey: "text")
                 postObject?.setObject(NCMBUser.current(), forKey: "user")
                 let url = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + file.name
@@ -132,7 +159,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
                         self.postImageView.image = nil
                         self.postImageView.image = UIImage(named: "photo-placeholder")
                         self.postTextView.text = nil
-                        self.navigationController?.popViewController(animated: true)
+                        self.dismiss(animated: true, completion: nil)
                     }
                 })
             }
@@ -159,7 +186,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
             self.postTextView.text = nil
             self.postImageView.image = UIImage(named: "photo-placeholder")
             self.confirmContent()
-            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
         })
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
@@ -167,8 +194,6 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         alert.addAction(okAction)
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
-        
     }
-    
 }
 

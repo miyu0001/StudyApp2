@@ -1,4 +1,6 @@
 PODS:
+  - CropViewController (2.6.0)
+  - Floaty (4.2.0)
   - Kingfisher (6.3.0)
   - NCMB (3.1.0)
   - NYXImagesKit (2.3)
@@ -10,6 +12,8 @@ PODS:
   - "UITextView+Placeholder (1.4.0)"
 
 DEPENDENCIES:
+  - CropViewController
+  - Floaty
   - Kingfisher
   - NCMB (from `https://github.com/NIFTYCloud-mbaas/ncmb_ios.git`, branch `develop`)
   - NYXImagesKit
@@ -20,6 +24,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - CropViewController
+    - Floaty
     - Kingfisher
     - NYXImagesKit
     - Pageboy
@@ -39,6 +45,8 @@ CHECKOUT OPTIONS:
     :git: https://github.com/NIFTYCloud-mbaas/ncmb_ios.git
 
 SPEC CHECKSUMS:
+  CropViewController: 7093b39ec3cb508531b22d35773e06cecd7378d8
+  Floaty: e2bd5a0f6f7f70899e26ff2da31081c8bee8d1b0
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   NCMB: c308972109137bf523ec1830bac16de6a31c25f4
   NYXImagesKit: 8163e3335a40eaa173ca5bbbf81fafb57d3947eb
@@ -48,6 +56,6 @@ SPEC CHECKSUMS:
   Tabman: 792ac76fd1ec95af175c93db880a3c47cabedc91
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
 
-PODFILE CHECKSUM: 111994cc48c5bf3cd2970fe5ef1557096889ae60
+PODFILE CHECKSUM: 78b62e39a6e9412252f41a18a1d1832aa1f2eb1e
 
 COCOAPODS: 1.10.1
