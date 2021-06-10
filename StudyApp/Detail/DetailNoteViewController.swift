@@ -20,7 +20,6 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
-    //@IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var commentReplyButton: UIButton!
@@ -29,7 +28,6 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
     
     var selectedUserImage : UIImage!
     var selectedUserImageUrl : String!
-    
     var commentsText = [String]()
     var users = [String]()
       
@@ -62,6 +60,10 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
         let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user!.objectId as! String
                
         userImage.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
+        //自動で高さを変更する
+        commentTableview.estimatedRowHeight = 50
+        //timelineTableView.rowHeight <= self.view.bounds.height - 20
+        commentTableview.rowHeight = UITableView.automaticDimension
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,7 +83,7 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = commentTableview.dequeueReusableCell(withIdentifier: "Cell")!
-        let userImage = cell.viewWithTag(1) as! UILabel
+        let userImage = cell.viewWithTag(1) as! UIImageView
         let commentLabel = cell.viewWithTag(2) as! UILabel
         
         userImage.layer.cornerRadius = userImage.bounds.width / 2
@@ -157,7 +159,6 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
                     self.users.append(user)
                     self.commentsText.append(text)
                 }
-                
                 // 投稿のデータが揃ったらTableViewをリロード
                 self.commentTableview.reloadData()
             }

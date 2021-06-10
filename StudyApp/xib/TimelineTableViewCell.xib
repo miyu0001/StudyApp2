@@ -65,14 +65,14 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvr-7J-HIC">
-                        <rect key="frame" x="188" y="399.5" width="41" height="38.5"/>
+                        <rect key="frame" x="188" y="401.5" width="41" height="35"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="4zs-R7-mje"/>
                             <constraint firstAttribute="width" constant="41" id="Ufa-I9-2eZ"/>
                         </constraints>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <state key="normal" backgroundImage="hands.clap" catalog="system">
+                        <state key="normal">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                         <connections>
@@ -124,7 +124,6 @@
     </objects>
     <resources>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
-        <image name="hands.clap" catalog="system" width="128" height="117"/>
         <image name="ouyou.jpeg" width="334.5" height="480"/>
         <image name="profile_icon.png" width="500" height="500"/>
     </resources>

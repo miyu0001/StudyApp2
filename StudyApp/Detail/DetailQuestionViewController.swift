@@ -15,6 +15,7 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
   
     //選ばれたpostをそのまま渡してる（投稿全体をバラバラにせずに）
     var selectedPost: QustionPost?
+    var comments = [Comment]()
     
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userLabel: UILabel!
@@ -27,10 +28,14 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
     
     var commentsText = [String]()
     var users = [String]()
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //自動で高さを変更する
+        commentTableview.estimatedRowHeight = 30
+        //timelineTableView.rowHeight <= self.view.bounds.height - 20
+        commentTableview.rowHeight = UITableView.automaticDimension
         
         //セルの選択不可
         self.commentTableview.allowsSelection = false
@@ -47,6 +52,7 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
         let user = selectedPost?.user
         
         let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user!.objectId as! String
+        print(userImageUrl)
       
         userImage.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
 
@@ -57,17 +63,28 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return commentsText.count
+        return comments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = commentTableview.dequeueReusableCell(withIdentifier: "Cell")!
-        let userNameLabel = cell.viewWithTag(1) as! UILabel
+        let userImage = cell.viewWithTag(1) as! UIImageView
+        userImage.layer.cornerRadius = userImage.bounds.width / 2
+        
+        //commentはCommentのモデルが配列としていっぱい入ってるけど、それぞれに情報は入っていない
+       
+        let user = comments[indexPath.row].user
+        //userImageViewをkfでURLから画像に変換させる
+        let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId as! String
+        
+        //userImageを設定する
+        userImage.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
+ 
+        
         let commentLabel = cell.viewWithTag(2) as! UILabel
-        
-        userNameLabel.text = users[indexPath.row]
-        commentLabel.text = commentsText[indexPath.row]
-        
+        commentLabel.text = comments[indexPath.row].text
+        let userLabel = cell.viewWithTag(3) as! UILabel
+        userLabel.text = user.userName
         return cell
     }
 
@@ -76,7 +93,7 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
     }
     
     @IBAction func loadData() {
-        let currentUser = NCMBUser.current()
+      
         
         let query = NCMBQuery(className: "postComment")
 
@@ -95,20 +112,23 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
                 print(error)
                 //SVProgressHUD.showError(withStatus: error!.localizedDescription)
             } else {
-                print(result)
-                
-                self.users = [String]()
-                self.commentsText = [String]()
+                //for文が始まる前に空にする
+                self.comments = []
+//                self.users = [String]()
+//                self.commentsText = [String]()
                 
                 for postObject in result as! [NCMBObject] {
-                    let userData = postObject.object(forKey: "user") as! NCMBObject
-                    let user = userData.object(forKey: "userName") as! String
+                    //userが NCMBUser型
+                    let user = postObject.object(forKey: "user") as! NCMBUser
                     let text = postObject.object(forKey: "text") as! String
+                    //userの情報を使ってUser型にする
+                    let userModel = User(objectId: user.objectId, userName: user.userName)
+                    //Commentのモデルもまとめる
+                    let commentModel = Comment(postId: self.selectedPost!.objectId, user: userModel, text: text, createDate: postObject.createDate)
                     
-                    
-                    
-                    self.users.append(user)
-                    self.commentsText.append(text)
+                    //データを追加していく
+                    self.comments.append(commentModel)
+                
                 }
                 
                 // 投稿のデータが揃ったらTableViewをリロード

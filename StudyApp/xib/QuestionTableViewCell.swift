@@ -12,14 +12,13 @@ protocol QuestionTableViewCellDelegate {
     func didTapLikeButton(tableViewCell: UITableViewCell, button: UIButton)
     //メニューボタンが押された
     func didTapMenuButton(tableViewCell: UITableViewCell, button: UIButton)
-    //コメントボタンが押された
-    func didTapCommentsButton(tableViewCell: UITableViewCell, button: UIButton)
+    
 }
 
 
 class QuestionTableViewCell: UITableViewCell {
 
-    var delegate: TimelineTableViewCellDelegate?
+    var delegate: QuestionTableViewCellDelegate?
     
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!

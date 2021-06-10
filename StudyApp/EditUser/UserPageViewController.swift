@@ -11,11 +11,13 @@ import NCMB
 import SVProgressHUD
 
 
-class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTableViewCellDelegate{
+class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTableViewCellDelegate, QuestionTableViewCellDelegate{
     
-    
+    var likeNotePosts = [NotePost]()
+    var likeQuestionPosts = [QustionPost]()
     var notePosts = [NotePost]()
     var questionPosts = [QustionPost]()
+    var likeCount = 0
     
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userDisplayNameLabel: UILabel!
@@ -66,6 +68,8 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
         
         loadDate()
         loadQuestion()
+        loadLikeNote()
+        loadLikeQuestion()
         //それぞれのユーザーの情報を取得する
         let user = NCMBUser.current()
         
@@ -75,6 +79,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
             userDisplayNameLabel.text = user.object(forKey: "displayName") as? String
             userIntroductionTextView.text = user.object(forKey: "introduction") as? String
             self.navigationItem.title = user.object(forKey: "userName") as? String
+            self.likeCountLabel.text = String(self.likeCount)
             
             //取得するファイル名を変更してNCMBfile型で取得
             let file = NCMBFile.file(withName: user.objectId ,  data: nil) as! NCMBFile
@@ -168,11 +173,9 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
         case 1:
             loadQuestion()
         case 2:
-            break
-            //loadGoodField()
+            loadLikeNote()
         case 3:
-            break
-            //manthLoadWorldRanking()
+            loadLikeQuestion()
         default:
             break
         }
@@ -184,6 +187,10 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
             return notePosts.count
         case 1 :
             return questionPosts.count
+        case 2:
+            return likeNotePosts.count
+        case 3:
+            return likeQuestionPosts.count
         default:
             return notePosts.count
         }
@@ -195,7 +202,10 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
         
         switch self.selectSegmentIndex {
         case 0:
-            userPageTableView.rowHeight = 461
+            //自動で高さを変更する
+            userPageTableView.estimatedRowHeight = 597
+            //timelineTableView.rowHeight <= self.view.bounds.height - 20
+            userPageTableView.rowHeight = UITableView.automaticDimension
             let cell = userPageTableView.dequeueReusableCell(withIdentifier: "Cell") as! TimelineTableViewCell
 
             cell.delegate = self
@@ -231,6 +241,10 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
       
             return cell
         case 1:
+            //自動で高さを変更する
+            userPageTableView.estimatedRowHeight = 40
+            //timelineTableView.rowHeight <= self.view.bounds.height - 20
+            userPageTableView.rowHeight = UITableView.automaticDimension
             let cell = userPageTableView.dequeueReusableCell(withIdentifier: "Cell2") as! QuestionTableViewCell
             
             //内容
@@ -255,14 +269,65 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
        
             return cell
            
-        case 2:
+        case 2 :
+            //自動で高さを変更する
+            userPageTableView.estimatedRowHeight = 597
+            //timelineTableView.rowHeight <= self.view.bounds.height - 20
+            userPageTableView.rowHeight = UITableView.automaticDimension
             let cell = userPageTableView.dequeueReusableCell(withIdentifier: "Cell") as! TimelineTableViewCell
+
+            cell.delegate = self
+            cell.tag = indexPath.row
+            
+            let user = likeNotePosts[indexPath.row].user
+            cell.userNameLabel.text = user.userName
+            
+            //userImageViewをkfでURLから画像に変換させる
+            let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId as! String
+            //userImageを設定する
+            cell.userImageView.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
+            
+            //投稿したコメントの設定
+            cell.commentLabel.text = likeNotePosts[indexPath.row].text
+            //投稿した写真の設定
+            let imageUrl = likeNotePosts[indexPath.row].imageUrl as! String
+            cell.photoImageView.kf.setImage(with: URL(string: imageUrl))
+            
+            
+//            // Likeによってハートの表示を変える（できてない）
+//            if noteLikePosts[indexPath.row].isLiked == true {
+//                cell.likeButton.setImage(UIImage(named: "heart-fill"), for: .normal)
+//            } else {
+//                cell.likeButton.setImage(UIImage(named: "heart-outline"), for: .normal)
+//            }
+//
+            // Likeの数
+            //cell.likeCountLabel.text = "\(posts[indexPath.row].likeCount)件"
+            
+            // タイムスタンプ(投稿日時) (※フォーマットのためにSwiftDateライブラリをimport)
+            //cell.timestampLabel.text = posts[indexPath.row].createDate()
+      
             return cell
-            //cell.textLabel?.text = segmentControl.titleForSegment(at: segmentIndex)
         case 3:
-            let cell = userPageTableView.dequeueReusableCell(withIdentifier: "Cell") as! TimelineTableViewCell
+            //自動で高さを変更する
+            userPageTableView.estimatedRowHeight = 40
+            //timelineTableView.rowHeight <= self.view.bounds.height - 20
+            userPageTableView.rowHeight = UITableView.automaticDimension
+            let cell = userPageTableView.dequeueReusableCell(withIdentifier: "Cell2") as! QuestionTableViewCell
+            
+            //内容
+            cell.delegate = self
+            cell.tag = indexPath.row
+            
+            let user = likeQuestionPosts[indexPath.row].user
+            
+            cell.userNameLabel.text = user.userName
+            let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId
+            cell.userImageView.kf.setImage (with: URL (string: userImageUrl), placeholder: UIImage (named: "placeholder.jpg"))
+            
+            cell.commentLabel.text = likeQuestionPosts[indexPath.row].text
+       
             return cell
-            //cell.textLabel?.text = segmentControl.titleForSegment(at: segmentIndex)
         default:
             let cell = userPageTableView.dequeueReusableCell(withIdentifier: "Cell") as! TimelineTableViewCell
             return cell
@@ -359,6 +424,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
     
     
     func loadDate(){
+        self.likeCount = 0
         let query = NCMBQuery(className: "Post")
         query?.includeKey("user")
         //投稿した順番
@@ -374,6 +440,10 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                 self.notePosts = [NotePost]()
                 //NCMBObject型に変換する
                 for notePost in result as! [NCMBObject]{
+                    if let likeUsers = notePost.object(forKey: "likeUser") as? [String]{
+                        self.likeCount += likeUsers.count
+                    }
+                    
                     //objectの中のuserを持ってくる
                     let user = notePost.object(forKey: "user") as! NCMBUser
                     //UserモデルにNCMBuser型の情報を当てはめる
@@ -416,6 +486,8 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                 self.questionPosts = [QustionPost]()
                 //NCMBobject型に変換する
                 for questionPost in result as! [NCMBObject]{
+                    let likeUsers = questionPost.object(forKey: "likeUser")as! [String]
+                    self.likeCount += likeUsers.count
                     //objectの中のuserを持ってくる
                     let user = questionPost.object(forKey: "user") as! NCMBUser
                     //userモデルにNCMBuser型の情報に当てはめる
@@ -427,14 +499,93 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                     let text = questionPost.object(forKey: "text") as! String
                     
                     let question = QustionPost(objectId: questionPost.objectId, user: userModel, text: text, createDate: questionPost.createDate)
-                    
                     //配列に加える
                     self.questionPosts.append(question)
                     self.questionCountLabel.text = String(self.questionPosts.count)
+                    self.likeCountLabel.text = String(self.likeCount)
+                    
                 }
             }
         })
         self.userPageTableView.reloadData()
     }
     
+    func loadLikeNote(){
+        let query = NCMBQuery(className: "Post")
+        query?.includeKey("user")
+        //投稿した順番
+        query?.order(byDescending: "createDate")
+        //取得するものが今ログインしている自分のものになる
+        query?.whereKey("likeUser", equalTo: NCMBUser.current().objectId)
+        
+        query?.findObjectsInBackground{ (result, error) in
+            if error != nil {
+                print(error)
+                SVProgressHUD.showError(withStatus: error!.localizedDescription)
+            } else {
+                // 投稿を格納しておく配列を初期化(これをしないとreload時にappendで二重に追加されてしまう)
+                self.likeNotePosts = [NotePost]()
+                for notePost in result as! [NCMBObject]{
+                    // ユーザー情報をUserクラスにセット
+                    let user = notePost.object(forKey: "user") as! NCMBUser
+                    print(user.userName)
+                    let userModel = User(objectId: user.objectId, userName: user.userName)
+                    userModel.displayName = user.object(forKey: "displayName") as? String
+      
+                    //投稿の情報を取得
+                    let imageUrl = notePost.object(forKey: "imageUrl") as! String
+                    let text = notePost.object(forKey: "text") as! String
+                    
+                    //データを合わせてpostクラスにセット
+                    let post = NotePost(objectId: notePost.objectId, user: userModel, imageUrl: imageUrl, text: text, createDate: notePost.createDate)
+                    //配列に加える
+                    self.likeNotePosts.append(post)
+//                    print(post.objectId)
+//                    print(self.likeNotePosts.count)
+                }
+            }
+            //配列に加えた情報をcollectionviewに読み込み
+            self.userPageTableView.reloadData()
+        }
+        
+    }
+    
+    func loadLikeQuestion(){
+        let query = NCMBQuery(className: "QuestionPost")
+        
+        query?.includeKey("user")
+        //投稿した順番
+        query?.order(byDescending: "createDate")
+        
+        //取得するものが今ログインしている自分のものになる
+        query?.whereKey("likeUser", equalTo: NCMBUser.current().objectId)
+
+        query?.findObjectsInBackground{ (result, error) in
+            if error != nil {
+                print(error)
+                SVProgressHUD.showError(withStatus: error!.localizedDescription)
+            } else {
+                self.likeQuestionPosts = [QustionPost]()
+                for questionpost in result as! [NCMBObject]{
+                    // ユーザー情報をUserクラスにセット
+                    let user = questionpost.object(forKey: "user") as! NCMBUser
+                    print(user.userName)
+                    let userModel = User(objectId: user.objectId, userName: user.userName)
+                    userModel.displayName = user.object(forKey: "displayName") as? String
+      
+                    //投稿の情報を取得
+                    
+                    let text = questionpost.object(forKey: "text") as! String
+                    
+                    //データを合わせてpostクラスにセット
+                    let post = QustionPost(objectId: questionpost.objectId, user: userModel, text: text, createDate: questionpost.createDate)
+                    //配列に加える
+                    self.likeQuestionPosts.append(post)
+//                    print(post.objectId)
+//                    print(self.likeNotePosts.count)
+                }
+            }
+        }
+    }
+
 }

@@ -7,7 +7,7 @@ import Kingfisher
 import SwiftData
 import Floaty
 
-class QuestionTimelineViewController: UIViewController , UITableViewDataSource,UITableViewDelegate,QuestionTableViewCellDelegate, TimelineTableViewCellDelegate{
+class QuestionTimelineViewController: UIViewController , UITableViewDataSource,UITableViewDelegate,QuestionTableViewCellDelegate{
     
     var selectedPost : QustionPost?
     
@@ -25,7 +25,6 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         timelineTableView.delegate = self
         
         loadFollowingUsers()
-        
         setRefreshControl()
         
         //カスタムビューの取得
@@ -96,9 +95,9 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         
         // Likeによってハートの表示を変える
         if posts[indexPath.row].isLiked == true {
-            cell.likeButton.setImage(UIImage(named: "heart-fill"), for: .normal)
+            cell.likeButton.setImage(UIImage(systemName: "hands.sparkles.fill"), for: .normal)
         } else {
-            cell.likeButton.setImage(UIImage(named: "heart-outline"), for: .normal)
+            cell.likeButton.setImage(UIImage(systemName: "hands.clap"), for: .normal)
         }
         
         // Likeの数
@@ -114,12 +113,26 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
     //いいねボタンが押された時、どのセル、tableViewが押されたのか引数として引っ張ってくる
     func didTapLikeButton(tableViewCell: UITableViewCell, button: UIButton) {
         
-        let currentUser = NCMBUser.current()
+        guard let currentUser = NCMBUser.current() else {
+            //ログイン画面に戻る
+            //ログアウト成功
+            let storyboard = UIStoryboard(name: "SignUp", bundle: Bundle.main)
+            let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootNavigationController")
+            //画面の切り替えができる
+            UIApplication.shared.keyWindow?.rootViewController = rootViewController
+            
+            //次回起動時にログインしていない状態にする
+            let ud = UserDefaults.standard
+            ud.set(false, forKey: "isLogin")
+            ud.synchronize()
+            return
+        }
         
         if posts[tableViewCell.tag].isLiked == false || posts[tableViewCell.tag].isLiked == nil {
-            let query = NCMBQuery(className: "Post")
-            query?.getObjectInBackground(withId: posts[tableViewCell.tag].objectId, block: { (post, error) in
-                post?.addUniqueObject(currentUser?.objectId, forKey: "likeUser")
+            let query = NCMBQuery(className: "QuestionPost")
+            query?.getObjectInBackground(withId: self.posts[tableViewCell.tag].objectId, block: { (post, error) in
+                print(post)
+                post?.addUniqueObject(currentUser.objectId, forKey: "likeUser")
                 post?.saveEventually({ (error) in
                     if error != nil {
                         SVProgressHUD.showError(withStatus: error!.localizedDescription)
@@ -129,7 +142,7 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
                 })
             })
         } else {
-            let query = NCMBQuery(className: "Post")
+            let query = NCMBQuery(className: "QuestionPost")
             query?.getObjectInBackground(withId: posts[tableViewCell.tag].objectId, block: { (post, error) in
                 if error != nil {
                     SVProgressHUD.showError(withStatus: error!.localizedDescription)
@@ -152,7 +165,7 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: "削除する", style: .destructive) { (action) in
             SVProgressHUD.show()
-            let query = NCMBQuery(className: "Post")
+            let query = NCMBQuery(className: "QuestionPost")
             query?.getObjectInBackground(withId: self.posts[tableViewCell.tag].objectId, block: { (post, error) in
                 if error != nil {
                     SVProgressHUD.showError(withStatus: error!.localizedDescription)
@@ -188,22 +201,22 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         
     }
     
-    func didTapCommentsButton(tableViewCell: UITableViewCell, button: UIButton){
-        
-        // 選ばれた投稿を一時的に格納
-        selectedPost = posts[tableViewCell.tag]
-        
-        // 遷移させる(このとき、prepareForSegue関数で値を渡す)
-        self.performSegue(withIdentifier: "toComments", sender: nil)
-        
-    }
-    
-    
-    
-    
     func loadTimeline (){
         
-        let currentUser = NCMBUser.current()
+        guard let currentUser = NCMBUser.current() else {
+            //ログイン画面に戻る
+            //ログアウト成功
+            let storyboard = UIStoryboard(name: "SignUp", bundle: Bundle.main)
+            let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootNavigationController")
+            //画面の切り替えができる
+            UIApplication.shared.keyWindow?.rootViewController = rootViewController
+            
+            //次回起動時にログインしていない状態にする
+            let ud = UserDefaults.standard
+            ud.set(false, forKey: "isLogin")
+            ud.synchronize()
+            return
+        }
         
         let query = NCMBQuery(className: "QuestionPost")
         
@@ -218,9 +231,6 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         
         // 投稿したユーザーの情報も同時取得
         query?.includeKey("user")
-        
-        //投稿した資格の名前と一致するものを持ってくる
-        query?.whereKey("certification", equalTo: UserDefaults.standard.string(forKey:"certification")!)
         
         // フォロー中の人 + 自分の投稿だけ持ってくる
         //query?.whereKey("user", containedIn: followings)
@@ -253,7 +263,7 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
                         
                         // likeの状況(自分が過去にLikeしているか？)によってデータを挿入
                         let likeUsers = postObject.object(forKey: "likeUser") as? [String]
-                        if likeUsers?.contains(currentUser!.objectId) == true {
+                        if likeUsers?.contains(currentUser.objectId) == true {
                             post.isLiked = true
                         } else {
                             post.isLiked = false
@@ -274,7 +284,6 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
             }
         })
     }
-    
     func setRefreshControl() {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(reloadTimeline(refreshControl:)), for: .valueChanged)

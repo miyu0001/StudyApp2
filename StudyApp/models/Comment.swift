@@ -13,6 +13,7 @@ class Comment: NSObject {
     var text: String
     var createDate: Date
     
+    //初期値
     init(postId: String, user: User, text: String, createDate: Date) {
         self.postId = postId
         self.user = user

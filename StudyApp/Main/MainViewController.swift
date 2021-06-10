@@ -19,7 +19,7 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
     var selectedPost : NotePost?
     
     var posts = [NotePost]()
-    
+    var blockUserIdArray = [String]()
     var followings = [NCMBUser]()
  
     
@@ -29,8 +29,7 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //投稿したものの読み込み
-        self.loadTimeline()
+        
         
         timelineTableView.dataSource = self
         timelineTableView.delegate = self
@@ -55,7 +54,7 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
     
     override func viewWillAppear(_ animated: Bool) {
         //投稿したものがリアルタイムで更新されるようにする　→　画像の表示が毎回時間かかる
-        //self.loadTimeline()
+        self.loadTimeline()
     }
     
     
@@ -107,11 +106,11 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         cell.photoImageView.kf.setImage(with: URL(string: imageUrl))
         
         
-        // Likeによってハートの表示を変える（できてない）
+        // Likeによってハートの表示を変える
         if posts[indexPath.row].isLiked == true {
-            cell.likeButton.setImage(UIImage(named: "heart-fill"), for: .normal)
+            cell.likeButton.setImage(UIImage(systemName: "hands.sparkles.fill"), for: .normal)
         } else {
-            cell.likeButton.setImage(UIImage(named: "heart-outline"), for: .normal)
+            cell.likeButton.setImage(UIImage(systemName: "hands.clap"), for: .normal)
         }
         
         // Likeの数
@@ -204,7 +203,31 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
             })
         }
         let reportAction = UIAlertAction(title: "報告する", style: .destructive) { (action) in
-            SVProgressHUD.showSuccess(withStatus: "この投稿を報告しました。ご協力ありがとうございました。")
+            let object = NCMBObject(className: "Report") //新たにクラス作る
+            object?.setObject(self.posts[tableViewCell.tag].user.objectId, forKey: "reportUserId")
+            object?.setObject(NCMBUser.current(), forKey: "user")
+            object?.saveInBackground({ (error) in
+                if error != nil {
+                    SVProgressHUD.showError(withStatus: "エラーです")
+                } else {
+                    SVProgressHUD.showSuccess(withStatus: "この投稿を報告しました。ご協力ありがとうございました。")
+                }
+            })
+        }
+        let blockAction = UIAlertAction(title: "ブロックする", style: .default) { (action) in
+            SVProgressHUD.show()
+            let object = NCMBObject(className: "Block") //新たにクラス作る
+            object?.setObject(self.posts[tableViewCell.tag].user.objectId, forKey: "blockUserId")
+            object?.setObject(NCMBUser.current(), forKey: "user")
+            object?.saveInBackground({ (error) in
+                if error != nil {
+                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
+                } else {
+                    SVProgressHUD.dismiss(withDelay: 2)
+                    //ここで③を読み込んでいる
+                    self.getBlockUser()
+                }
+            })
         }
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel) { (action) in
             alertController.dismiss(animated: true, completion: nil)
@@ -215,6 +238,7 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         } else {
             // 他人の投稿なので、報告ボタンを出す
             alertController.addAction(reportAction)
+            alertController.addAction(blockAction)
         }
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)
@@ -271,12 +295,12 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
                     
                     // 退会済みユーザーの投稿を避けるため、activeがfalse以外のモノだけを表示
                     if user.object(forKey: "active") as? Bool != false {
-                        
+                    
                         // 投稿したユーザーの情報をUserモデルにまとめる
-                        
                         let userModel = User(objectId: user.objectId, userName: user.userName)
                         userModel.displayName = user.object(forKey: "displayName") as? String
                         
+                       
                         // 投稿の情報を取得
                         let imageUrl = postObject.object(forKey: "imageUrl") as! String
                         let text = postObject.object(forKey: "text") as! String
@@ -346,6 +370,24 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
                 self.loadTimeline()
             }
         })
+    }
+    func getBlockUser(){
+        let query = NCMBQuery(className: "Block")
+        query?.includeKey("user")
+        query?.whereKey("user", equalTo: NCMBUser.current())
+        query?.findObjectsInBackground({ (result, error) in
+            if error != nil{
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+            }else{
+                //removeAll()で初期化をし、データの重複を防ぐ
+                self.blockUserIdArray.removeAll()
+                for blockObject in result as! [NCMBObject]{
+                    self.blockUserIdArray.append(blockObject.object(forKey: "blockUserId") as! String)
+                }
+            }
+        })
+        
+        self.loadTimeline()
     }
     
 }
