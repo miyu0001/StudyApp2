@@ -16,6 +16,7 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
     
     //選ばれたpostをそのまま渡してる（投稿全体をバラバラにせずに）
     var selectedPost: NotePost?
+    var comments = [Comment]()
 
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userLabel: UILabel!
@@ -28,7 +29,7 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
     
     var selectedUserImage : UIImage!
     var selectedUserImageUrl : String!
-    var commentsText = [String]()
+    
     var users = [String]()
       
     override func viewDidLoad() {
@@ -45,10 +46,6 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
         self.userLabel.text = selectedPost?.user.userName
         self.timeLabel.text = selectedPost?.createDate as? String
         
-        //自動で高さを変更する
-        commentTableview.estimatedRowHeight = 30
-        //timelineTableView.rowHeight <= self.view.bounds.height - 20
-        commentTableview.rowHeight = UITableView.automaticDimension
         
         //投稿画像をURLとして取得する
         let selectedUrl = (selectedPost?.imageUrl)!
@@ -61,7 +58,7 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
                
         userImage.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
         //自動で高さを変更する
-        commentTableview.estimatedRowHeight = 50
+        commentTableview.estimatedRowHeight = 30
         //timelineTableView.rowHeight <= self.view.bounds.height - 20
         commentTableview.rowHeight = UITableView.automaticDimension
     }
@@ -78,45 +75,27 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return commentsText.count
+        return comments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = commentTableview.dequeueReusableCell(withIdentifier: "Cell")!
         let userImage = cell.viewWithTag(1) as! UIImageView
-        let commentLabel = cell.viewWithTag(2) as! UILabel
         
         userImage.layer.cornerRadius = userImage.bounds.width / 2
-        //NCMBUser.currentを取得してuserという変数に代入する。その時にnilじゃなかったら{}内でuserという定数が使える
-        if let user = NCMBUser.current() {
-           
-            //取得するファイル名を変更してNCMBfile型で取得
-            let file = NCMBFile.file(withName: user.objectId ,  data: nil) as! NCMBFile
-            file.getDataInBackground { (data, error) in
-                if error != nil {
-                    print(error)
-                } else {
-                    //画像の取得に成功したら
-                    //ますはデータをそのまま渡す
-                    if data != nil {
-                        let image = UIImage(data: data!)
-                        self.userImage.image = image
-                    }
-                }
-            }
-        } else {
-            //NCMBuser.currentがnilだった時ログイン画面にもどす=ログアウトさせる
-            let storyboard = UIStoryboard(name: "SignUp", bundle: Bundle.main)
-            let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootNavigationController")
-            //画面の切り替えができる
-            UIApplication.shared.keyWindow?.rootViewController = rootViewController
-            
-            //次回起動時にログインしていない状態にする
-            let ud = UserDefaults.standard
-            ud.set(false, forKey: "isLogin")
-            ud.synchronize()
-        }
-        commentLabel.text = commentsText[indexPath.row]
+        
+        let user = comments[indexPath.row].user
+        //userImageViewをkfでURLから画像に変換させる
+        let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId as! String
+        
+        //userImageを設定する
+        userImage.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
+        
+        let commentLabel = cell.viewWithTag(2) as! UILabel
+        commentLabel.text = comments[indexPath.row].text
+        
+        let userLabel = cell.viewWithTag(3) as! UILabel
+        userLabel.text = user.userName
         
         return cell
     }
@@ -148,16 +127,20 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
             } else {
                 print(result)
                 
-                self.users = [String]()
-                self.commentsText = [String]()
+                self.comments = []
                 
                 for postObject in result as! [NCMBObject] {
-                    let userData = postObject.object(forKey: "user") as! NCMBObject
-                    let user = userData.object(forKey: "userName") as! String
+                    //let userData = postObject.object(forKey: "user") as! NCMBObject
+                    
+                    let user = postObject.object(forKey: "user") as! NCMBUser
                     let text = postObject.object(forKey: "text") as! String
+                    //userの情報を使ってUser型に変換する
+                    let userModel = User(objectId: user.objectId, userName: user.userName)
+                    
+                    //commentのモデルもまとめる
+                    let commentModel = Comment(postId: self.selectedPost!.objectId, user: userModel, text: text, createDate: postObject.createDate)
                   
-                    self.users.append(user)
-                    self.commentsText.append(text)
+                    self.comments.append(commentModel)
                 }
                 // 投稿のデータが揃ったらTableViewをリロード
                 self.commentTableview.reloadData()
