@@ -17,7 +17,7 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
     //選ばれたpostをそのまま渡してる（投稿全体をバラバラにせずに）
     var selectedPost: NotePost?
     var comments = [Comment]()
-
+    
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
@@ -25,18 +25,29 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var commentReplyButton: UIButton!
     @IBOutlet weak var commentTableview: UITableView!
-    @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     var selectedUserImage : UIImage!
     var selectedUserImageUrl : String!
     
     var users = [String]()
-      
+    
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        userImage.layer.cornerRadius = userImage.bounds.width / 2
+        
+        //　ナビゲーションバーの背景色
+        navigationBar.barTintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0) // その他UIColor.white等好きな背景色
+        // ナビゲーションバーのアイテムの色　（戻る　＜　とか　読み込みゲージとか）
+        navigationBar.tintColor = #colorLiteral(red: 0.2196078431, green: 0.4078431373, blue: 0.8901960784, alpha: 1)
+        // ナビゲーションバーのテキストを変更する
+        navigationBar.titleTextAttributes = [
+            // 文字の色
+            .foregroundColor : UIColor.black
+        ]
+        
         commentTableview.allowsSelection = false
-
+        
         commentTableview.dataSource = self
         commentTableview.delegate = self
         
@@ -55,7 +66,7 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
         let user = selectedPost?.user
         
         let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user!.objectId as! String
-               
+        
         userImage.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
         //自動で高さを変更する
         commentTableview.estimatedRowHeight = 30
@@ -109,7 +120,7 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
         let currentUser = NCMBUser.current()
         
         let query = NCMBQuery(className: "Comment")
-
+        
         // 降順
         query?.order(byDescending: "createDate")
         
@@ -139,7 +150,7 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
                     
                     //commentのモデルもまとめる
                     let commentModel = Comment(postId: self.selectedPost!.objectId, user: userModel, text: text, createDate: postObject.createDate)
-                  
+                    
                     self.comments.append(commentModel)
                 }
                 // 投稿のデータが揃ったらTableViewをリロード

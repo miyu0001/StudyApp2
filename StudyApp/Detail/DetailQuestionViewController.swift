@@ -23,6 +23,7 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var commentReplyButton: UIButton!
     @IBOutlet weak var commentTableview: UITableView!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     var selectedUserImage : UIImage!
     
@@ -31,7 +32,18 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        userImage.layer.cornerRadius = userImage.bounds.width / 2
         
+        //　ナビゲーションバーの背景色
+        navigationBar.barTintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0) // その他UIColor.white等好きな背景色
+        // ナビゲーションバーのアイテムの色　（戻る　＜　とか　読み込みゲージとか）
+        navigationBar.tintColor = #colorLiteral(red: 0.2196078431, green: 0.4078431373, blue: 0.8901960784, alpha: 1)
+        // ナビゲーションバーのテキストを変更する
+        navigationBar.titleTextAttributes = [
+            // 文字の色
+            .foregroundColor : UIColor.black
+        ]
+
         //自動で高さを変更する
         commentTableview.estimatedRowHeight = 30
         //timelineTableView.rowHeight <= self.view.bounds.height - 20
@@ -60,6 +72,12 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
     
     override func viewWillAppear(_ animated: Bool) {
         loadData()
+            //タイムスタンプ(投稿日時) (※フォーマットのためにSwiftDateライブラリをimport)
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP") as Locale
+            dateFormatter.dateFormat = "MM/dd HH"
+            let dateString = dateFormatter.string(from: self.selectedPost!.createDate)
+            self.timeLabel.text = dateString + "時"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

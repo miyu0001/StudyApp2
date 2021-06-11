@@ -31,7 +31,7 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         let nib = UINib(nibName: "QuestionTableViewCell", bundle: Bundle.main)
         timelineTableView.register(nib, forCellReuseIdentifier: "Cell2")
         
-        timelineTableView.tableFooterView = UIView()
+        //timelineTableView.tableFooterView = UIView()
         //timelineTableView.rowHeight = 90
         
         //自動で高さを変更する
@@ -103,10 +103,12 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         // Likeの数
         //cell.likeCountLabel.text = "\(posts[indexPath.row].likeCount)件"
         
-        // タイムスタンプ(投稿日時) (※フォーマットのためにSwiftDateライブラリをimport)
-        //cell.timestampLabel.text = posts[indexPath.row].createDate.toString()
-        
-        
+        /// タイムスタンプ(投稿日時) (※フォーマットのためにSwiftDateライブラリをimport)
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP") as Locale
+        dateFormatter.dateFormat = "yyyy/MM/dd HH"
+        let dateString = dateFormatter.string(from: posts[indexPath.row].createDate)
+        cell.timestampLabel.text = dateString + "時"
         
         return cell
     }

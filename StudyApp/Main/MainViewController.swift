@@ -48,6 +48,11 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         timelineTableView.estimatedRowHeight = 597
         //timelineTableView.rowHeight <= self.view.bounds.height - 20
         timelineTableView.rowHeight = UITableView.automaticDimension
+        //tabBarの背景色変更
+        //UITabBar.appearance().barTintColor = #colorLiteral(red: 0.6, green: 0.8392156863, blue: 1, alpha: 1)
+        //tabBarの文字色の設定
+        UITabBar.appearance().tintColor = #colorLiteral(red: 0.2196078431, green: 0.4078431373, blue: 0.8901960784, alpha: 1)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,7 +108,6 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         let imageUrl = posts[indexPath.row].imageUrl as! String
         cell.photoImageView.kf.setImage(with: URL(string: imageUrl))
         
-        
         // Likeによってハートの表示を変える
         if posts[indexPath.row].isLiked == true {
             cell.likeButton.setImage(UIImage(systemName: "hands.sparkles.fill"), for: .normal)
@@ -114,12 +118,12 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         // Likeの数
         //cell.likeCountLabel.text = "\(posts[indexPath.row].likeCount)件"
         
-//        // タイムスタンプ(投稿日時) (※フォーマットのためにSwiftDateライブラリをimport)
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP") as Locale
-//        dateFormatter.dateFormat = "yyyy/MM/dd HH"
-//        let dateString = dateFormatter.string(from: self.selectedPost!.createDate)
-//        self.timestampLabel.text = dateString + "時"
+        // タイムスタンプ(投稿日時) (※フォーマットのためにSwiftDateライブラリをimport)
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP") as Locale
+        dateFormatter.dateFormat = "yyyy/MM/dd HH"
+        let dateString = dateFormatter.string(from: posts[indexPath.row].createDate)
+        cell.timestampLabel.text = dateString + "時"
         
         return cell
     }

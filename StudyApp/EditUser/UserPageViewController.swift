@@ -22,13 +22,12 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
     
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userDisplayNameLabel: UILabel!
-    @IBOutlet weak var userIntroductionTextView: UITextView!
     @IBOutlet weak var userPageTableView: UITableView!
+    @IBOutlet weak var userInfoLabel: UILabel!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var toEditButton: UIButton!
     @IBOutlet weak var noteCountLabel: UILabel!
     @IBOutlet weak var questionCountLabel: UILabel!
-    @IBOutlet weak var likeCountLabel: UILabel!
     
     var myQuestionIndex : IndexPath!
     
@@ -57,7 +56,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
         let nib = UINib(nibName: "TimelineTableViewCell", bundle: Bundle.main)
         userPageTableView.register(nib, forCellReuseIdentifier: "Cell")
         
-        userPageTableView.rowHeight = 461
+        //userPageTableView.rowHeight = 461
         
         //自分が載せた質問のカスタムビューの取得
         let nib2 = UINib(nibName: "QuestionTableViewCell", bundle: Bundle.main)
@@ -74,13 +73,16 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
         //それぞれのユーザーの情報を取得する
         let user = NCMBUser.current()
         
+        self.userInfoLabel.sizeToFit()
+        self.userInfoLabel.numberOfLines=0
+        
         //NCMBUser.currentを取得してuserという変数に代入する。その時にnilじゃなかったら{}内でuserという定数が使える
         if let user = NCMBUser.current() {
             //それぞれ画像やテキストをNCMBのデータから引っ張って代入
             userDisplayNameLabel.text = user.object(forKey: "displayName") as? String
-            userIntroductionTextView.text = user.object(forKey: "introduction") as? String
+            userInfoLabel.text = user.object(forKey: "introduction") as? String
             self.navigationItem.title = user.object(forKey: "userName") as? String
-            self.likeCountLabel.text = String(self.likeCount)
+//            self.likeCountLabel.text = String(self.likeCount)
             
             //取得するファイル名を変更してNCMBfile型で取得
             let file = NCMBFile.file(withName: user.objectId ,  data: nil) as! NCMBFile
@@ -503,7 +505,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                     //配列に加える
                     self.questionPosts.append(question)
                     self.questionCountLabel.text = String(self.questionPosts.count)
-                    self.likeCountLabel.text = String(self.likeCount)
+//                    self.likeCountLabel.text = String(self.likeCount)
                     
                 }
             }

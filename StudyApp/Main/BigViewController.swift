@@ -22,6 +22,7 @@ class BigViewController: TabmanViewController {
         floaty.addItem("質問", icon: UIImage(named: "question.png")) { item in
             let PostQuestionViewController = self.storyboard?.instantiateViewController(withIdentifier: "PostQuestionViewController") as! PostQuestionViewController
             self.present(PostQuestionViewController, animated: true, completion: nil)
+        
         }
         // 開いた時に現れるボタンアイテムを追加
         floaty.addItem("ノート",icon: UIImage(named: "note.png")) { item in
@@ -42,7 +43,19 @@ class BigViewController: TabmanViewController {
         bar.layout.contentMode = .fit
         addBar(bar, dataSource: self, at: .top)
         
+        bar.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        //背景色がぼやけないようにする
+        bar.backgroundView.style = .clear
         
+        //tabManを押した時の色の設定
+        bar.buttons.customize { (button) in
+            button.tintColor = #colorLiteral(red: 0.1892337203, green: 0.6596918702, blue: 0.9701606631, alpha: 1)
+            button.selectedTintColor = #colorLiteral(red: 0.1339888871, green: 0.39494133, blue: 0.9797962308, alpha: 1)
+        }
+        bar.indicator.overscrollBehavior = .compress
+        bar.indicator.weight = .light
+        bar.indicator.tintColor = #colorLiteral(red: 0.1253262758, green: 0.388479799, blue: 0.9799692035, alpha: 1)
+        bar.scrollMode = .interactive
         
     }
     //子コントローラーの選択
