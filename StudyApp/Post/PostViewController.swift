@@ -20,6 +20,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     var resizedImage: UIImage!
     
+    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet var postImageView: UIImageView!
     @IBOutlet var postTextView: UITextView!
     @IBOutlet weak var selectImageButton: UIButton!
@@ -48,6 +49,15 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         tapGR.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapGR)
         
+        //　ナビゲーションバーの背景色
+        navigationBar.barTintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0) // その他UIColor.white等好きな背景色
+        // ナビゲーションバーのアイテムの色　（戻る　＜　とか　読み込みゲージとか）
+        navigationBar.tintColor = #colorLiteral(red: 0.2196078431, green: 0.4078431373, blue: 0.8901960784, alpha: 1)
+        // ナビゲーションバーのテキストを変更する
+        navigationBar.titleTextAttributes = [
+            // 文字の色
+            .foregroundColor : UIColor.black
+        ]
     }
     
     @objc func dismissKeyboard() {

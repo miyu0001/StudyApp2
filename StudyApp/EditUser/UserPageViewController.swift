@@ -82,7 +82,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
             userDisplayNameLabel.text = user.object(forKey: "displayName") as? String
             userInfoLabel.text = user.object(forKey: "introduction") as? String
             self.navigationItem.title = user.object(forKey: "userName") as? String
-//            self.likeCountLabel.text = String(self.likeCount)
+            //            self.likeCountLabel.text = String(self.likeCount)
             
             //取得するファイル名を変更してNCMBfile型で取得
             let file = NCMBFile.file(withName: user.objectId ,  data: nil) as! NCMBFile
@@ -210,7 +210,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
             //timelineTableView.rowHeight <= self.view.bounds.height - 20
             userPageTableView.rowHeight = UITableView.automaticDimension
             let cell = userPageTableView.dequeueReusableCell(withIdentifier: "Cell") as! TimelineTableViewCell
-
+            
             cell.delegate = self
             cell.tag = indexPath.row
             
@@ -241,7 +241,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
             
             // タイムスタンプ(投稿日時) (※フォーマットのためにSwiftDateライブラリをimport)
             //cell.timestampLabel.text = posts[indexPath.row].createDate()
-      
+            
             return cell
         case 1:
             //自動で高さを変更する
@@ -261,7 +261,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
             cell.userImageView.kf.setImage (with: URL (string: userImageUrl), placeholder: UIImage (named: "placeholder.jpg"))
             
             cell.commentLabel.text = questionPosts[indexPath.row].text
-    
+            
             // Likeによってハートの表示を変える
             if questionPosts[indexPath.row].isLiked == true {
                 cell.likeButton.setImage(UIImage(named: "heart-fill"), for: .normal)
@@ -269,16 +269,16 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                 cell.likeButton.setImage(UIImage(named: "heart-outline"), for: .normal)
             }
             
-       
+            
             return cell
-           
+            
         case 2 :
             //自動で高さを変更する
             userPageTableView.estimatedRowHeight = 597
             //timelineTableView.rowHeight <= self.view.bounds.height - 20
             userPageTableView.rowHeight = UITableView.automaticDimension
             let cell = userPageTableView.dequeueReusableCell(withIdentifier: "Cell") as! TimelineTableViewCell
-
+            
             cell.delegate = self
             cell.tag = indexPath.row
             
@@ -297,19 +297,19 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
             cell.photoImageView.kf.setImage(with: URL(string: imageUrl))
             
             
-//            // Likeによってハートの表示を変える（できてない）
-//            if noteLikePosts[indexPath.row].isLiked == true {
-//                cell.likeButton.setImage(UIImage(named: "heart-fill"), for: .normal)
-//            } else {
-//                cell.likeButton.setImage(UIImage(named: "heart-outline"), for: .normal)
-//            }
-//
+            //            // Likeによってハートの表示を変える（できてない）
+            //            if noteLikePosts[indexPath.row].isLiked == true {
+            //                cell.likeButton.setImage(UIImage(named: "heart-fill"), for: .normal)
+            //            } else {
+            //                cell.likeButton.setImage(UIImage(named: "heart-outline"), for: .normal)
+            //            }
+            //
             // Likeの数
             //cell.likeCountLabel.text = "\(posts[indexPath.row].likeCount)件"
             
             // タイムスタンプ(投稿日時) (※フォーマットのためにSwiftDateライブラリをimport)
             //cell.timestampLabel.text = posts[indexPath.row].createDate()
-      
+            
             return cell
         case 3:
             //自動で高さを変更する
@@ -329,7 +329,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
             cell.userImageView.kf.setImage (with: URL (string: userImageUrl), placeholder: UIImage (named: "placeholder.jpg"))
             
             cell.commentLabel.text = likeQuestionPosts[indexPath.row].text
-       
+            
             return cell
         default:
             let cell = userPageTableView.dequeueReusableCell(withIdentifier: "Cell") as! TimelineTableViewCell
@@ -452,7 +452,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                     //UserモデルにNCMBuser型の情報を当てはめる
                     let userModel = User(objectId: user.objectId, userName: user.userName)
                     userModel.displayName = user.object(forKey: "displayName") as! String
-                   
+                    
                     //投稿の情報を取得
                     let imageUrl = notePost.object(forKey: "imageUrl") as! String
                     let text = notePost.object(forKey: "text") as! String
@@ -464,7 +464,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                     
                     //配列に加える
                     self.notePosts.append(post)
-                    self.noteCountLabel.text = String(self.notePosts.count)
+                    self.questionCountLabel.text = String(self.notePosts.count)
                 }
             }
             self.userPageTableView.reloadData()
@@ -479,18 +479,21 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
         query?.order(byDescending: "createDate")
         //取得するものが今ログインしている自分のものになる
         query?.whereKey("user", equalTo: NCMBUser.current())
-
+        
         query?.findObjectsInBackground({ [self] (result, error) in
             if error != nil{
-                 //エラー
+                //エラー
                 print(error)
             } else {
                 //questionPostの中身を空にする
                 self.questionPosts = [QustionPost]()
                 //NCMBobject型に変換する
-                for questionPost in result as! [NCMBObject]{
-                    let likeUsers = questionPost.object(forKey: "likeUser")as! [String]
-                    self.likeCount += likeUsers.count
+                for questionPost in result as! [NCMBObject] {
+                    
+                    if let likeUsers = questionPost.object(forKey: "likeUser") as? [String]{
+                        self.likeCount += likeUsers.count
+                    }
+                    
                     //objectの中のuserを持ってくる
                     let user = questionPost.object(forKey: "user") as! NCMBUser
                     //userモデルにNCMBuser型の情報に当てはめる
@@ -498,14 +501,14 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                     userModel.displayName = user.object(forKey: "displayName") as! String
                     
                     //投稿の情報を取得
-//                    let imageUrl = questionPost.object(forKey: "imageUrl") as! Strin/
+                    //                    let imageUrl = questionPost.object(forKey: "imageUrl") as! Strin/
                     let text = questionPost.object(forKey: "text") as! String
                     
                     let question = QustionPost(objectId: questionPost.objectId, user: userModel, text: text, createDate: questionPost.createDate)
                     //配列に加える
                     self.questionPosts.append(question)
-                    self.questionCountLabel.text = String(self.questionPosts.count)
-//                    self.likeCountLabel.text = String(self.likeCount)
+                    self.noteCountLabel.text = String(self.questionPosts.count)
+                    //                    self.likeCountLabel.text = String(self.likeCount)
                     
                 }
             }
@@ -514,6 +517,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
     }
     
     func loadLikeNote(){
+        
         let query = NCMBQuery(className: "Post")
         query?.includeKey("user")
         //投稿した順番
@@ -534,7 +538,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                     print(user.userName)
                     let userModel = User(objectId: user.objectId, userName: user.userName)
                     userModel.displayName = user.object(forKey: "displayName") as? String
-      
+                    
                     //投稿の情報を取得
                     let imageUrl = notePost.object(forKey: "imageUrl") as! String
                     let text = notePost.object(forKey: "text") as! String
@@ -543,8 +547,8 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                     let post = NotePost(objectId: notePost.objectId, user: userModel, imageUrl: imageUrl, text: text, createDate: notePost.createDate)
                     //配列に加える
                     self.likeNotePosts.append(post)
-//                    print(post.objectId)
-//                    print(self.likeNotePosts.count)
+                    //                    print(post.objectId)
+                    //                    print(self.likeNotePosts.count)
                 }
             }
             //配列に加えた情報をcollectionviewに読み込み
@@ -562,7 +566,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
         
         //取得するものが今ログインしている自分のものになる
         query?.whereKey("likeUser", equalTo: NCMBUser.current().objectId)
-
+        
         query?.findObjectsInBackground{ (result, error) in
             if error != nil {
                 print(error)
@@ -575,7 +579,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                     print(user.userName)
                     let userModel = User(objectId: user.objectId, userName: user.userName)
                     userModel.displayName = user.object(forKey: "displayName") as? String
-      
+                    
                     //投稿の情報を取得
                     
                     let text = questionpost.object(forKey: "text") as! String
@@ -584,8 +588,8 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                     let post = QustionPost(objectId: questionpost.objectId, user: userModel, text: text, createDate: questionpost.createDate)
                     //配列に加える
                     self.likeQuestionPosts.append(post)
-//                    print(post.objectId)
-//                    print(self.likeNotePosts.count)
+                    //                    print(post.objectId)
+                    //                    print(self.likeNotePosts.count)
                 }
             }
         }

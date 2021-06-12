@@ -19,12 +19,23 @@ class PostQuestionViewController: UIViewController, UINavigationControllerDelega
     
     
     
+    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet var postTextView: UITextView!
     @IBOutlet var postButton: UIBarButtonItem!
     @IBOutlet weak var userImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //　ナビゲーションバーの背景色
+        navigationBar.barTintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0) // その他UIColor.white等好きな背景色
+        // ナビゲーションバーのアイテムの色　（戻る　＜　とか　読み込みゲージとか）
+        navigationBar.tintColor = #colorLiteral(red: 0.2196078431, green: 0.4078431373, blue: 0.8901960784, alpha: 1)
+        // ナビゲーションバーのテキストを変更する
+        navigationBar.titleTextAttributes = [
+            // 文字の色
+            .foregroundColor : UIColor.black
+        ]
         
         postButton.isEnabled = false
         //postTextView.placeholder = "キャプションを書く"

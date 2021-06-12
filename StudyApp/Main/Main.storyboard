@@ -458,6 +458,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="navigationBar" destination="OzX-Dw-UcF" id="9aL-Of-mDs"/>
                         <outlet property="postButton" destination="Bsh-6y-oDQ" id="cJu-76-fD2"/>
                         <outlet property="postTextView" destination="g8O-0Q-cvs" id="dFQ-wc-ctS"/>
                         <outlet property="userImage" destination="Ux2-jf-3PC" id="Xab-XG-Wmt"/>
@@ -775,6 +776,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="navigationBar" destination="8Bg-hb-gI6" id="bvM-Ed-0Fd"/>
                         <outlet property="postButton" destination="xUi-md-T03" id="WW4-2e-Mwl"/>
                         <outlet property="postImageView" destination="75y-Zu-yJW" id="0YD-uo-0eP"/>
                         <outlet property="postTextView" destination="Uou-Kq-0Ez" id="Ku7-i6-m5z"/>
@@ -829,9 +831,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10時間前" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aD-pF-aAd">
-                                <rect key="frame" x="10" y="167" width="78" height="15"/>
+                                <rect key="frame" x="10" y="167" width="150" height="15"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="78" id="i7B-1h-otf"/>
+                                    <constraint firstAttribute="width" constant="150" id="i7B-1h-otf"/>
                                     <constraint firstAttribute="height" constant="15" id="tRK-O2-PHi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
