@@ -97,7 +97,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fUz-SG-mVL">
-                                <rect key="frame" x="0.0" y="301" width="414" height="595"/>
+                                <rect key="frame" x="0.0" y="305" width="414" height="591"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell3" rowHeight="79" id="14f-6F-mSR">
@@ -129,7 +129,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="4ET-Ic-GG8">
-                                <rect key="frame" x="8" y="270" width="398" height="32"/>
+                                <rect key="frame" x="8" y="274" width="398" height="32"/>
                                 <segments>
                                     <segment title="自分のノート"/>
                                     <segment title="自分の質問"/>
@@ -167,7 +167,7 @@
                             <constraint firstItem="Ic7-4p-rlf" firstAttribute="leading" secondItem="RUx-hD-RpM" secondAttribute="trailing" constant="67" id="CAW-xj-ISP"/>
                             <constraint firstItem="RUx-hD-RpM" firstAttribute="top" secondItem="139-aj-tTQ" secondAttribute="top" constant="16" id="DhZ-MG-cew"/>
                             <constraint firstItem="K1N-gL-Dpj" firstAttribute="top" secondItem="cTr-Um-4W7" secondAttribute="bottom" constant="8" symbolic="YES" id="FI2-ve-GUS"/>
-                            <constraint firstItem="4ET-Ic-GG8" firstAttribute="top" secondItem="4Nz-ie-SCY" secondAttribute="bottom" constant="6" id="GJc-d2-kx4"/>
+                            <constraint firstItem="4ET-Ic-GG8" firstAttribute="top" secondItem="4Nz-ie-SCY" secondAttribute="bottom" constant="10" id="GJc-d2-kx4"/>
                             <constraint firstItem="4ET-Ic-GG8" firstAttribute="leading" secondItem="139-aj-tTQ" secondAttribute="leading" constant="8" id="Iz4-sg-Lxd"/>
                             <constraint firstItem="3Cu-Cz-s25" firstAttribute="leading" secondItem="RUx-hD-RpM" secondAttribute="trailing" constant="67" id="JOa-fj-a3u"/>
                             <constraint firstItem="Ic7-4p-rlf" firstAttribute="top" secondItem="139-aj-tTQ" secondAttribute="top" constant="26" id="N1f-P8-5d5"/>

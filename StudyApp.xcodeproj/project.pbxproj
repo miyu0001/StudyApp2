@@ -36,7 +36,6 @@
 		3B813ACF264C24C00059E521 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B813ACD264C24C00059E521 /* LaunchScreen.storyboard */; };
 		3B813AD9264C39D40059E521 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B813AD8264C39D40059E521 /* SignUp.storyboard */; };
 		3B813ADB264C39E20059E521 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B813ADA264C39E20059E521 /* SignUpViewController.swift */; };
-		3B813ADD264C3A370059E521 /* Sharenote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B813ADC264C3A370059E521 /* Sharenote.storyboard */; };
 		3B813AEE264CDA650059E521 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B813AED264CDA650059E521 /* Main.storyboard */; };
 		3B8341052660C80500CBD534 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B8341042660C80500CBD534 /* LaunchScreen.storyboard */; };
 		3B8341072660D9B700CBD534 /* icons8-設定-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B8341062660D9B700CBD534 /* icons8-設定-50.png */; };
@@ -95,7 +94,6 @@
 		3B813AD0264C24C00059E521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B813AD8264C39D40059E521 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		3B813ADA264C39E20059E521 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		3B813ADC264C3A370059E521 /* Sharenote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sharenote.storyboard; sourceTree = "<group>"; };
 		3B813AED264CDA650059E521 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3B8341042660C80500CBD534 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B8341062660D9B700CBD534 /* icons8-設定-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-設定-50.png"; sourceTree = "<group>"; };
@@ -283,7 +281,6 @@
 				3B5B17B9265F87DD005D3E37 /* xib */,
 				3B7DFE1126560A8900CD81F4 /* models */,
 				3B813AC2264C24BE0059E521 /* AppDelegate.swift */,
-				3B813ADC264C3A370059E521 /* Sharenote.storyboard */,
 				3B813AD0264C24C00059E521 /* Info.plist */,
 				3B813AC4264C24BE0059E521 /* SceneDelegate.swift */,
 				3B813ACB264C24C00059E521 /* Assets.xcassets */,
@@ -386,7 +383,6 @@
 				3B8341072660D9B700CBD534 /* icons8-設定-50.png in Resources */,
 				3B8C046B266BD4B10062E224 /* icons8-画像-100.png in Resources */,
 				3B0C4D9D2652BC6500E3F647 /* more.png in Resources */,
-				3B813ADD264C3A370059E521 /* Sharenote.storyboard in Resources */,
 				3B83410E266292AB00CBD534 /* icon-fff.JPG in Resources */,
 				3B2F2DC2265BDC7600ECFD3D /* note.png in Resources */,
 				3B0C4D9B2652B17300E3F647 /* TimelineTableViewCell.xib in Resources */,
