@@ -201,7 +201,6 @@ class EditUserinfoViewController: UIViewController,UITextFieldDelegate, UITextVi
         user?.setObject(userNameTextField.text, forKey: "displayName")
         user?.setObject(userIdTextField.text, forKey: "userName")
         user?.setObject(introductionTextView.text, forKey: "introduction")
-        
         user?.setObject(changeCertification.currentTitle, forKey: "certification")
         
         user?.saveInBackground{ (error) in

@@ -29,6 +29,8 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.loadTimeline()
+        
         timelineTableView.dataSource = self
         timelineTableView.delegate = self
         
@@ -57,7 +59,7 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
     
     override func viewWillAppear(_ animated: Bool) {
         //投稿したものがリアルタイムで更新されるようにする　→　画像の表示が毎回時間かかる
-        self.loadTimeline()
+        //self.loadTimeline()
     }
     
     

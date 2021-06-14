@@ -443,6 +443,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                 self.notePosts = [NotePost]()
                 //NCMBObject型に変換する
                 for notePost in result as! [NCMBObject]{
+                    
                     if let likeUsers = notePost.object(forKey: "likeUser") as? [String]{
                         self.likeCount += likeUsers.count
                     }
@@ -535,7 +536,6 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                 for notePost in result as! [NCMBObject]{
                     // ユーザー情報をUserクラスにセット
                     let user = notePost.object(forKey: "user") as! NCMBUser
-                    print(user.userName)
                     let userModel = User(objectId: user.objectId, userName: user.userName)
                     userModel.displayName = user.object(forKey: "displayName") as? String
                     
@@ -547,8 +547,6 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                     let post = NotePost(objectId: notePost.objectId, user: userModel, imageUrl: imageUrl, text: text, createDate: notePost.createDate)
                     //配列に加える
                     self.likeNotePosts.append(post)
-                    //                    print(post.objectId)
-                    //                    print(self.likeNotePosts.count)
                 }
             }
             //配列に加えた情報をcollectionviewに読み込み
@@ -576,7 +574,6 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                 for questionpost in result as! [NCMBObject]{
                     // ユーザー情報をUserクラスにセット
                     let user = questionpost.object(forKey: "user") as! NCMBUser
-                    print(user.userName)
                     let userModel = User(objectId: user.objectId, userName: user.userName)
                     userModel.displayName = user.object(forKey: "displayName") as? String
                     
@@ -588,8 +585,6 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                     let post = QustionPost(objectId: questionpost.objectId, user: userModel, text: text, createDate: questionpost.createDate)
                     //配列に加える
                     self.likeQuestionPosts.append(post)
-                    //                    print(post.objectId)
-                    //                    print(self.likeNotePosts.count)
                 }
             }
         }

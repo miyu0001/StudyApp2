@@ -9,8 +9,6 @@ import UIKit
 
 class QustionPost: NSObject {
     var objectId: String
-    //資格id
-    //var id: String
     //誰が投稿したか
     var user: User
     //タイトルの部分のテキスト
