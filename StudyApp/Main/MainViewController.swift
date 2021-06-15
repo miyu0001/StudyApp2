@@ -110,6 +110,10 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         let imageUrl = posts[indexPath.row].imageUrl as! String
         cell.photoImageView.kf.setImage(with: URL(string: imageUrl))
         
+        //画像サイズの拡大
+        cell.likeButton.contentHorizontalAlignment = .fill
+        cell.likeButton.contentVerticalAlignment = .fill
+        
         // Likeによってハートの表示を変える
         if posts[indexPath.row].isLiked == true {
             cell.likeButton.setImage(UIImage(systemName: "hands.sparkles.fill"), for: .normal)

@@ -103,6 +103,10 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         // Likeの数
         //cell.likeCountLabel.text = "\(posts[indexPath.row].likeCount)件"
         
+        //画像サイズの拡大
+        cell.likeButton.contentHorizontalAlignment = .fill
+        cell.likeButton.contentVerticalAlignment = .fill
+        
         /// タイムスタンプ(投稿日時) (※フォーマットのためにSwiftDateライブラリをimport)
         let dateFormatter = DateFormatter()
         dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP") as Locale
