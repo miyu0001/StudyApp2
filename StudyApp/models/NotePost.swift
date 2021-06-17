@@ -35,6 +35,5 @@ class NotePost: NSObject {
         self.imageUrl = imageUrl
         self.text = text
         self.createDate = createDate
-        //self.id = id
     }
 }

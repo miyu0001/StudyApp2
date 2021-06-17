@@ -65,7 +65,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as! UIImage
+        let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         
         resizedImage = selectedImage.scale(byFactor: 0.3)
         
@@ -98,7 +98,6 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
                 let picker = UIImagePickerController()
                 picker.sourceType = .camera
                 picker.delegate = self
-                picker.allowsEditing = true
                 self.present(picker, animated: true, completion: nil)
             } else {
                 print("この機種ではカメラが使用出来ません。")
@@ -110,7 +109,6 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
                 let picker = UIImagePickerController()
                 picker.sourceType = .photoLibrary
                 picker.delegate = self
-                picker.allowsEditing = true
                 self.present(picker, animated: true, completion: nil)
             } else {
                 print("この機種ではフォトライブラリが使用出来ません。")

@@ -21,7 +21,7 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
     var posts = [NotePost]()
     var blockUserIdArray = [String]()
     var followings = [NCMBUser]()
- 
+    
     
     @IBOutlet var timelineTableView : UITableView!
     @IBOutlet weak var button: UIButton!
@@ -29,16 +29,10 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.loadTimeline()
         
         timelineTableView.dataSource = self
         timelineTableView.delegate = self
         
-        //下に書いた変数を呼び出す
-        loadFollowingUsers()
-        setRefreshControl()
-        
-       
         //カスタムビューの取得,xibの登録
         let nib = UINib(nibName: "TimelineTableViewCell", bundle: Bundle.main)
         timelineTableView.register(nib, forCellReuseIdentifier: "Cell")
@@ -54,12 +48,13 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         //UITabBar.appearance().barTintColor = #colorLiteral(red: 0.6, green: 0.8392156863, blue: 1, alpha: 1)
         //tabBarの文字色の設定
         UITabBar.appearance().tintColor = #colorLiteral(red: 0.2196078431, green: 0.4078431373, blue: 0.8901960784, alpha: 1)
+        //self.loadTimeline()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         //投稿したものがリアルタイムで更新されるようにする　→　画像の表示が毎回時間かかる
-        //self.loadTimeline()
+        self.loadTimeline()
     }
     
     
@@ -92,25 +87,25 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = timelineTableView.dequeueReusableCell(withIdentifier: "Cell") as! TimelineTableViewCell
-
+        
         cell.delegate = self
         cell.tag = indexPath.row
         
         let user = posts[indexPath.row].user
-        cell.userNameLabel.text = user.userName
         
-        //userImageViewをkfでURLから画像に変換させる
-        let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId as! String
-        //userImageを設定する
-        cell.userImageView.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
+        cell.userNameLabel.text = user.userName
+        let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId
+        cell.userImageView.kf.setImage (with: URL (string: userImageUrl), placeholder: UIImage (named: "placeholder.jpg"))
+        
         
         //投稿したコメントの設定
         cell.commentLabel.text = posts[indexPath.row].text
         //投稿した写真の設定
-        let imageUrl = posts[indexPath.row].imageUrl as! String
+        let imageUrl = posts[indexPath.row].imageUrl
         cell.photoImageView.kf.setImage(with: URL(string: imageUrl))
         
         //画像サイズの拡大
+        cell.likeButton.imageView?.contentMode = .scaleAspectFit
         cell.likeButton.contentHorizontalAlignment = .fill
         cell.likeButton.contentVerticalAlignment = .fill
         
@@ -133,14 +128,14 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         
         return cell
     }
-
     
-
+    
+    
     //いいねボタンが押された時、どのセル、tableViewが押されたのか引数として引っ張ってくる
     func didTapLikeButton(tableViewCell: UITableViewCell, button: UIButton) {
         
         guard let currentUser = NCMBUser.current() else {
-             //ログインに戻る
+            //ログインに戻る
             let storyboard = UIStoryboard(name: "SignUp", bundle: Bundle.main)
             let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootNavigationController")
             //画面の切り替えができる
@@ -253,23 +248,20 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         
     }
     
- 
-    func loadTimeline (){
-        
+    
+    func loadTimeline(){
         guard let currentUser = NCMBUser.current() else {
-             //ログインに戻る
+            //ログインに戻る
             //ログアウト成功
             let storyboard = UIStoryboard(name: "SignUp", bundle: Bundle.main)
             let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootNavigationController")
             //画面の切り替えができる
             UIApplication.shared.keyWindow?.rootViewController = rootViewController
-            
             //次回起動時にログインしていない状態にする
             let ud = UserDefaults.standard
             ud.set(false, forKey: "isLogin")
             ud.synchronize()
             return
-            
         }
         
         
@@ -291,6 +283,7 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
             if error != nil {
                 SVProgressHUD.showError(withStatus: error!.localizedDescription)
             } else {
+                SVProgressHUD.show()
                 // 投稿を格納しておく配列を初期化(これをしないとreload時にappendで二重に追加されてしまう)
                 self.posts = [NotePost]()
                 
@@ -298,17 +291,17 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
                     
                     // ユーザー情報をUserクラスにセット
                     let user = postObject.object(forKey: "user") as! NCMBUser
-                  
+                    
                     // 退会済みユーザーの投稿を避けるため、activeがfalse以外のモノだけを表示
                     if user.object(forKey: "active") as? Bool != false {
-                        print(user.objectId)
-                        print(user.userName)
+                        //                        print(user.objectId)
+                        //                        print(user.userName)
                         // 投稿したユーザーの情報をUserモデルにまとめる
                         let userModel = User(objectId: user.objectId, userName: user.userName)
                         
                         userModel.displayName = user.object(forKey: "displayName") as? String
                         
-                       
+                        
                         // 投稿の情報を取得
                         let imageUrl = postObject.object(forKey: "imageUrl") as! String
                         let text = postObject.object(forKey: "text") as! String
@@ -332,17 +325,21 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
                         if let likes = likeUsers {
                             post.likeCount = likes.count
                         }
-                        
-                        // 配列に加える
-                        self.posts.append(post)
+                        //これでブロックした人が自分の投稿から消える
+                        if self.blockUserIdArray.contains(post.user.objectId) == false {
+                            self.posts.append(post)
+                        }
                     }
                 }
-                
+                SVProgressHUD.dismiss()
                 // 投稿のデータが揃ったらTableViewをリロード
                 self.timelineTableView.reloadData()
+                
             }
         })
     }
+    
+    
     
     func setRefreshControl() {
         let refreshControl = UIRefreshControl()
@@ -352,33 +349,34 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
     
     @objc func reloadTimeline(refreshControl: UIRefreshControl) {
         refreshControl.beginRefreshing()
-        self.loadFollowingUsers()
+        self.loadTimeline()
         // 更新が早すぎるので2秒遅延させる
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             refreshControl.endRefreshing()
         }
     }
     
-    func loadFollowingUsers() {
-        // フォロー中の人だけ持ってくる
-        let query = NCMBQuery(className: "Follow")
-        query?.includeKey("user")
-        query?.includeKey("following")
-        query?.whereKey("user", equalTo: NCMBUser.current())
-        query?.findObjectsInBackground({ (result, error) in
-            if error != nil {
-                SVProgressHUD.showError(withStatus: error!.localizedDescription)
-            } else {
-                self.followings = [NCMBUser]()
-                for following in result as! [NCMBObject] {
-                    self.followings.append(following.object(forKey: "following") as! NCMBUser)
-                }
-                //self.followings.append(NCMBUser.current())
-                
-                self.loadTimeline()
-            }
-        })
-    }
+    //    func loadFollowingUsers() {
+    //        // フォロー中の人だけ持ってくる
+    //        let query = NCMBQuery(className: "Follow")
+    //        query?.includeKey("user")
+    //        query?.includeKey("following")
+    //        query?.whereKey("user", equalTo: NCMBUser.current())
+    //        query?.findObjectsInBackground({ (result, error) in
+    //            if error != nil {
+    //                SVProgressHUD.showError(withStatus: error!.localizedDescription)
+    //            } else {
+    //                self.followings = [NCMBUser]()
+    //                for following in result as! [NCMBObject] {
+    //                    self.followings.append(following.object(forKey: "following") as! NCMBUser)
+    //                }
+    //                //self.followings.append(NCMBUser.current())
+    //
+    //                self.loadTimeline()
+    //            }
+    //        })
+    //    }
+    
     func getBlockUser(){
         let query = NCMBQuery(className: "Block")
         query?.includeKey("user")
@@ -394,7 +392,6 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
                 }
             }
         })
-        
         self.loadTimeline()
     }
     

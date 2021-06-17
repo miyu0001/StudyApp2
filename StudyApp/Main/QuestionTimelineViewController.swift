@@ -15,6 +15,8 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
     
     var followings = [NCMBUser]()
     
+    var blockUserIdArray = [String]()
+    
     @IBOutlet weak var timelineTableView: UITableView!
     
     
@@ -53,8 +55,8 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         self.performSegue(withIdentifier: "toDetail2", sender: nil)
         //セルの選択解除
         timelineTableView.deselectRow(at: indexPath,animated:true)
-     
-   
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -65,7 +67,7 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
             
             //選択した投稿が一括で遷移される
             detailViewController.selectedPost = selectedPost
-        
+            
         }
     }
     
@@ -82,13 +84,13 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         cell.tag = indexPath.row
         
         let user = posts[indexPath.row].user
-       
+        
         cell.userNameLabel.text = user.userName
         let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId
         cell.userImageView.kf.setImage (with: URL (string: userImageUrl), placeholder: UIImage (named: "placeholder.jpg"))
         
         cell.commentLabel.text = posts[indexPath.row].text
-//        let imageUrl = posts[indexPath.row].imageUrl as! String
+        //        let imageUrl = posts[indexPath.row].imageUrl as! String
         
         
         //cell.photoImageView.kf.setImage(with: URL(string: imageUrl))
@@ -104,6 +106,7 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         //cell.likeCountLabel.text = "\(posts[indexPath.row].likeCount)件"
         
         //画像サイズの拡大
+        cell.likeButton.imageView?.contentMode = .scaleAspectFit
         cell.likeButton.contentHorizontalAlignment = .fill
         cell.likeButton.contentVerticalAlignment = .fill
         
@@ -190,7 +193,32 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
             })
         }
         let reportAction = UIAlertAction(title: "報告する", style: .destructive) { (action) in
-            SVProgressHUD.showSuccess(withStatus: "この投稿を報告しました。ご協力ありがとうございました。")
+            let object = NCMBObject(className: "Report") //新たにクラス作る
+            object?.setObject(self.posts[tableViewCell.tag].user.objectId, forKey: "reportUserId")
+            object?.setObject(NCMBUser.current(), forKey: "user")
+            object?.saveInBackground({ (error) in
+                if error != nil {
+                    SVProgressHUD.showError(withStatus: "エラーです")
+                } else {
+                    SVProgressHUD.showSuccess(withStatus: "この投稿を報告しました。ご協力ありがとうございました。")
+                }
+            })
+        }
+        
+        let blockAction = UIAlertAction(title: "ブロックする", style: .default) { (action) in
+            SVProgressHUD.show()
+            let object = NCMBObject(className: "Block") //新たにクラス作る
+            object?.setObject(self.posts[tableViewCell.tag].user.objectId, forKey: "blockUserId")
+            object?.setObject(NCMBUser.current(), forKey: "user")
+            object?.saveInBackground({ (error) in
+                if error != nil {
+                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
+                } else {
+                    SVProgressHUD.dismiss(withDelay: 2)
+                    //ここで③を読み込んでいる
+                    self.getBlockUser()
+                }
+            })
         }
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel) { (action) in
             alertController.dismiss(animated: true, completion: nil)
@@ -201,6 +229,7 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         } else {
             // 他人の投稿なので、報告ボタンを出す
             alertController.addAction(reportAction)
+            alertController.addAction(blockAction)
         }
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)
@@ -249,7 +278,7 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
                 self.posts = [QustionPost]()
                 
                 for postObject in result as! [NCMBObject] {
-            
+                    
                     // ユーザー情報をUserクラスにセット
                     let user = postObject.object(forKey: "user") as! NCMBUser
                     
@@ -279,9 +308,10 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
                         if let likes = likeUsers {
                             post.likeCount = likes.count
                         }
-                        
-                        // 配列に加える
-                        self.posts.append(post)
+                        //これでブロックした人が自分の投稿から消える
+                        if self.blockUserIdArray.contains(post.user.objectId) == false {
+                            self.posts.append(post)
+                        }
                     }
                 }
                 
@@ -324,6 +354,24 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
                 self.loadTimeline()
             }
         })
+    }
+    func getBlockUser(){
+        let query = NCMBQuery(className: "Block")
+        query?.includeKey("user")
+        query?.whereKey("user", equalTo: NCMBUser.current())
+        query?.findObjectsInBackground({ (result, error) in
+            if error != nil{
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+            }else{
+                //removeAll()で初期化をし、データの重複を防ぐ
+                self.blockUserIdArray.removeAll()
+                for blockObject in result as! [NCMBObject]{
+                    self.blockUserIdArray.append(blockObject.object(forKey: "blockUserId") as! String)
+                }
+            }
+        })
+        
+        self.loadTimeline()
     }
 }
 

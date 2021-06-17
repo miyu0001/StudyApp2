@@ -207,7 +207,6 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
         case 0:
             //自動で高さを変更する
             userPageTableView.estimatedRowHeight = 597
-            //timelineTableView.rowHeight <= self.view.bounds.height - 20
             userPageTableView.rowHeight = UITableView.automaticDimension
             let cell = userPageTableView.dequeueReusableCell(withIdentifier: "Cell") as! TimelineTableViewCell
             
@@ -217,10 +216,8 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
             let user = notePosts[indexPath.row].user
             cell.userNameLabel.text = user.userName
             
-            //userImageViewをkfでURLから画像に変換させる
-            let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId as! String
-            //userImageを設定する
-            cell.userImageView.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
+            let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId
+            cell.userImageView.kf.setImage (with: URL (string: userImageUrl), placeholder: UIImage (named: "placeholder.jpg"))
             
             //投稿したコメントの設定
             cell.commentLabel.text = notePosts[indexPath.row].text
@@ -238,9 +235,6 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
             
             // Likeの数
             //cell.likeCountLabel.text = "\(posts[indexPath.row].likeCount)件"
-            
-            // タイムスタンプ(投稿日時) (※フォーマットのためにSwiftDateライブラリをimport)
-            //cell.timestampLabel.text = posts[indexPath.row].createDate()
             
             return cell
         case 1:
@@ -286,14 +280,14 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
             cell.userNameLabel.text = user.userName
             
             //userImageViewをkfでURLから画像に変換させる
-            let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId as! String
+            let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId
             //userImageを設定する
             cell.userImageView.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
             
             //投稿したコメントの設定
             cell.commentLabel.text = likeNotePosts[indexPath.row].text
             //投稿した写真の設定
-            let imageUrl = likeNotePosts[indexPath.row].imageUrl as! String
+            let imageUrl = likeNotePosts[indexPath.row].imageUrl
             cell.photoImageView.kf.setImage(with: URL(string: imageUrl))
             
             
@@ -360,13 +354,11 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                 if error != nil {
                     SVProgressHUD.showError(withStatus: error!.localizedDescription)
                 } else {
-                    post?.removeObjects(in: [NCMBUser.current().objectId], forKey: "likeUser")
+                    post?.removeObjects(in: [currentUser!.objectId], forKey: "likeUser")
                     post?.saveEventually({ (error) in
                         if error != nil {
                             SVProgressHUD.showError(withStatus: error!.localizedDescription)
-                        } else {
-                            //self.loadTimeline()
-                        }
+                        } 
                     })
                 }
             })
@@ -415,10 +407,8 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
     }
     
     func didTapCommentsButton(tableViewCell: UITableViewCell, button: UIButton){
-        
         // 選ばれた投稿を一時的に格納
         //selectedPost = notePosts[tableViewCell.tag]
-        
         // 遷移させる(このとき、prepareForSegue関数で値を渡す)
         self.performSegue(withIdentifier: "toComments", sender: nil)
         

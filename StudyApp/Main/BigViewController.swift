@@ -22,7 +22,7 @@ class BigViewController: TabmanViewController {
         floaty.addItem("質問", icon: UIImage(named: "question.png")) { item in
             let PostQuestionViewController = self.storyboard?.instantiateViewController(withIdentifier: "PostQuestionViewController") as! PostQuestionViewController
             self.present(PostQuestionViewController, animated: true, completion: nil)
-        
+            
         }
         // 開いた時に現れるボタンアイテムを追加
         floaty.addItem("ノート",icon: UIImage(named: "note.png")) { item in
@@ -60,11 +60,11 @@ class BigViewController: TabmanViewController {
     }
     //子コントローラーの選択
     private lazy var viewControllers: [UIViewController] = {
-           [
-               storyboard!.instantiateViewController(withIdentifier: "MainViewController"),
-               storyboard!.instantiateViewController(withIdentifier: "QuestionTimelineViewController")
-           ]
-       }()
+        [
+            storyboard!.instantiateViewController(withIdentifier: "MainViewController"),
+            storyboard!.instantiateViewController(withIdentifier: "QuestionTimelineViewController")
+        ]
+    }()
 }
 
 extension BigViewController: PageboyViewControllerDataSource, TMBarDataSource{
@@ -95,11 +95,11 @@ extension BigViewController: PageboyViewControllerDataSource, TMBarDataSource{
 
 // MARK: - FloatyDelegate
 extension BigViewController: FloatyDelegate {
-
+    
     func floatyWillOpen(_ floaty: Floaty) {
         // ボタンが押されてFloatyが開く時に行いたいことを書く
     }
-
+    
     func floatyWillClose(_ floaty: Floaty) {
         FloatyFactory.floatyWillClose(floaty)
         // ボタンが押されてFloatyが閉じる時に行いたいことを書く
@@ -107,7 +107,7 @@ extension BigViewController: FloatyDelegate {
 }
 
 final class FloatyFactory {
-
+    
     // Delegateメソッドでも使うので定数化
     static let openButtonImage = UIImage(named: "consultant")
     static let openButtonImageAfterOpening = UIImage(named: "1x1")
@@ -115,9 +115,10 @@ final class FloatyFactory {
     static let paddingY: CGFloat = -20
     static let opendPaddingX: CGFloat = -20
     static let opendPaddingY: CGFloat = -120
-
+    
     static func makeFloaty(vc: UIViewController & FloatyDelegate) -> Floaty {
-
+        
+        
         let fab = Floaty()
         // 閉じた状態のボタン画像
         fab.buttonImage = openButtonImage
@@ -153,33 +154,17 @@ final class FloatyFactory {
         closeItem.titleLabel.textAlignment = .right
         // Floatyに定義したアイテムを追加する
         fab.addItem(item: closeItem)
-
-//        let lineItem = FloatyItem()
-//        lineItem.imageSize = CGSize(width: 68, height: 68)
-//        //lineItem.title = "Inquiry via LINE".localized
-//        lineItem.titleLabel.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
-//        lineItem.titleLabel.textAlignment = .right
-//        lineItem.icon = UIImage(named: "LINE")
-//        lineItem.handler = { item in
-//            guard let url = URL(string: "LINEのURLスキームを指定") else { return }
-//            if UIApplication.shared.canOpenURL(url) {
-//                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//            } else {
-//                //vc.showAlert(title: "LINE App is not installed", message: nil)
-//            }
-//        }
-//        fab.addItem(item: lineItem)
-
+        
         return fab
     }
-
+    
     // デリゲートメソッドで行いたいことも共通なのでメソッド化しておく
     static func floatyWillOpen(_ floaty: Floaty) {
         floaty.buttonImage = openButtonImageAfterOpening
         floaty.paddingX = opendPaddingX
         floaty.paddingY = opendPaddingY
     }
-
+    
     static func floatyWillClose(_ floaty: Floaty) {
         floaty.buttonImage = openButtonImage
         floaty.paddingX = paddingX

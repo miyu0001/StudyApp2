@@ -17,10 +17,12 @@ class SignUpViewController: UIViewController ,UITextFieldDelegate {
     @IBOutlet weak var confirmTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var missLabel: UILabel!
+    @IBOutlet weak var noUseNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+    }
+    override func viewWillAppear(_ animated: Bool) {
         //ナビゲーションコントローラーの色を変更
         self.navigationController?.navigationBar.barStyle = .black
         //バーの色を設定
@@ -41,6 +43,7 @@ class SignUpViewController: UIViewController ,UITextFieldDelegate {
         
         //パスワードの文字が足りない時の注意ラベルは普通の時は隠しておく
         missLabel.isHidden = true
+        noUseNameLabel.isHidden = true
         
         userIdTextField.delegate = self
         emailTextField.delegate = self
@@ -51,7 +54,6 @@ class SignUpViewController: UIViewController ,UITextFieldDelegate {
         let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGR.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapGR)
-        
     }
     //他のところをタッチしたらキーボードが下がる
     @objc func dismissKeyboard() {
@@ -70,6 +72,8 @@ class SignUpViewController: UIViewController ,UITextFieldDelegate {
         //NCMBから会員登録できるようにする　＝　userインスタンスの作成
         let user = NCMBUser()
         
+        
+        
         //userIdが4文字以下だったらこれ以下のコードは呼ばれない
         if (userIdTextField.text?.count)! <= 3 {
             //注意ラベルが表示されるようにする
@@ -81,8 +85,6 @@ class SignUpViewController: UIViewController ,UITextFieldDelegate {
         if (passwordTextField.text?.count)! <= 7 {
             //注意ラベルを出す
             missLabel.isHidden = false
-            //新規登録のボタンを押せないようにする
-            signUpButton.isEnabled = false
             return
         }
         
@@ -107,6 +109,7 @@ class SignUpViewController: UIViewController ,UITextFieldDelegate {
             if error != nil{
                 //引数のエラーの値をprintする
                 print(error)
+                self.noUseNameLabel.isHidden = false
             } else {
                 //エラーがなかったら資格ジャンル選択画面に遷移
                 self.performSegue(withIdentifier: "toGenre", sender: nil)

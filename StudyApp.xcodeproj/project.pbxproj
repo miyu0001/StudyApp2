@@ -37,7 +37,6 @@
 		3B813AD9264C39D40059E521 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B813AD8264C39D40059E521 /* SignUp.storyboard */; };
 		3B813ADB264C39E20059E521 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B813ADA264C39E20059E521 /* SignUpViewController.swift */; };
 		3B813AEE264CDA650059E521 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B813AED264CDA650059E521 /* Main.storyboard */; };
-		3B8341052660C80500CBD534 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B8341042660C80500CBD534 /* LaunchScreen.storyboard */; };
 		3B8341072660D9B700CBD534 /* icons8-設定-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B8341062660D9B700CBD534 /* icons8-設定-50.png */; };
 		3B83410A2662921B00CBD534 /* icon-red.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3B8341082662921B00CBD534 /* icon-red.JPG */; };
 		3B83410E266292AB00CBD534 /* icon-fff.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3B83410C266292AB00CBD534 /* icon-fff.JPG */; };
@@ -95,7 +94,6 @@
 		3B813AD8264C39D40059E521 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		3B813ADA264C39E20059E521 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3B813AED264CDA650059E521 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		3B8341042660C80500CBD534 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B8341062660D9B700CBD534 /* icons8-設定-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-設定-50.png"; sourceTree = "<group>"; };
 		3B8341082662921B00CBD534 /* icon-red.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-red.JPG"; sourceTree = "<group>"; };
 		3B83410C266292AB00CBD534 /* icon-fff.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-fff.JPG"; sourceTree = "<group>"; };
@@ -185,7 +183,7 @@
 		3B7DFE0A2656092B00CD81F4 /* Signup */ = {
 			isa = PBXGroup;
 			children = (
-				3B8341042660C80500CBD534 /* LaunchScreen.storyboard */,
+				3B813ACD264C24C00059E521 /* LaunchScreen.storyboard */,
 				3B813ADA264C39E20059E521 /* SignUpViewController.swift */,
 				3B88CF7C2669C4A6008C9C01 /* ResetPasswardViewController.swift */,
 				3B2AE6F3264D2AB4000AE965 /* SignInViewController.swift */,
@@ -216,10 +214,10 @@
 			isa = PBXGroup;
 			children = (
 				3B2AE6EF264CE53C000AE965 /* MainViewController.swift */,
+				3B7DFE192657E50B00CD81F4 /* QuestionTimelineViewController.swift */,
 				3B2F2DBB265B4B9800ECFD3D /* NoteCommentsViewController.swift */,
 				3B813AED264CDA650059E521 /* Main.storyboard */,
 				3B7DFE152657A55700CD81F4 /* BigViewController.swift */,
-				3B7DFE192657E50B00CD81F4 /* QuestionTimelineViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -284,7 +282,6 @@
 				3B813AD0264C24C00059E521 /* Info.plist */,
 				3B813AC4264C24BE0059E521 /* SceneDelegate.swift */,
 				3B813ACB264C24C00059E521 /* Assets.xcassets */,
-				3B813ACD264C24C00059E521 /* LaunchScreen.storyboard */,
 				3B0C4DA22652BD4C00E3F647 /* pictures */,
 			);
 			path = StudyApp;
@@ -392,7 +389,6 @@
 				3B0C4D9F2652BD2A00E3F647 /* coment.png in Resources */,
 				3B2F2DC0265BDC6C00ECFD3D /* question.png in Resources */,
 				3B0C4DA12652BD3300E3F647 /* heart.png in Resources */,
-				3B8341052660C80500CBD534 /* LaunchScreen.storyboard in Resources */,
 				3B94E59F26514A1400A2CC03 /* profile_icon.png in Resources */,
 				3BE47272265E1D1500B068D2 /* QuestionTableViewCell.xib in Resources */,
 				3BEFBCCE26694429006C207D /* icons8-ハート-60.png in Resources */,
