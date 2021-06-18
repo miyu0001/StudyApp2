@@ -48,7 +48,9 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
         //UITabBar.appearance().barTintColor = #colorLiteral(red: 0.6, green: 0.8392156863, blue: 1, alpha: 1)
         //tabBarの文字色の設定
         UITabBar.appearance().tintColor = #colorLiteral(red: 0.2196078431, green: 0.4078431373, blue: 0.8901960784, alpha: 1)
-        //self.loadTimeline()
+   
+        // セパレーターの左側の余白を消す
+        timelineTableView.separatorInset = UIEdgeInsets.zero
         
     }
     

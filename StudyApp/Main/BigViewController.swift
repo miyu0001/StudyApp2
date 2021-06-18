@@ -18,6 +18,9 @@ class BigViewController: TabmanViewController {
         
         // Floatyを生成
         let floaty = Floaty()
+        //ボタンの色を白にしてSFから画像選択
+        let plusImage = UIImage(systemName: "plus")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+        floaty.buttonImage = plusImage
         // 開いた時に現れるボタンアイテムを追加
         floaty.addItem("質問", icon: UIImage(named: "question.png")) { item in
             let PostQuestionViewController = self.storyboard?.instantiateViewController(withIdentifier: "PostQuestionViewController") as! PostQuestionViewController
@@ -121,7 +124,8 @@ final class FloatyFactory {
         
         let fab = Floaty()
         // 閉じた状態のボタン画像
-        fab.buttonImage = openButtonImage
+        //fab.buttonImage = openButtonImage
+        
         // デフォルトのボタンを見えなくするために透明を指定
         fab.buttonColor = .clear
         fab.buttonShadowColor = .clear

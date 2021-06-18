@@ -32,12 +32,12 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
     var myQuestionIndex : IndexPath!
     
     var selectSegmentIndex:Int = 0
-    
-    
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // セパレーターの左側の余白を消す
+        userPageTableView.separatorInset = UIEdgeInsets.zero
         
         toEditButton.layer.cornerRadius = 10
         //プロフィール編集ボタンに枠をつける,枠線色
@@ -51,6 +51,8 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
         
         userPageTableView.dataSource = self
         
+        // セパレーターの左側の余白を消す
+        userPageTableView.separatorInset = UIEdgeInsets.zero
         
         //自分が載せたノートのカスタムビューの取得,xibの登録
         let nib = UINib(nibName: "TimelineTableViewCell", bundle: Bundle.main)

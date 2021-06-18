@@ -43,7 +43,8 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
             // 文字の色
             .foregroundColor : UIColor.black
         ]
-
+        // セパレーターの左側の余白を消す
+        commentTableview.separatorInset = UIEdgeInsets.zero
         //自動で高さを変更する
         commentTableview.estimatedRowHeight = 30
         //timelineTableView.rowHeight <= self.view.bounds.height - 20
@@ -63,7 +64,7 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
         
         let user = selectedPost?.user
         
-        let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user!.objectId as! String
+        let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user!.objectId 
         print(userImageUrl)
       
         userImage.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
@@ -93,10 +94,10 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
        
         let user = comments[indexPath.row].user
         //userImageViewをkfでURLから画像に変換させる
-        let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId as! String
+        let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId 
         
         //userImageを設定する
-        userImage.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
+        userImage.kf.setImage(with: URL (string: userImageUrl), placeholder: UIImage (named: "placeholder.jpg"))
  
         
         let commentLabel = cell.viewWithTag(2) as! UILabel
@@ -127,7 +128,7 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
         query?.findObjectsInBackground({ (result, error) in
             if error != nil {
                 //エラーの時
-                print(error)
+                print(error as Any)
                 //SVProgressHUD.showError(withStatus: error!.localizedDescription)
             } else {
                 //for文が始まる前に空にする

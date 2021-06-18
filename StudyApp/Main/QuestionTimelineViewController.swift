@@ -40,6 +40,8 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         timelineTableView.estimatedRowHeight = 30
         //timelineTableView.rowHeight <= self.view.bounds.height - 20
         timelineTableView.rowHeight = UITableView.automaticDimension
+        // セパレーターの左側の余白を消す
+        timelineTableView.separatorInset = UIEdgeInsets.zero
         
     }
     
@@ -55,8 +57,6 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         self.performSegue(withIdentifier: "toDetail2", sender: nil)
         //セルの選択解除
         timelineTableView.deselectRow(at: indexPath,animated:true)
-        
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,10 +64,8 @@ class QuestionTimelineViewController: UIViewController , UITableViewDataSource,U
         if segue.identifier == "toDetail2" {
             //次の画面があることを教える
             let detailViewController = segue.destination as! DetailQuestionViewController
-            
             //選択した投稿が一括で遷移される
             detailViewController.selectedPost = selectedPost
-            
         }
     }
     

@@ -46,6 +46,9 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
             .foregroundColor : UIColor.black
         ]
         
+        // セパレーターの左側の余白を消す
+        commentTableview.separatorInset = UIEdgeInsets.zero
+        
         commentTableview.allowsSelection = false
         
         commentTableview.dataSource = self
@@ -65,7 +68,7 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
         
         let user = selectedPost?.user
         
-        let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user!.objectId as! String
+        let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user!.objectId
         
         userImage.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
         //自動で高さを変更する
@@ -97,10 +100,9 @@ class DetailNoteViewController: UIViewController ,UITableViewDataSource, UITable
         
         let user = comments[indexPath.row].user
         //userImageViewをkfでURLから画像に変換させる
-        let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId as! String
-        
+        let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user.objectId
         //userImageを設定する
-        userImage.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
+        userImage.kf.setImage(with: URL (string: userImageUrl), placeholder: UIImage (named: "placeholder.jpg"))
         
         let commentLabel = cell.viewWithTag(2) as! UILabel
         commentLabel.text = comments[indexPath.row].text
