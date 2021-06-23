@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NCMB
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -23,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
        
         window = UIWindow(windowScene: scene)
         
-        if isLogin == true {
+        if NCMBUser.current() != nil {
             //ログイン中iphoneのサイズに合わせてwindowを表示してくれる
             //self.window = UIWindow(frame: UIScreen.main.bounds)
             //ログイン中だったらMain.storyboardに行くようにする.bundle.main = このプロジェクトの中にありますよってこと
