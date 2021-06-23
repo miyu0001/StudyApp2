@@ -224,7 +224,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
             //投稿したコメントの設定
             cell.commentLabel.text = notePosts[indexPath.row].text
             //投稿した写真の設定
-            let imageUrl = notePosts[indexPath.row].imageUrl as! String
+            let imageUrl = notePosts[indexPath.row].imageUrl
             cell.photoImageView.kf.setImage(with: URL(string: imageUrl))
             
             
@@ -444,7 +444,7 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
                     let user = notePost.object(forKey: "user") as! NCMBUser
                     //UserモデルにNCMBuser型の情報を当てはめる
                     let userModel = User(objectId: user.objectId, userName: user.userName)
-                    userModel.displayName = user.object(forKey: "displayName") as! String
+                    userModel.displayName = user.object(forKey: "displayName") as? String
                     
                     //投稿の情報を取得
                     let imageUrl = notePost.object(forKey: "imageUrl") as! String
