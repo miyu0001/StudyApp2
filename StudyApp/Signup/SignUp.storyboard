@@ -224,7 +224,7 @@
                                 <rect key="frame" x="40" y="392.66666666666669" width="348" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="F7v-za-ANf"/>
+                                    <constraint firstAttribute="height" priority="999" constant="45" id="F7v-za-ANf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -256,7 +256,7 @@
                                 <rect key="frame" x="40" y="325.66666666666669" width="348" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="NqZ-YJ-eNM"/>
+                                    <constraint firstAttribute="height" priority="999" constant="45" id="NqZ-YJ-eNM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -271,7 +271,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="と" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQn-eF-d8o">
-                                <rect key="frame" x="140.33333333333334" y="604" width="11.333333333333343" height="26"/>
+                                <rect key="frame" x="135.33333333333334" y="604" width="11.333333333333343" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="BKh-Gb-Mdd"/>
                                     <constraint firstAttribute="width" constant="11.33" id="jqq-Vk-ycv"/>
@@ -316,10 +316,10 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="752" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHG-Tm-tTf">
-                                <rect key="frame" x="77" y="604" width="62" height="26"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHG-Tm-tTf">
+                                <rect key="frame" x="77" y="604" width="58.333333333333343" height="26"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="62" id="7Sk-7Y-ylA"/>
+                                    <constraint firstAttribute="width" priority="999" constant="62" id="7Sk-7Y-ylA"/>
                                     <constraint firstAttribute="height" constant="26" id="xV8-OQ-8JH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -353,7 +353,7 @@
                             <constraint firstItem="19o-wh-uGW" firstAttribute="top" secondItem="ZOl-Df-dGc" secondAttribute="bottom" constant="40" id="NQq-rv-U6D"/>
                             <constraint firstItem="t6r-Xy-YFC" firstAttribute="centerX" secondItem="4Si-TS-nYa" secondAttribute="centerX" id="Np9-pJ-ge1"/>
                             <constraint firstItem="UsX-TA-9SV" firstAttribute="top" secondItem="LHG-Tm-tTf" secondAttribute="bottom" constant="8" symbolic="YES" id="QT0-hg-VSV"/>
-                            <constraint firstItem="6mf-MJ-QA5" firstAttribute="leading" secondItem="SQn-eF-d8o" secondAttribute="trailing" id="Vwl-5H-myU"/>
+                            <constraint firstItem="6mf-MJ-QA5" firstAttribute="leading" secondItem="SQn-eF-d8o" secondAttribute="trailing" constant="5" id="Vwl-5H-myU"/>
                             <constraint firstItem="ZOl-Df-dGc" firstAttribute="top" secondItem="iNb-nh-1Jk" secondAttribute="bottom" constant="16" id="XUV-QH-3We"/>
                             <constraint firstItem="iNb-nh-1Jk" firstAttribute="top" secondItem="1vh-D5-CPB" secondAttribute="top" constant="16" id="Xen-Fc-rsb"/>
                             <constraint firstItem="19o-wh-uGW" firstAttribute="centerX" secondItem="4Si-TS-nYa" secondAttribute="centerX" id="Yjx-58-onJ"/>
@@ -371,6 +371,7 @@
                             <constraint firstItem="UZi-o3-atc" firstAttribute="leading" secondItem="1vh-D5-CPB" secondAttribute="leading" constant="40" id="vbO-t8-4n5"/>
                             <constraint firstItem="SQn-eF-d8o" firstAttribute="centerY" secondItem="LHG-Tm-tTf" secondAttribute="centerY" id="vyb-4d-2nI"/>
                             <constraint firstItem="6d9-vM-cyH" firstAttribute="height" secondItem="4Si-TS-nYa" secondAttribute="height" multiplier="0.0485961" id="xbN-iY-EnJ"/>
+                            <constraint firstItem="LHG-Tm-tTf" firstAttribute="leading" secondItem="1vh-D5-CPB" secondAttribute="leading" constant="77" id="y3L-tz-sXD"/>
                             <constraint firstItem="6d9-vM-cyH" firstAttribute="centerX" secondItem="4Si-TS-nYa" secondAttribute="centerX" id="zox-iD-OYT"/>
                             <constraint firstItem="UsX-TA-9SV" firstAttribute="centerX" secondItem="4Si-TS-nYa" secondAttribute="centerX" id="ztS-jt-Ndd"/>
                         </constraints>

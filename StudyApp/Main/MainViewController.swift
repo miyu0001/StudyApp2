@@ -28,7 +28,8 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // 常にライトモード（明るい外観）を指定することでダークモード適用を回避
+        self.overrideUserInterfaceStyle = .light
         
         timelineTableView.dataSource = self
         timelineTableView.delegate = self

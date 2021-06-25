@@ -299,7 +299,8 @@ class ChangeCertificationViewController: UIViewController,UITableViewDelegate,UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // 常にライトモード（明るい外観）を指定することでダークモード適用を回避
+        self.overrideUserInterfaceStyle = .light
         certificationTableView.delegate = self
         certificationTableView.dataSource = self
         

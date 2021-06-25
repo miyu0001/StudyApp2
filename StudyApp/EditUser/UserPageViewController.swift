@@ -35,7 +35,8 @@ class UserPageViewController: UIViewController,UITableViewDataSource, TimelineTa
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // 常にライトモード（明るい外観）を指定することでダークモード適用を回避
+        self.overrideUserInterfaceStyle = .light
         // セパレーターの左側の余白を消す
         userPageTableView.separatorInset = UIEdgeInsets.zero
         

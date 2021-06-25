@@ -41,7 +41,8 @@ class SerchgenreViewController: UIViewController,UITableViewDelegate,UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // 常にライトモード（明るい外観）を指定することでダークモード適用を回避
+        self.overrideUserInterfaceStyle = .light
         //データメソッドをファイル内で処理する
         GenreTableView.dataSource = self
         GenreTableView.delegate = self

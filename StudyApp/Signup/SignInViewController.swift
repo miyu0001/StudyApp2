@@ -19,7 +19,8 @@ class SignInViewController: UIViewController , UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // 常にライトモード（明るい外観）を指定することでダークモード適用を回避
+        self.overrideUserInterfaceStyle = .light
         //他のところをタッチしたらキーボードが閉じる
         let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGR.cancelsTouchesInView = false

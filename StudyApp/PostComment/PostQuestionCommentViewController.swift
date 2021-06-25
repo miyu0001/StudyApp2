@@ -21,9 +21,9 @@ class PostQuestionCommentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // 常にライトモード（明るい外観）を指定することでダークモード適用を回避
+        self.overrideUserInterfaceStyle = .light
         let user = NCMBUser.current()
-       
         //他のところをタッチしたらキーボードが閉じる
         let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGR.cancelsTouchesInView = false

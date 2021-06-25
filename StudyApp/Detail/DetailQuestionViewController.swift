@@ -32,8 +32,9 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 常にライトモード（明るい外観）を指定することでダークモード適用を回避
+        self.overrideUserInterfaceStyle = .light
         userImage.layer.cornerRadius = userImage.bounds.width / 2
-        
         //　ナビゲーションバーの背景色
         navigationBar.barTintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0) // その他UIColor.white等好きな背景色
         // ナビゲーションバーのアイテムの色　（戻る　＜　とか　読み込みゲージとか）

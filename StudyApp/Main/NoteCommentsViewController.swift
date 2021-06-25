@@ -20,7 +20,8 @@ class NoteCommentsViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // 常にライトモード（明るい外観）を指定することでダークモード適用を回避
+        self.overrideUserInterfaceStyle = .light
         commentTableView.dataSource = self
         
         commentTableView.tableFooterView = UIView()
