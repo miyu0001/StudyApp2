@@ -23,7 +23,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="careerup" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAD-SG-Xuu">
-                                <rect key="frame" x="50" y="422" width="328" height="22"/>
+                                <rect key="frame" x="163" y="422" width="102" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -34,10 +34,9 @@
                         <constraints>
                             <constraint firstItem="Qgn-q9-ddQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="88k-7H-I6f"/>
                             <constraint firstItem="MAD-SG-Xuu" firstAttribute="top" secondItem="Qgn-q9-ddQ" secondAttribute="bottom" constant="8" id="EBm-rz-Ebp"/>
-                            <constraint firstItem="MAD-SG-Xuu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="Rnt-Hk-LAJ"/>
-                            <constraint firstItem="MAD-SG-Xuu" firstAttribute="centerX" secondItem="Qgn-q9-ddQ" secondAttribute="centerX" id="UGp-xK-AgE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MAD-SG-Xuu" secondAttribute="trailing" constant="50" id="bvy-7r-f5i"/>
+                            <constraint firstItem="MAD-SG-Xuu" firstAttribute="centerX" secondItem="Qgn-q9-ddQ" secondAttribute="centerX" id="L8r-zy-lQn"/>
                             <constraint firstItem="Qgn-q9-ddQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="j2y-1a-bUD"/>
+                            <constraint firstItem="MAD-SG-Xuu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="163" id="tno-K2-MVZ"/>
                         </constraints>
                     </view>
                 </viewController>

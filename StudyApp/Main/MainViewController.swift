@@ -309,8 +309,7 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
                         let imageUrl = postObject.object(forKey: "imageUrl") as! String
                         let text = postObject.object(forKey: "text") as! String
                         
-                        //投稿したものがなんの資格かif let
-                        
+                        //投稿したものがなんの資格か
                         //let id = postObject.object(forKey: "id") as! String
                         
                         // 2つのデータ(投稿情報と誰が投稿したか?)を合わせてPostクラスにセット
