@@ -15,7 +15,8 @@ class BigViewController: TabmanViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // 常にライトモード（明るい外観）を指定することでダークモード適用を回避
+        self.overrideUserInterfaceStyle = .light
         // Floatyを生成
         let floaty = Floaty()
         //ボタンの色を白にしてSFから画像選択

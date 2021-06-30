@@ -28,6 +28,8 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 常にライトモード（明るい外観）を指定することでダークモード適用を回避
+        self.overrideUserInterfaceStyle = .light
         
         selectImageButton.layer.cornerRadius = 10
         selectImageButton.layer.borderColor = UIColor.gray.cgColor //枠線色

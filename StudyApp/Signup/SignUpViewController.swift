@@ -26,7 +26,8 @@ class SignUpViewController: UIViewController ,UITextFieldDelegate {
         
         emailTextField.textContentType = UITextContentType.emailAddress
         passwordTextField.textContentType = UITextContentType.password
-        
+        // 常にライトモード（明るい外観）を指定することでダークモード適用を回避
+        self.overrideUserInterfaceStyle = .light
         //ナビゲーションコントローラーの色を変更
         self.navigationController?.navigationBar.barStyle = .black
         //バーの色を設定
