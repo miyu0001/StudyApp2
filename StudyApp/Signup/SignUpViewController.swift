@@ -23,6 +23,10 @@ class SignUpViewController: UIViewController ,UITextFieldDelegate {
         super.viewDidLoad()
     }
     override func viewWillAppear(_ animated: Bool) {
+        
+        emailTextField.textContentType = UITextContentType.emailAddress
+        passwordTextField.textContentType = UITextContentType.password
+        
         //ナビゲーションコントローラーの色を変更
         self.navigationController?.navigationBar.barStyle = .black
         //バーの色を設定
