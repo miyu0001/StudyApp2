@@ -297,9 +297,7 @@ class MainViewController: UIViewController , UITableViewDataSource,UITableViewDe
                     
                     // 退会済みユーザーの投稿を避けるため、activeがfalse以外のモノだけを表示
                     if user.object(forKey: "active") as? Bool != false {
-                        //                        print(user.objectId)
-                        //                        print(user.userName)
-                        // 投稿したユーザーの情報をUserモデルにまとめる
+                        
                         let userModel = User(objectId: user.objectId, userName: user.userName)
                         
                         userModel.displayName = user.object(forKey: "displayName") as? String

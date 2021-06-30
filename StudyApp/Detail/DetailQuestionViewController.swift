@@ -65,8 +65,7 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
         
         let user = selectedPost?.user
         
-        let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user!.objectId 
-        print(userImageUrl)
+        let userImageUrl = "https://mbaas.api.nifcloud.com/2013-09-01/applications/qS98cF8iYWpyAH8E/publicFiles/" + user!.objectId
       
         userImage.kf.setImage(with: URL(string: userImageUrl),options: [.forceRefresh])
 
@@ -129,7 +128,7 @@ class DetailQuestionViewController: UIViewController ,UITableViewDataSource,UITa
         query?.findObjectsInBackground({ (result, error) in
             if error != nil {
                 //エラーの時
-                print(error as Any)
+                print(error)
                 //SVProgressHUD.showError(withStatus: error!.localizedDescription)
             } else {
                 //for文が始まる前に空にする
