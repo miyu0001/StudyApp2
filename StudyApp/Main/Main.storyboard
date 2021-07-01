@@ -785,7 +785,7 @@
                                 </items>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Uou-Kq-0Ez" customClass="PlaceHolderTextView" customModule="StudyApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="431" width="388" height="200"/>
+                                <rect key="frame" x="20" y="401" width="388" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="Op1-mL-kau"/>
@@ -801,7 +801,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6P9-1K-Q6H">
-                                <rect key="frame" x="55" y="358" width="318" height="33"/>
+                                <rect key="frame" x="55" y="338" width="318" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="画像を選択">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -811,10 +811,10 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-画像-100.png" translatesAutoresizingMaskIntoConstraints="NO" id="75y-Zu-yJW">
-                                <rect key="frame" x="139" y="124" width="150" height="200"/>
+                                <rect key="frame" x="144" y="124" width="140" height="200"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="RZQ-Pf-93E"/>
+                                    <constraint firstAttribute="width" constant="140" id="RZQ-Pf-93E"/>
                                     <constraint firstAttribute="height" constant="200" id="VwF-8t-Bn0"/>
                                 </constraints>
                             </imageView>
@@ -823,11 +823,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Uou-Kq-0Ez" firstAttribute="leading" secondItem="us5-cd-0iO" secondAttribute="leading" constant="20" id="0YM-3R-Zuf"/>
-                            <constraint firstItem="6P9-1K-Q6H" firstAttribute="top" secondItem="8Bg-hb-gI6" secondAttribute="bottom" constant="270" id="7wu-Jm-QeN"/>
+                            <constraint firstItem="6P9-1K-Q6H" firstAttribute="top" secondItem="8Bg-hb-gI6" secondAttribute="bottom" constant="250" id="7wu-Jm-QeN"/>
                             <constraint firstItem="us5-cd-0iO" firstAttribute="trailing" secondItem="6P9-1K-Q6H" secondAttribute="trailing" constant="55" id="Gp0-dJ-E2P"/>
                             <constraint firstItem="75y-Zu-yJW" firstAttribute="top" secondItem="8Bg-hb-gI6" secondAttribute="bottom" constant="36" id="HJk-fd-hil"/>
                             <constraint firstItem="8Bg-hb-gI6" firstAttribute="trailing" secondItem="us5-cd-0iO" secondAttribute="trailing" id="Qz4-Dl-bCZ"/>
-                            <constraint firstItem="Uou-Kq-0Ez" firstAttribute="top" secondItem="6P9-1K-Q6H" secondAttribute="bottom" constant="40" id="RX2-6M-IZB"/>
+                            <constraint firstItem="Uou-Kq-0Ez" firstAttribute="top" secondItem="6P9-1K-Q6H" secondAttribute="bottom" constant="30" id="RX2-6M-IZB"/>
                             <constraint firstItem="Uou-Kq-0Ez" firstAttribute="centerX" secondItem="JQY-Lu-Lrt" secondAttribute="centerX" id="SSE-zu-oeO"/>
                             <constraint firstItem="6P9-1K-Q6H" firstAttribute="centerX" secondItem="JQY-Lu-Lrt" secondAttribute="centerX" id="YfN-bf-9Ck"/>
                             <constraint firstItem="8Bg-hb-gI6" firstAttribute="top" secondItem="us5-cd-0iO" secondAttribute="top" id="bed-bF-eNP"/>
